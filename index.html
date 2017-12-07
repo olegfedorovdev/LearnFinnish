@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta http-equiv="content-type" content="text/html; charset=UTF8">
+    <style>
+        canvas {
+            border:1px solid #d3d3d3;
+            background-color: #f1f1f1;
+        }
+    </style>
+</head>
+<body onload='changeScope("latest");changeGameType("vocabulary");startGame()'>
+<script src="words.js"></script>
+<script src="game.js"></script>
+
+<p>Choose scope:</p>
+<button id="btn_scope_all" onclick='changeScope("all")'>All Words</button>
+<button id="btn_scope_latest" onclick='changeScope("latest")'>Latest Words</button>
+<p>Choose a Game type:</p>
+<button id="btn_game_type_vocabulary" onclick='changeGameType("vocabulary")'>Vocabulary</button>
+<button id="btn_game_type_choose_word" onclick='changeGameType("choose_word")'>Choose Word</button>
+<button id="btn_game_type_find_image" onclick='changeGameType("find_image")'>Find Image</button>
+<button id="btn_game_type_match_words" onclick='changeGameType("match_words")'>Match Words</button>
+<button id="btn_game_type_listen_choose" onclick='changeGameType("listen_choose")'>Listen & Choose</button>
+<button id="btn_game_type_write_word" onclick='changeGameType("write_word")'>Write Word</button>
+<button id="btn_game_type_listen_write" onclick='changeGameType("listen_write")'>Listen & Write</button>
+
+</body>
+</html>
