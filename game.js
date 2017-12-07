@@ -1,6 +1,7 @@
 
 function startGame() {
-    
+    changeScope("latest");
+    changeGameType("vocabulary");
 }
 
 function selectOneOfButonsWithPrefix(prefix, whatToSelect) {
@@ -13,9 +14,11 @@ function selectOneOfButonsWithPrefix(prefix, whatToSelect) {
 }
 
 function changeScope(scope) {
+    console.log("Scope: " + scope);
     selectOneOfButonsWithPrefix("btn_scope", scope);
 }
 
 function changeGameType(gameType) {
+    console.log("Game type: " + gameType);
     selectOneOfButonsWithPrefix("btn_game_type", gameType);
 }
