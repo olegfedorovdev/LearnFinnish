@@ -11,9 +11,9 @@ var words = {
             {"fi":"kertoa", "en":"to tell"},
             {"fi":"lähteä", "en":"to go"},
             {"fi":"löytää", "en":"to find"},
-            {"fi":"ottaa", "en":"to take", "img":"img/ottaa.mp3", "snd":"sounds/ottaa.jpg"},
+            {"fi":"ottaa", "en":"to take", "img":"img/ottaa.jpg", "snd":"sounds/ottaa.mp3"},
             {"fi":"saapua", "en":"to arrive"},
-            {"fi":"yöpyä", "en":"to go to bed"}
+            {"fi":"yöpyä", "en":"to sleep"}
         ]
     },
 
@@ -42,6 +42,19 @@ var words = {
             {"fi":"saapua", "en":"to arrive"},
             {"fi":"yöpyä", "en":"to go to bed"}
         ]
+    },
+
+    // gives src for image for word (for instance, word={"fi":"kertoa", "en":"to tell"})
+    "getImgSrc": function(word) {
+        if (word.img !== undefined)
+            return word.img;
+        return "img/" + word.fi + ".jpg";
+    },
+
+    "getAudioSrc": function(word) {
+        if (word.snd !== undefined)
+            return word.snd;
+        return "sounds/" + word.fi + ".mp3";
     }
 };
 

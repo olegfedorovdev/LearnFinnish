@@ -7,7 +7,8 @@ function startGame() {
 // game interface
 var Game = {
     "words": [],
-    "start": function() {}
+    "start": function() {},
+    "stop": function() {}
 };
 
 // all games will be held here. 
@@ -34,7 +35,7 @@ function showOnlyOneOfDivs(prefix, whatToSelect) {
 function changeScope(scope) {
     console.log("Scope: " + scope);
     selectOneOfButonsWithPrefix("btn_scope", scope);
-    Game.words = (scope == "all")?words.all:words.latest;
+    Game.words = (scope == "all")?words.all.words:words.latest.words;
 }
 
 function changeGameType(gameType) {
@@ -43,6 +44,7 @@ function changeGameType(gameType) {
     showOnlyOneOfDivs("div_game_field_", gameType);
 
     let words = Game.words;
+    Game.stop();
     Game = Games[gameType];
     Game.words = words;
     Game.start();
