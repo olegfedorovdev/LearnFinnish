@@ -2,13 +2,34 @@
 function startGame() {
     changeScope("latest");
     changeGameType("vocabulary");
+
+    document.onkeydown = function(e) {
+        switch (e.keyCode) {
+            case 37:
+                //left
+                Game.onPrevious();
+                break;
+            case 38:
+                //up
+                break;
+            case 39:
+                //right
+                Game.onNext();
+                break;
+            case 40:
+                //down
+                break;
+        }
+    };
 }
 
 // game interface
 var Game = {
     "words": [],
     "start": function() {},
-    "stop": function() {}
+    "stop": function() {},
+    "onPrevious": function() {},
+    "onNext": function() {}    
 };
 
 // all games will be held here. 

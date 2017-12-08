@@ -2,28 +2,51 @@
 
 Games["vocabulary"] = {
     _currentWordIndex: 0,
-    _updateInterval: 0,
+    _updateInterval: undefined,
     // "words" : [] - here will be words
 
     "start" : function() {
         console.log("Start game vocabulary");
         _currentWordIndex = Math.floor(Math.random() * this.words.length);
         this.showCurrentWord();
-        var that = this;
-        _updateInterval = setInterval(function() {that.update();}, 3000);
+        this.resetUpdateInterval();
     },
 
     "stop" : function() {
         console.log("Stop game vocabulary");
-        clearInterval(_updateInterval);
+        clearInterval(this._updateInterval);
+        this._updateInterval = undefined;
     },
+
+    "onPrevious": function() {
+        this._currentWordIndex--;
+        if (this._currentWordIndex < 0) {
+            this._currentWordIndex = this.words.length - 1;
+        }
+        this.showCurrentWord();
+        this.resetUpdateInterval();
+    },
+
+    "onNext": function() {
+        this.update();
+        this.resetUpdateInterval();
+    },
+
+    "resetUpdateInterval" : function() {
+        var that = this;
+        if (this._updateInterval !== undefined) {
+            clearInterval(this._updateInterval);
+        }
+        this._updateInterval = setInterval(function() {that.update();}, 3000);
+    },    
 
     "update" : function() {
         console.log("Update");
         this._currentWordIndex++;
-        if (this._currentWordIndex >= this.words.length)
+        if (this._currentWordIndex >= this.words.length) {
             this._currentWordIndex = 0;
-        this.showCurrentWord();       
+        }
+        this.showCurrentWord();
     },
 
     "showCurrentWord" : function() {
