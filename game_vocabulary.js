@@ -7,7 +7,7 @@ Games["vocabulary"] = {
 
     "start" : function() {
         console.log("Start game vocabulary");
-        _currentWordIndex = Math.floor(Math.random() * this.words.length);
+        this._currentWordIndex = Math.floor(Math.random() * this.words.length);
         this.showCurrentWord();
         this.resetUpdateInterval();
     },
@@ -41,7 +41,6 @@ Games["vocabulary"] = {
     },    
 
     "update" : function() {
-        console.log("Update");
         this._currentWordIndex++;
         if (this._currentWordIndex >= this.words.length) {
             this._currentWordIndex = 0;

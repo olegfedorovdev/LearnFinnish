@@ -25,6 +25,24 @@
     line-height: 64px;/*align text vertically*/
     font-size: 32px;
     margin: 0 auto;
+    border-radius: 4px;
+}
+
+.div_choose_word_select_area {
+    width: 400px;
+    height: 100px;
+    margin-left: 100px;
+}
+
+.div_choice_small {
+    background-color: rgb(228, 226, 226);
+    text-align: center;
+    color: black;
+    width: 190px;
+    height: 64px;
+    line-height: 64px;/*align text vertically*/
+    font-size: 32px;
+    border-radius: 4px;
 }
 
 .div_text_wide_big {
@@ -36,6 +54,7 @@
     line-height: 96px;/*align text vertically*/
     font-size: 32px;
     margin: 0 auto;
+    border-radius: 4px;
 }
 
 .div_small_empty_space {
