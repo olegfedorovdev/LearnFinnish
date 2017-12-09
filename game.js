@@ -21,7 +21,48 @@ function startGame() {
                 break;
         }
     };
-}
+};
+
+// shuffle array
+function shuffle(array) {
+    let counter = array.length;
+
+    while (counter > 0) {
+        let index = Math.floor(Math.random() * counter);
+        counter--;
+
+        let temp = array[counter];
+        array[counter] = array[index];
+        array[index] = temp;
+    }
+
+    return array;
+};
+
+// shuffle array leaving entries still nearby
+function shuffle_nearby(array) {
+    let counter = array.length;
+
+    while (counter > 0) {
+        let rnd = Math.floor(Math.random() * 8);
+        counter--;
+        
+        let idx = counter + 4 - rnd;
+        if (idx < 0) {
+            idx = 0;
+        }
+        if (idx >= array.length) {
+            idx = array.length - 1;
+        }
+        
+        let temp = array[counter];
+        array[counter] = array[idx];
+        array[idx] = temp;
+    }
+
+    return array;
+};
+
 
 // game interface
 var Game = {

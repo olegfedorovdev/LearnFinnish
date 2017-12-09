@@ -24,9 +24,9 @@ Games["match_words"] = {
             this.unselect(this._elementEnWords[i]);
         }
         this._currentWordsFi = JSON.parse(JSON.stringify(this.words));//copy
-        this._currentWordsFi = this.shuffle(this._currentWordsFi);
+        this._currentWordsFi = shuffle(this._currentWordsFi);
         this._currentWordsEn = JSON.parse(JSON.stringify(this._currentWordsFi));//copy
-        this._currentWordsEn = this.shuffle_nearby(this._currentWordsEn);
+        this._currentWordsEn = shuffle_nearby(this._currentWordsEn);
         this._currentWordsFi.unshift({});
         this._currentWordsEn.unshift({});
         this._selectedWordFi = undefined;
@@ -144,46 +144,6 @@ Games["match_words"] = {
 
     "unselect" : function(element) {
         element.style["background-color"] = "white";
-    },
-        
-    // shuffle array
-    "shuffle" : function(array) {
-        let counter = array.length;
-    
-        while (counter > 0) {
-            let index = Math.floor(Math.random() * counter);
-            counter--;
-
-            let temp = array[counter];
-            array[counter] = array[index];
-            array[index] = temp;
-        }
-    
-        return array;
-    },
-
-    // shuffle array leaving entries still nearby
-    "shuffle_nearby" : function(array) {
-        let counter = array.length;
-    
-        while (counter > 0) {
-            let rnd = Math.floor(Math.random() * 8);
-            counter--;
-            
-            let idx = counter + 4 - rnd;
-            if (idx < 0) {
-                idx = 0;
-            }
-            if (idx >= array.length) {
-                idx = array.length - 1;
-            }
-            
-            let temp = array[counter];
-            array[counter] = array[idx];
-            array[idx] = temp;
-        }
-    
-        return array;
-    }
+    }     
 
 }

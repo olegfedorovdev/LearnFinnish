@@ -4,10 +4,13 @@ Games["vocabulary"] = {
     _currentWordIndex: 0,
     _updateInterval: undefined,
     // "words" : [] - here will be words
+    "shuffled_words" : [],
 
     "start" : function() {
         console.log("Start game vocabulary");
         this._currentWordIndex = Math.floor(Math.random() * this.words.length);
+        this.shuffled_words = JSON.parse(JSON.stringify(this.words));
+        shuffle(this.shuffled_words);
         this.showCurrentWord();
         this.resetUpdateInterval();
     },
@@ -21,7 +24,7 @@ Games["vocabulary"] = {
     "onPrevious": function() {
         this._currentWordIndex--;
         if (this._currentWordIndex < 0) {
-            this._currentWordIndex = this.words.length - 1;
+            this._currentWordIndex = this.shuffled_words.length - 1;
         }
         this.showCurrentWord();
         this.resetUpdateInterval();
@@ -42,14 +45,14 @@ Games["vocabulary"] = {
 
     "update" : function() {
         this._currentWordIndex++;
-        if (this._currentWordIndex >= this.words.length) {
+        if (this._currentWordIndex >= this.shuffled_words.length) {
             this._currentWordIndex = 0;
         }
         this.showCurrentWord();
     },
 
     "showCurrentWord" : function() {
-        let word = this.words[this._currentWordIndex];
+        let word = this.shuffled_words[this._currentWordIndex];
         console.log("Show word " + this._currentWordIndex + ": " + JSON.stringify(word));
 
         let enDiv = document.getElementById("vocabulary_en");

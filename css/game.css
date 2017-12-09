@@ -72,65 +72,24 @@
 }
 
 
-.div_find_image_choice1 {
+.div_find_image_choice {
+    display: table;
     background-color: white;
     background-size: cover;
     background-repeat: no-repeat;
     border-radius: 6px;
     width: 45%;
     height: 45%;
-    line-height: 225px;
-    float: left;
     margin-top: 16px;
-    background-color: "white";
-    text-align: center;
+}
+
+.div_find_image_choice p {
+    display: table-cell; 
+    vertical-align: middle; 
+    text-align: center; 
     font-size: 32px;
 }
 
-.div_find_image_choice2 {
-    background-color: white;
-    background-size: cover;
-    background-repeat: no-repeat;
-    border-radius: 6px;
-    width: 45%;
-    height: 45%;
-    line-height: 225px;
-    float: right;
-    margin-top: 16px;
-    background-color: "white";
-    text-align: center;
-    font-size: 32px;
-}
-
-.div_find_image_choice3 {
-    background-color: white;
-    background-size: cover;
-    background-repeat: no-repeat;
-    border-radius: 6px;
-    width: 45%;
-    height: 45%;
-    line-height: 225px;
-    float: left;
-    margin-top: 16px;
-    background-color: "white";
-    text-align: center;
-    font-size: 32px;
-}
-
-.div_find_image_choice4 {
-    background-color: white;
-    background-size: cover;
-    background-repeat: no-repeat;
-    border-radius: 6px;
-    width: 45%;
-    height: 45%;
-    line-height: 225px;
-    float: right;
-    margin-top: 16px;
-    background-color: "white";
-    text-align: center;
-    font-size: 32px;
-}
 
 .div_find_image_bottom_word {
     text-align: center;
