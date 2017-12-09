@@ -14,6 +14,7 @@ Games["choose_word"] = {
 
     "start" : function() {
         console.log("Start game choose_word");
+        this._currentWordIndex = Math.floor(Math.random() * this.words.length);
 
         this._elementEnWord = document.getElementById("choose_word_en");
         this._elementFiWord1 = document.getElementById("choose_word_fi_1");
@@ -51,9 +52,9 @@ Games["choose_word"] = {
     "onWordSelected": function(_wordIndex) {
         console.log("Selected: " + _wordIndex);
         let wordIndex = (_wordIndex == 1)?this._fiWord1:this._fiWord2;
-        this._elementSound.src = words.getAudioSrc(this.words[wordIndex]);
-        this._elementSound.play();
         if (wordIndex === this._currentWordIndex) {
+            this._elementSound.src = words.getAudioSrc(this.words[wordIndex]);
+            this._elementSound.play();
             this.win(_wordIndex == 1?this._elementFiWord1:this._elementFiWord2);
         } else {
             this.lose(_wordIndex == 1?this._elementFiWord1:this._elementFiWord2)

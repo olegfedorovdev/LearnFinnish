@@ -1,31 +1,31 @@
 
 Games["find_image"] = {
+    // "words" : [] - here will be words 1..4
     _currentWordIndex: 0,
-
-    _fiWord1: 0,//variant to choose 1 (index)
-    _fiWord2: 0,//variant to choose 2
-
-    // "words" : [] - here will be words
-    _elementEnWord : 0,
-    _elementFiWord1 : 0,
-    _elementFiWord2: 0,
-    _elementImg: 0,
+    _enWords: [],//4 english variants to choose (indexes)
+    _elementEnWords : [],
+    _elementFiWord : 0,
     _elementSound: 0,
 
     "start" : function() {
-        console.log("Start game choose_word");
+        console.log("Start game find_image");
+        this._currentWordIndex = Math.floor(Math.random() * this.words.length);
 
-        this._elementEnWord = document.getElementById("choose_word_en");
-        this._elementFiWord1 = document.getElementById("choose_word_fi_1");
-        this._elementFiWord2 = document.getElementById("choose_word_fi_2");
-        this._elementImg = document.getElementById("choose_word_img");
-        this._elementSound = document.getElementById("choose_word_sound");
+        this._elementEnWords[1] = document.getElementById("find_image_en_1");
+        this._elementEnWords[2] = document.getElementById("find_image_en_2");
+        this._elementEnWords[3] = document.getElementById("find_image_en_3");
+        this._elementEnWords[4] = document.getElementById("find_image_en_4");
 
-        this.showCurrentWord();
         var that = this;
+        this._elementEnWords[1].onclick = function() {that.onWordSelected(1);}
+        this._elementEnWords[2].onclick = function() {that.onWordSelected(2);}
+        this._elementEnWords[3].onclick = function() {that.onWordSelected(3);}
+        this._elementEnWords[4].onclick = function() {that.onWordSelected(4);}
+        
+        this._elementFiWord = document.getElementById("find_image_fi_word");
+        this._elementSound = document.getElementById("find_image_sound");
 
-        this._elementFiWord1.onclick = function() {that.onWordSelected(1);}
-        this._elementFiWord2.onclick = function() {that.onWordSelected(2);}
+        this.showCurrentWordAndGuesses();       
     },
     "stop" : function() {
         console.log("Stop game choose_word");
@@ -37,7 +37,7 @@ Games["find_image"] = {
         if (this._currentWordIndex < 0) {
             this._currentWordIndex = this.words.length - 1;
         }
-        this.showCurrentWord();
+        this.showCurrentWordAndGuesses();
     },
 
     "onNext": function() {
@@ -45,48 +45,48 @@ Games["find_image"] = {
         if (this._currentWordIndex >= this.words.length) {
             this._currentWordIndex = 0;
         }
-        this.showCurrentWord();
+        this.showCurrentWordAndGuesses();
     },
 
     "onWordSelected": function(_wordIndex) {
         console.log("Selected: " + _wordIndex);
-        let wordIndex = (_wordIndex == 1)?this._fiWord1:this._fiWord2;
-        this._elementSound.src = words.getAudioSrc(this.words[wordIndex]);
-        this._elementSound.play();
+        let wordIndex = this._enWords[_wordIndex];
         if (wordIndex === this._currentWordIndex) {
-            this.win(_wordIndex == 1?this._elementFiWord1:this._elementFiWord2);
+            this.win(this._elementEnWords[_wordIndex]);
         } else {
-            this.lose(_wordIndex == 1?this._elementFiWord1:this._elementFiWord2)
+            this.lose(this._elementEnWords[_wordIndex])
         }
     },
 
     "win" : function(element) {
-        element.style.color = "green";
+        element.style["background-color"] = "green";
+        element.style.backgroundImage = "url('" + words.getImgSrc(this.words[this._currentWordIndex]) + "')";
+        element.textContent = "";
+
+        this._elementSound.src = words.getAudioSrc(this.words[this._currentWordIndex]);
+        this._elementSound.play();
+        
         var that = this;
-        setTimeout(function() {that.onNext()}, 1000);
+        setTimeout(function() {that.onNext()}, 2000);
     },
 
     "lose": function(element) {
-        element.style.color = "red";
+        element.style["background-color"] = "red";
     },
 
     // shows current word and 2 choices
-    "showCurrentWord" : function() {
-        if (Math.random() < 0.5) {
-            this._fiWord1 = this._currentWordIndex;
-            this._fiWord2 = this.getRandomWord(this._fiWord1);
-        } else {
-            this._fiWord2 = this._currentWordIndex;
-            this._fiWord1 = this.getRandomWord(this._fiWord2);
+    "showCurrentWordAndGuesses" : function() {
+        for(let i = 1; i <= 4; ++i) {
+            this._enWords[i] = this.getRandomWord(this._currentWordIndex);
         }
+        this._enWords[Math.floor(1 + Math.random() * 4)] = this._currentWordIndex;//one of them is real
 
-        this._elementEnWord.textContent = this.words[this._currentWordIndex].en;
-        this._elementFiWord1.textContent = this.words[this._fiWord1].fi;
-        this._elementFiWord1.style.color = "black";
-        this._elementFiWord2.textContent = this.words[this._fiWord2].fi;
-        this._elementFiWord2.style.color = "black";
-        this._elementImg.src = words.getImgSrc(this.words[this._currentWordIndex]);
-
+        for(let i = 1; i <= 4; ++i) {
+            this._elementEnWords[i].textContent = this.words[this._enWords[i]].en;
+            this._elementEnWords[i].style["background-color"] = "white";
+            this._elementEnWords[i].style.backgroundImage = "none";
+        }
+        this._elementFiWord.textContent = this.words[this._currentWordIndex].fi;
     },
 
     "getRandomWord": function(excludeWord) {
