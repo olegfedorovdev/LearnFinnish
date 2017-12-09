@@ -57,11 +57,11 @@ Games["match_words"] = {
 
         for(let i = 1; i <= 8; ++i) {
             if (i >= this._currentWordsFi.length) {
-                this._elementEnWords[i].hidden = true;
-                this._elementFiWords[i].hidden = true;
+                this._elementEnWords[i].parentNode.style.display='none';
+                this._elementFiWords[i].parentNode.style.display='none';//hide
             } else {
-                this._elementEnWords[i].hidden = false;
-                this._elementFiWords[i].hidden = false;
+                this._elementEnWords[i].parentNode.style.display='table';
+                this._elementFiWords[i].parentNode.style.display='table';
                 this._elementEnWords[i].textContent = this._currentWordsEn[i].en;
                 this._elementFiWords[i].textContent = this._currentWordsFi[i].fi;
             }

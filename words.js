@@ -14,9 +14,9 @@ var words = {
             {"fi":"löytää", "en":"to find"},
             {"fi":"ottaa", "en":"to take", "img":"img/ottaa.jpg", "snd":"sounds/ottaa.mp3"},
             {"fi":"saapua", "en":"to arrive"},
+            
             {"fi":"yöpyä", "en":"to sleep"},
             {"fi":"nähdä", "en": "to see"},
-
             {"fi":"juosta", "en":"to run"},
             {"fi":"juoda", "en":"to drink"},
             {"fi":"saada", "en":"to receive"},

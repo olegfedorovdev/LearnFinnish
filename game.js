@@ -1,7 +1,7 @@
 
 function startGame() {
     changeScope("latest");
-    changeGameType("match_words");
+    changeGameType("vocabulary");
 
     document.onkeydown = function(e) {
         switch (e.keyCode) {
