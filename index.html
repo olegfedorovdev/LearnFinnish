@@ -10,6 +10,7 @@
 <script src="game.js"></script>
 <script src="game_vocabulary.js"></script>
 <script src="game_choose_word.js"></script>
+<script src="game_find_image.js"></script>
 
 <p>Choose scope:</p>
 <button id="btn_scope_all" onclick='changeScope("all")'>All Words</button>
@@ -40,17 +41,29 @@
 
 <!-- Choose word field -->
 <div id="div_game_field_choose_word" class="game_field">
-        <div id="choose_word_div_image" class="div_image_big"">
-            <img id="choose_word_img" src="img/ottaa.jpg" class="img_image_big">
-        </div>
-        <div id="choose_word_en" class="div_text_wide_small">to take</div>
-        <div id="choose_word_empty" class="div_small_empty_space"></div>
-        <div class = "div_choose_word_select_area">
-            <div id="choose_word_fi_1" class="div_choice_small" style="float: left" >ottaa1</div>
-            <div id="choose_word_fi_2" class="div_choice_small" style="float: right">ottaa2</div>
-        </div>
-        <audio id="choose_word_sound" src=""></audio>
+    <div id="choose_word_div_image" class="div_image_big"">
+        <img id="choose_word_img" src="img/ottaa.jpg" class="img_image_big">
     </div>
+    <div id="choose_word_en" class="div_text_wide_small">to take</div>
+    <div id="choose_word_empty" class="div_small_empty_space"></div>
+    <div class = "div_choose_word_select_area">
+        <div id="choose_word_fi_1" class="div_choice_small" style="float: left" >ottaa1</div>
+        <div id="choose_word_fi_2" class="div_choice_small" style="float: right">ottaa2</div>
+    </div>
+    <audio id="choose_word_sound" src=""></audio>
+</div>
+
+<!-- Find image field -->
+<div id="div_game_field_find_image" class="game_field">
+    <div id="find_image_div_field" class="div_find_image_field"">
+        <div id="find_image_en_1" class="div_find_image_choice1">word1</div>
+        <div id="find_image_en_2" class="div_find_image_choice2">word2</div>
+        <div id="find_image_en_3" class="div_find_image_choice3">word3</div>
+        <div id="find_image_en_4" class="div_find_image_choice4">word4</div>
+    </div>
+    <div id="find_image_fi" class="div_find_image_bottom_word">satula</div>
+    <audio id="find_image_sound" src=""></audio>
+</div>
     
 </body>
 </html>

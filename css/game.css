@@ -10,6 +10,7 @@
     margin: 0 auto;
 }
 
+
 .img_image_big {
     width: 100%;
     height: 100%;
@@ -60,4 +61,70 @@
 .div_small_empty_space {
     clear: both;
     height: 16px;
+}
+
+
+/*Find image game*/
+.div_find_image_field {
+    width: 400px;
+    height: 500px;
+    margin: 0 auto;
+}
+
+.div_find_image_choice1 {
+    background-color: white;
+    border-radius: 6px;
+    width: 45%;
+    height: 45%;
+    line-height: 225px;
+    float: left;
+    margin-top: 16px;
+    background-color: "white";
+    text-align: center;
+}
+
+.div_find_image_choice2 {
+    background-color: white;
+    border-radius: 6px;
+    width: 45%;
+    height: 45%;
+    line-height: 225px;
+    float: right;
+    margin-top: 16px;
+    background-color: "white";
+    text-align: center;
+}
+
+.div_find_image_choice3 {
+    background-color: white;
+    border-radius: 6px;
+    width: 45%;
+    height: 45%;
+    line-height: 225px;
+    float: left;
+    margin-top: 16px;
+    background-color: "white";
+    text-align: center;
+}
+
+.div_find_image_choice4 {
+    background-color: white;
+    border-radius: 6px;
+    width: 45%;
+    height: 45%;
+    line-height: 225px;
+    float: right;
+    margin-top: 16px;
+    background-color: "white";
+    text-align: center;
+}
+
+.div_find_image_bottom_word {
+    text-align: center;
+    color: white;
+    width: 400px;
+    height: 96px;
+    line-height: 96px;
+    font-size: 32px;
+    margin: 0 auto;
 }
