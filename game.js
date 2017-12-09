@@ -1,7 +1,7 @@
 
 function startGame() {
     changeScope("latest");
-    changeGameType("find_image");
+    changeGameType("match_words");
 
     document.onkeydown = function(e) {
         switch (e.keyCode) {
