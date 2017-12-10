@@ -59,7 +59,7 @@ Games["find_image"] = {
     },
 
     "win" : function(element) {
-        element.style["background-color"] = "green";
+        //element.style["background-color"] = "green";
         element.style.backgroundImage = "url('" + words.getImgSrc(this.words[this._currentWordIndex]) + "')";
         element.textContent = "";
 

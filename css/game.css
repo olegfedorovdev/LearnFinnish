@@ -1,3 +1,8 @@
+button {
+    width: 128px;
+    height: 32px;
+}
+
 .game_field {
     width: 600px;
     height: 600px;
@@ -5,8 +10,8 @@
 }
 
 .div_image_big {
-    width: 400px;
-    height: 400px;
+    width: 98%;
+    height: 432px;
     margin: 0 auto;
 }
 
@@ -21,7 +26,7 @@
     background-color: rgb(228, 226, 226);
     text-align: center;
     color: black;
-    width: 400px;
+    width: 98%;
     height: 64px;
     line-height: 64px;/*align text vertically*/
     font-size: 32px;
@@ -30,16 +35,16 @@
 }
 
 .div_choose_word_select_area {
-    width: 400px;
+    width: 98%;
     height: 100px;
-    margin-left: 100px;
+    margin-left: 1%;
 }
 
 .div_choice_small {
     background-color: rgb(228, 226, 226);
     text-align: center;
     color: black;
-    width: 190px;
+    width: 49%;
     height: 64px;
     line-height: 64px;/*align text vertically*/
     font-size: 32px;
@@ -50,7 +55,7 @@
     background-color: rgb(228, 226, 226);
     text-align: center;
     color: black;
-    width: 400px;
+    width: 98%;
     height: 96px;
     line-height: 96px;/*align text vertically*/
     font-size: 32px;
@@ -60,13 +65,18 @@
 
 .div_small_empty_space {
     clear: both;
+    height: 4px;
+}
+
+.div_medium_empty_space{
+    clear: both;
     height: 16px;
 }
 
 
 /*Find image game*/
 .div_find_image_field {
-    width: 400px;
+    width: 98%;
     height: 500px;
     margin: 0 auto;
 }
@@ -75,16 +85,17 @@
 .div_find_image_choice {
     display: table;
     background-color: white;
-    background-size: cover;
-    background-repeat: no-repeat;
     border-radius: 6px;
-    width: 45%;
-    height: 45%;
+    width: 49%;
+    height: 49%;
     margin-top: 16px;
 }
 
 .div_find_image_choice p {
     display: table-cell; 
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
     vertical-align: middle; 
     text-align: center; 
     font-size: 32px;
@@ -94,7 +105,7 @@
 .div_find_image_bottom_word {
     text-align: center;
     color: white;
-    width: 400px;
+    width: 98%;
     height: 96px;
     line-height: 96px;
     font-size: 32px;
@@ -104,8 +115,8 @@
 
 /* Match words game*/
 .div_match_words_field {
-    width: 500px;
-    height: 600px;
+    width: 98%;
+    height: 100%;
     margin: 0 auto;
 }
 
@@ -125,13 +136,14 @@
     text-align: center; 
     font-size: 24px;
     color: black;
+    border-radius: 4px;
 }
 
 
 .div_match_words_left {
     padding-top: 4px;
     padding-bottom: 4px;
-    width: 48%;
+    width: 49%;
     height: 64px;
     float: left;
 }
@@ -139,7 +151,7 @@
 .div_match_words_right {
     padding-top: 4px;
     padding-bottom: 4px;
-    width: 48%;
+    width: 49%;
     height: 64px;
     float: right;
 }

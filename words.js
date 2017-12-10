@@ -12,8 +12,10 @@ var words = {
         "type": "verbit",
         "words" : [
             {"fi":"kertoa", "en":"to tell"},
-            {"fi":"lähteä", "en":"to go"},
-            {"fi":"löytää", "en":"to find"},
+            {"fi":"lähteä", "en":"to leave"},
+            {"fi":"mennä", "en":"to go", "img":"img/mennä.png"},
+            {"fi":"löytää", "en":"to find", "img":"img/löytää.png"},
+            {"fi":"etsiä", "en":"to search"},
             {"fi":"ottaa", "en":"to take", "img":"img/ottaa.jpg", "snd":"sounds/ottaa.mp3"},
             {"fi":"saapua", "en":"to arrive"},
             {"fi":"yöpyä", "en":"to sleep"},
