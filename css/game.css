@@ -17,10 +17,9 @@ select {
 .div_arrows {
     padding-left: 20px;
     padding-right: 20px;
-    width: 520px;
+    width: 540px;
     height: 64px;
-    float:none;
-}
+ }
 
 .img_left_arrow {
     width: 192px;
