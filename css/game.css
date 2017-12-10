@@ -8,6 +8,14 @@ select {
     height: 40px;
 }
 
+.game_animation {
+    position: absolute;
+    background-repeat: no-repeat;
+    background-position: center;
+    vertical-align: middle;
+}
+
+
 .game_field {
     width: 580px;
     height: 600px;

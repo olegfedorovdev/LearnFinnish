@@ -65,7 +65,8 @@ Games["choose_word"] = {
     "win" : function(element) {
         element.style.color = "green";
         var that = this;
-        setTimeout(function() {that.onNext()}, 1000);
+
+        setTimeout(function() {that.onNext()}, 2000);
     },
 
     "lose": function(element) {

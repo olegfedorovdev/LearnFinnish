@@ -118,3 +118,38 @@ function changeGameType(gameType) {
     Game.words = w;
     Game.start();
 }
+
+// adds success animation to the center of element and removes it after duration miliseconds
+function playSuccessAnimationOnElement(element, duration) {
+    playAnimationOnElement(element, duration, "img/animations/smallSucces/", 19);
+}
+
+// adds failure animation to the center of element and removes it after duration miliseconds
+function playFailureAnimationOnElement(element, duration) {
+    playAnimationOnElement(element, duration, "img/animations/smallFailure/", 19);
+   
+}
+
+function playAnimationOnElement(element, duration, baseSrc, imagesCount) {
+    let animationNode = document.createElement("div");
+    animationNode.setAttribute("class", "game_animation");
+
+    animationNode.style.width = element.offsetWidth + "px";
+    animationNode.style.height = element.offsetHeight + "px";
+
+    element.parentNode.insertBefore(animationNode, element);
+    var idx = 1;
+
+    let animationInterval = setInterval(function() {
+        animationNode.style.backgroundImage = "url('" + baseSrc + idx + ".png')";
+        ++idx;
+        if (idx > imagesCount)
+            idx = imagesCount;
+    }, 50);
+
+
+    setTimeout(function() {
+        animationNode.parentNode.removeChild(animationNode);
+        clearInterval(animationInterval);
+    }, duration);
+}

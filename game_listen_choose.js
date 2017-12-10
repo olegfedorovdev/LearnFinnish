@@ -59,14 +59,15 @@ Games["listen_choose"] = {
     "win" : function(index) {
         //this._elementSound.src = words.getAudioSrc(this.words[this._currentWordIndex]);
         //this._elementSound.play();
+        playSuccessAnimationOnElement(this._elementEnImages[index], 2000);
 
         var that = this;
-        setTimeout(function() {that.onNext()}, 1000);
+        setTimeout(function() {that.onNext()}, 2000);
     },
 
     "lose": function(index) {
-        this._elementEnImages[index].src = "img/red.jpg";
-        //this._elementEnWords[index].parentNode.style["background-color"] = "red";
+        playFailureAnimationOnElement(this._elementEnImages[index], 2000);
+        //this._elementEnImages[index].src = "img/red.jpg";
     },
 
     "playCurrentWordAndShowGuesses" : function() {

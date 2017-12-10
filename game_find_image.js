@@ -74,6 +74,7 @@ Games["find_image"] = {
 
     "lose": function(element) {
         element.style["background-color"] = "red";
+
     },
 
     // shows current word and 2 choices
