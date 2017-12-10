@@ -97,7 +97,9 @@ function showOnlyOneOfDivs(prefix, whatToSelect) {
 function changeScope(scope) {
     console.log("Scope: " + scope);
     selectOneOfButonsWithPrefix("btn_scope", scope);
-    Game.words = (scope == "all")?words.all.words:words.latest.words;
+    let w = words[scope].words;
+    Game.words = w;
+    Game.start();
 }
 
 function changeGameType(gameType) {

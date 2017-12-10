@@ -6,6 +6,7 @@
 // if "img" is missing - it's taken from "img/" + fi + ".jpg"
 // good web site with finnish mp3: https://forvo.com/word/fi/l%C3%B6yt%C3%A4%C3%A4/#fi
 var words = {
+    //"all": {},//here will be all words
     "latest" : {
         "type": "verbit",
         "words" : [
@@ -14,7 +15,6 @@ var words = {
             {"fi":"löytää", "en":"to find"},
             {"fi":"ottaa", "en":"to take", "img":"img/ottaa.jpg", "snd":"sounds/ottaa.mp3"},
             {"fi":"saapua", "en":"to arrive"},
-            
             {"fi":"yöpyä", "en":"to sleep"},
             {"fi":"nähdä", "en": "to see"},
             {"fi":"juosta", "en":"to run"},
@@ -27,29 +27,21 @@ var words = {
 
     
     // we can have as many other as we want, they will be combined into "all"
-    "latest_1" : {
-        "type": "verbit old",
+    "verbs2" : {
+        "type": "verbit 2",
         "words" : [
-            {"fi":"kertoa", "en":"to tell"},
-            {"fi":"lähteä", "en":"to go"},
-            {"fi":"löytää", "en":"to find"},
-            {"fi":"ottaa", "en":"to take", "img":"img/ottaa.mp3", "snd":"sounds/ottaa.jpg"},
-            {"fi":"saapua", "en":"to arrive"},
-            {"fi":"yöpyä", "en":"to go to bed"}
+            {"fi":"heittää", "en":"to throw"},
+            {"fi":"pelata", "en":"to play"},
+            {"fi":"syöttää", "en":"to pass"},
+            {"fi":"luistella", "en":"to skate"},
+            {"fi":"päästää", "en":"to release"},
+            {"fi":"estää", "en":"to prevent, to stop"},
+            {"fi":"hypätä", "en":"to jump"},
+            {"fi":"potkaista", "en":"to kick"},
+            {"fi":"uida", "en":"to swim"}            
         ]
     },
 
-    "latest_2" : {
-        "type": "verbit 2",
-        "words" : [
-            {"fi":"kertoa", "en":"to tell"},
-            {"fi":"lähteä", "en":"to go"},
-            {"fi":"löytää", "en":"to find"},
-            {"fi":"ottaa", "en":"to take", "img":"img/ottaa.mp3", "snd":"sounds/ottaa.jpg"},
-            {"fi":"saapua", "en":"to arrive"},
-            {"fi":"yöpyä", "en":"to go to bed"}
-        ]
-    },
 
     // gives src for image for word (for instance, word={"fi":"kertoa", "en":"to tell"})
     "getImgSrc": function(word) {
