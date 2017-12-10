@@ -75,8 +75,12 @@
         
     </div>
 </div>
-    
-<br/>
+
+<div class="div_arrows">
+<img id="prev_word" src="img/left_arrow.jpg" class="img_left_arrow" onclick="Game.onPrevious()">
+<img id="next_word" src="img/right_arrow.jpg" class="img_right_arrow" onclick="Game.onNext()">
+<div>
+<div id="vocabulary_empty" class="div_small_empty_space"></div>
 
 <script>
 function onGameTypeComboChanged() {
@@ -90,32 +94,28 @@ function onScopeComboChanged() {
 </script>
 
 
-<p>Choose a Game type:</p>
+<label>Game type:
 <select id="select_game_type" onchange="onGameTypeComboChanged()">
+</label>
     <option value="vocabulary" selected>Vocabulary</option>
     <option value="choose_word">Choose Word</option>
     <option value="find_image">Find Image</option>
     <option value="match_words">Match Words</option>
+    <!--
+    <option value="listen_choose">Listen & Choose</option>
+    <option value="write_word">Write Word</option>
+    <option value="listen_write">Listen & Write</option>
+    -->
 </select>
-<button id="btn_game_type_vocabulary" onclick='changeGameType("vocabulary")'>Vocabulary</button>
-<button id="btn_game_type_choose_word" onclick='changeGameType("choose_word")'>Choose Word</button>
-<button id="btn_game_type_find_image" onclick='changeGameType("find_image")'>Find Image</button>
-<button id="btn_game_type_match_words" onclick='changeGameType("match_words")'>Match Words</button>
-<!--
-<button id="btn_game_type_listen_choose" onclick='changeGameType("listen_choose")'>Listen & Choose</button>
-<button id="btn_game_type_write_word" onclick='changeGameType("write_word")'>Write Word</button>
-<button id="btn_game_type_listen_write" onclick='changeGameType("listen_write")'>Listen & Write</button>
--->
 
-<p>Choose scope:</p>
+<label>Scope:
 <select id="select_scope" onchange="onScopeComboChanged()">
+</label>
     <option value="all">All Words</option>
     <option value="latest" selected>Latest Words</option>
     <option value="verbs2">Verbs 2</option>
 </select>
-<button id="btn_scope_all" onclick='changeScope("all")'>All Words</button>
-<button id="btn_scope_latest" onclick='changeScope("latest")'>Latest Words</button>
-<button id="btn_scope_verbs2" onclick='changeScope("verbs2")'>Verbs 2</button>
+
 
 </body>
 </html>

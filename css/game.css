@@ -14,6 +14,26 @@ select {
     background-color: rgb(236, 131, 33)
 }
 
+.div_arrows {
+    width: 580px;
+    height: 64px;
+    float:none;
+}
+
+.img_left_arrow {
+    width: 192px;
+    height: 64px;
+    float: left;
+    padding-left: 64px;    
+}
+
+.img_right_arrow {
+    width: 192px;
+    height: 64px;
+    float: right;
+    padding-right: 64px;
+}
+
 .div_image_big {
     width: 98%;
     height: 432px;
