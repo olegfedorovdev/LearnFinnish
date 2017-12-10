@@ -97,7 +97,9 @@ function showOnlyOneOfDivs(prefix, whatToSelect) {
 function changeScope(scope) {
     console.log("Scope: " + scope);
     selectOneOfButonsWithPrefix("btn_scope", scope);
-    let w = words[scope].words;
+    // always take shuffled copy of words
+    let w = JSON.parse(JSON.stringify(words[scope].words));
+    w = shuffle(w);
     Game.words = w;
     Game.start();
 }
@@ -108,8 +110,11 @@ function changeGameType(gameType) {
     showOnlyOneOfDivs("div_game_field_", gameType);
 
     let words = Game.words;
+    // always take shuffled copy of words
+    let w = JSON.parse(JSON.stringify(words));
+    w = shuffle(w);
     Game.stop();
     Game = Games[gameType];
-    Game.words = words;
+    Game.words = w;
     Game.start();
 }

@@ -51,7 +51,9 @@ Games["find_image"] = {
     "onWordSelected": function(_wordIndex) {
         console.log("Selected: " + _wordIndex);
         let wordIndex = this._enWords[_wordIndex];
-        if (wordIndex === this._currentWordIndex) {
+        let currentWord = this.words[this._currentWordIndex];
+        let chosenWord = this.words[wordIndex];
+        if (currentWord.fi === chosenWord.fi) {
             this.win(this._elementEnWords[_wordIndex]);
         } else {
             this.lose(this._elementEnWords[_wordIndex])
