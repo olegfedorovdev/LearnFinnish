@@ -10,7 +10,7 @@ Games["vocabulary"] = {
         console.log("Start game vocabulary");
         this._currentWordIndex = Math.floor(Math.random() * this.words.length);
         this.shuffled_words = JSON.parse(JSON.stringify(this.words));
-        shuffle(this.shuffled_words);
+        this.shuffled_words = shuffle(this.shuffled_words);
         this.showCurrentWord();
         this.resetUpdateInterval();
     },
@@ -40,7 +40,7 @@ Games["vocabulary"] = {
         if (this._updateInterval !== undefined) {
             clearInterval(this._updateInterval);
         }
-        this._updateInterval = setInterval(function() {that.update();}, 3000);
+        this._updateInterval = setInterval(function() {that.update();}, 4500);
     },    
 
     "update" : function() {

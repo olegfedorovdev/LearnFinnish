@@ -67,6 +67,9 @@ var words = {
 function wordsAutoGenerateAll() {
     let all = [];
     for(t in words) {
+        if (words[t] instanceof Function) {
+            continue;
+        }
         all = all.concat(words[t].words);
     }
 
