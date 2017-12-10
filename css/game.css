@@ -4,8 +4,8 @@ button {
 }
 
 select {
-    width: 180px;
-    height: 42px;
+    width: 160px;
+    height: 40px;
 }
 
 .game_field {
@@ -15,7 +15,9 @@ select {
 }
 
 .div_arrows {
-    width: 580px;
+    padding-left: 20px;
+    padding-right: 20px;
+    width: 520px;
     height: 64px;
     float:none;
 }
