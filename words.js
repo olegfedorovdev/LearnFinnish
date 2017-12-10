@@ -5,6 +5,7 @@
 // if "snd" is missing - it's taken from "sounds/" + fi + ".mp3"
 // if "img" is missing - it's taken from "img/" + fi + ".jpg"
 // good web site with finnish mp3: https://forvo.com/word/fi/l%C3%B6yt%C3%A4%C3%A4/#fi
+// images: http://papunet.net/materiaalia/kuvapankki
 var words = {
     //"all": {},//here will be all words
     "latest" : {
@@ -30,15 +31,16 @@ var words = {
     "verbs2" : {
         "type": "verbit 2",
         "words" : [
-            {"fi":"heittää", "en":"to throw"},
-            {"fi":"pelata", "en":"to play"},
-            {"fi":"syöttää", "en":"to pass"},
+            {"fi":"heittää", "en":"to throw", "img": "img/heittää.png"},
+            {"fi":"pelata", "en":"to play", "img": "img/pelata.png"},
+            {"fi":"syöttää", "en":"to feed", "img": "img/syöttää.png"},
+            {"fi":"syöttää", "en":"to pass", "img": "img/pass.jpg"},
             {"fi":"luistella", "en":"to skate"},
-            {"fi":"päästää", "en":"to release"},
-            {"fi":"estää", "en":"to prevent, to stop"},
-            {"fi":"hypätä", "en":"to jump"},
-            {"fi":"potkaista", "en":"to kick"},
-            {"fi":"uida", "en":"to swim"}            
+            {"fi":"päästää", "en":"to release", "img" : "img/päästää.png"},
+            {"fi":"estää", "en":"to prevent, to stop", "img": "img/estää.png"},
+            {"fi":"hypätä", "en":"to jump", "img": "img/hypätä.png"},
+            {"fi":"potkaista", "en":"to kick", "img": "img/potkaista.png"},
+            {"fi":"uida", "en":"to swim", "img":"img/uida.png"}
         ]
     },
 
