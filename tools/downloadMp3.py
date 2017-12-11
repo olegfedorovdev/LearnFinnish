@@ -64,5 +64,7 @@ def download_word(word):
 if __name__ == "__main__":
     with open('words.json', 'rU', encoding='utf-8') as words_file:
         data = json.loads(words_file.read(), encoding='utf-8')
+        bugs_counter = 0
         for d in data:
-            download_word(d["fi"])
+            bugs_counter += download_word(d["fi"])
+        print ("Files not downloaded: %d" % bugs_counter)
