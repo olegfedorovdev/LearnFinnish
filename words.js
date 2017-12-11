@@ -14,7 +14,6 @@ var words = {
             {"fi":"hoikka", "en":"slim", "ru": "стройный"},
             {"fi":"söpö", "en":"cute", "ru": "милый"},
             {"fi":"ujo", "en":"shy", "ru": "застенчивый"},
-            
             {"fi":"suloinen", "en":"sweet", "ru": "сладенький"},
             {"fi":"bussikuski", "en":"bus driver", "ru": "водитель автобуса"},
             {"fi":"tukka", "en":"hair", "ru": "волосы"},
@@ -45,9 +44,9 @@ var words = {
             {"fi":"nälkä", "en":"hunger", "ru": "голод"},
             {"fi":"jano", "en":"thirst", "ru": "жажда"},
             {"fi":"kiire", "en":"hurry", "ru": "спешка"},
-            {"fi":"Minulla on nälkä", "en":"I'm hungry", "ru": "Я голодный"},
-            {"fi":"Minulla on jano", "en":"I'm thursty", "ru": "У меня жажда "},
-            {"fi":"Minulla on kiire", "en":"I'm in a hurry", "ru": "Я спешу"}
+            {"fi":"Minulla on nälkä", "en":"I'm hungry", "ru": "Я голодный", "snd":"sounds/nälkä.mp3"},
+            {"fi":"Minulla on jano", "en":"I'm thursty", "ru": "У меня жажда", "snd":"sounds/jano.mp3"},
+            {"fi":"Minulla on kiire", "en":"I'm in a hurry", "ru": "Я спешу", "snd":"sounds/kiire.mp3"}
         ]
     },
 
