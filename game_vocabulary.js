@@ -10,7 +10,7 @@ Games["vocabulary"] = {
         console.log("Start game vocabulary");
         this._currentWordIndex = Math.floor(Math.random() * this.words.length);
         this.shuffled_words = JSON.parse(JSON.stringify(this.words));
-        this.shuffled_words = shuffle(this.shuffled_words);
+        this.shuffled_words = helpers.shuffle(this.shuffled_words);
         this.showCurrentWord();
         this.resetUpdateInterval();
     },
@@ -62,7 +62,7 @@ Games["vocabulary"] = {
 
         enDiv.textContent = word.en;
         fiDiv.textContent = word.fi;
-        img.src = words.getImgSrc(word);
-        sound.src = words.getAudioSrc(word);
+        img.src = helpers.getImgSrc(word);
+        sound.src = helpers.getAudioSrc(word);
     }
 }

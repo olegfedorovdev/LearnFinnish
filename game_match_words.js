@@ -24,9 +24,9 @@ Games["match_words"] = {
             this.unselect(this._elementEnWords[i]);
         }
         this._currentWordsFi = JSON.parse(JSON.stringify(this.words));//copy
-        this._currentWordsFi = shuffle(this._currentWordsFi);
+        this._currentWordsFi = helpers.shuffle(this._currentWordsFi);
         this._currentWordsEn = JSON.parse(JSON.stringify(this._currentWordsFi));//copy
-        this._currentWordsEn = shuffle_nearby(this._currentWordsEn);
+        this._currentWordsEn = helpers.shuffle_nearby(this._currentWordsEn);
         this._currentWordsFi.unshift({});
         this._currentWordsEn.unshift({});
         this._selectedWordFi = undefined;

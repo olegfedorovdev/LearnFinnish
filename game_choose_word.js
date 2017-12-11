@@ -54,7 +54,7 @@ Games["choose_word"] = {
         let wordIndex = (_wordIndex == 1)?this._fiWord1:this._fiWord2;
 
         if (this.words[wordIndex].fi === this.words[this._currentWordIndex].fi) {
-            this._elementSound.src = words.getAudioSrc(this.words[wordIndex]);
+            this._elementSound.src = helpers.getAudioSrc(this.words[wordIndex]);
             this._elementSound.play();
             this.win(_wordIndex == 1?this._elementFiWord1:this._elementFiWord2);
         } else {
@@ -88,7 +88,7 @@ Games["choose_word"] = {
         this._elementFiWord1.style.color = "black";
         this._elementFiWord2.textContent = this.words[this._fiWord2].fi;
         this._elementFiWord2.style.color = "black";
-        this._elementImg.src = words.getImgSrc(this.words[this._currentWordIndex]);
+        this._elementImg.src = helpers.getImgSrc(this.words[this._currentWordIndex]);
 
     },
 

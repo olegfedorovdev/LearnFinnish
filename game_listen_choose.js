@@ -57,21 +57,21 @@ Games["listen_choose"] = {
     },
 
     "win" : function(index) {
-        //this._elementSound.src = words.getAudioSrc(this.words[this._currentWordIndex]);
+        //this._elementSound.src = helpers.getAudioSrc(this.words[this._currentWordIndex]);
         //this._elementSound.play();
-        playSuccessAnimationOnElement(this._elementEnImages[index], 2000);
+        helpers.playSuccessAnimationOnElement(this._elementEnImages[index], 2000);
 
         var that = this;
         setTimeout(function() {that.onNext()}, 2000);
     },
 
     "lose": function(index) {
-        playFailureAnimationOnElement(this._elementEnImages[index], 2000);
+        helpers.playFailureAnimationOnElement(this._elementEnImages[index], 2000);
         //this._elementEnImages[index].src = "img/red.jpg";
     },
 
     "playCurrentWordAndShowGuesses" : function() {
-        this._elementSound.src = words.getAudioSrc(this.words[this._currentWordIndex]);
+        this._elementSound.src = helpers.getAudioSrc(this.words[this._currentWordIndex]);
         this._elementSound.play();
         
         for(let i = 1; i <= 4; ++i) {
@@ -85,7 +85,7 @@ Games["listen_choose"] = {
         for(let i = 1; i <= 4; ++i) {
             let word = this.words[this._enWords[i]];
             this._elementEnWords[i].textContent = word.en;
-            this._elementEnImages[i].src = words.getImgSrc(word);
+            this._elementEnImages[i].src = helpers.getImgSrc(word);
         }
     },
 
