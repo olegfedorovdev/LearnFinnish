@@ -1,0 +1,49 @@
+put words in words.json, run downloadMp3.py  with python 3.
+
+
+algorithm:
+
+Open page:
+url encoded finnish word
+https://forvo.com/word/fi/hoikka/#fi
+https://forvo.com/word/fi/s%C3%B6p%C3%B6/#fi
+
+
+find call to Play(a,b,c,d,e,f,g) in html
+
+take e from there, 
+download https://forvo.com/player-mp3-highHandler.php?path=ci8zL3IzXzg5ODcwNDBfNDZfNTA4MzY2XzEubXAz (path=e)
+
+
+
+Example of Play function:
+onclick="Play(234806,'ODk4NzA0MC80Ni84OTg3MDQwXzQ2XzUwODM2Nl8xLm1wMw==','ODk4NzA0MC80Ni84OTg3MDQwXzQ2XzUwODM2Nl8xLm9nZw==',false,'ci8zL3IzXzg5ODcwNDBfNDZfNTA4MzY2XzEubXAz','ci8zL3IzXzg5ODcwNDBfNDZfNTA4MzY2XzEub2dn','h');return false;"
+
+
+play implementation
+function Play(a,b,c,d,e,f,g)
+{
+   var b=defaultProtocol+"//"+_SERVER_HOST+"/player-mp3Handler.php?path="+b,c=defaultProtocol+"//"+_SERVER_HOST+"/player-oggHandler.php?path="+c;
+   
+   if("undefined"!=typeof e&&void 0!==e&&null!==e&&""!==e)
+      var e=defaultProtocol+"//"+_SERVER_HOST+"/player-mp3-highHandler.php?path="+e;else var e="";
+   
+   if("undefined"!=typeof f&&void 0!==f&&null!==f&&""!==f)
+      var f=defaultProtocol+"//"+_SERVER_HOST+"/player-ogg-highHandler.php?path="+f;
+   else 
+    var f=""
+    }
+    else
+    {
+    var b=defaultProtocol+"//"+_AUDIO_HTTP_HOST+"/mp3/"+base64_decode(b),c=defaultProtocol+"//"+_AUDIO_HTTP_HOST+"/ogg/"+base64_decode(c);
+    
+    
+    if("undefined"!=typeof e&&void 0!==e&&null!==e&&""!==e)
+    var e=defaultProtocol+"//"+_AUDIO_HTTP_HOST+"/audios/mp3/"+base64_decode(e);
+    else var e="";
+    
+    if("undefined"!=typeof f&&void 0!==f&&null!==f&&""!==f)var f=defaultProtocol+"//"+_AUDIO_HTTP_HOST+"/audios/ogg/"+base64_decode(f)
+    ;else var f=""}
+    
+    if("undefined"==typeof g||void 0==g||null==g||""==g)
+    var g="l";var h=!!document.createElement("audio").canPlayType;if(d=d?!0:!1,h)
