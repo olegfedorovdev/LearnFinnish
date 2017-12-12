@@ -81,18 +81,16 @@ var helpers = {
             msg.lang = 'en-EN';
             msg.onerror = function (e) {
                 console.log("Error speaking: ", e);
-                if (onEnd !== undefined) {
-                    onEnd();
-                }
+                onEnd();
             };
 
             msg.onend = function (e) {
-                if (onEnd !== undefined) {
-                    onEnd();
-                }
+                onEnd();
             };
 
             window.speechSynthesis.speak(msg);
+        } else {
+            onEnd();
         }
             
     },
@@ -113,19 +111,26 @@ var helpers = {
             msg.lang = language;
             msg.onerror = function (e) {
                 console.log("Error speaking: ", e);
-                if (onEnd !== undefined) {
-                    onEnd();
-                }
+                onEnd();
             };
             msg.onend = function (e) {
-                if (onEnd !== undefined) {
-                    onEnd();
-                }
+                onEnd();
             };
 
             window.speechSynthesis.speak(msg);
+        } else {
+            onEnd();
         }
             
+    },
+
+    "activateText2Speech": function() {
+        if ('speechSynthesis' in window) {
+            var msg = new SpeechSynthesisUtterance();
+            msg.text = "   ";
+            msg.lang = "en-EN";
+            window.speechSynthesis.speak(msg);
+        }
     },
 
     
