@@ -40,7 +40,7 @@ Games["vocabulary"] = {
         if (this._updateInterval !== undefined) {
             clearInterval(this._updateInterval);
         }
-        this._updateInterval = setInterval(function() {that.update();}, 4500);
+        this._updateInterval = setInterval(function() {that.update();}, 7000);
     },    
 
     "update" : function() {
