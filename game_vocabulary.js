@@ -58,11 +58,22 @@ Games["vocabulary"] = {
         let enDiv = document.getElementById("vocabulary_en");
         let fiDiv = document.getElementById("vocabulary_fi");
         let img = document.getElementById("vocabulary_img");
-        let sound = document.getElementById("vocabulary_audio");
-
+        let audio = document.getElementById("vocabulary_audio");
+        
         enDiv.textContent = word.en;
         fiDiv.textContent = word.fi;
         img.src = helpers.getImgSrc(word);
-        sound.src = helpers.getAudioSrc(word);
+
+        helpers.sayEnglishWord(word.en, function() {
+            console.log("English word said");
+            helpers.sayWord(word.fi, "fi-FI", function() {
+                audio.src = helpers.getAudioSrc(word);
+                audio.play();
+            });
+
+            //audio.src = helpers.getAudioSrc(word);
+            //audio.play();
+        });
+        
     }
 }

@@ -73,6 +73,61 @@ var helpers = {
         }
     },
 
+    // say english word and call onEnd when finished
+    "sayEnglishWord": function(word, onEnd) {
+        if ('speechSynthesis' in window) {
+            var msg = new SpeechSynthesisUtterance();
+            msg.text = word;
+            msg.lang = 'en-EN';
+            msg.onerror = function (e) {
+                console.log("Error speaking: ", e);
+                if (onEnd !== undefined) {
+                    onEnd();
+                }
+            };
+
+            msg.onend = function (e) {
+                if (onEnd !== undefined) {
+                    onEnd();
+                }
+            };
+
+            window.speechSynthesis.speak(msg);
+        }
+            
+    },
+
+    //language: en-EN, fi-FI, ru-RU
+    "sayWord": function(word, language, onEnd) {
+        if ('speechSynthesis' in window) {
+            var msg = new SpeechSynthesisUtterance();
+            var voices = window.speechSynthesis.getVoices();
+            var voice = null;
+            voices.forEach(function (v) {
+                if (v.lang === language) {
+                    voice = v;
+                }
+            });
+            msg.voice = voice;
+            msg.text = word;
+            msg.lang = language;
+            msg.onerror = function (e) {
+                console.log("Error speaking: ", e);
+                if (onEnd !== undefined) {
+                    onEnd();
+                }
+            };
+            msg.onend = function (e) {
+                if (onEnd !== undefined) {
+                    onEnd();
+                }
+            };
+
+            window.speechSynthesis.speak(msg);
+        }
+            
+    },
+
     
     // adds success animation to the center of element and removes it after duration miliseconds
     "playSuccessAnimationOnElement":function (element, duration) {

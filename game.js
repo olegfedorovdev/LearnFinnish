@@ -2,11 +2,18 @@
 
 
 function startGame() {
+
     changeScope("latest");
     changeGameType("vocabulary");
 
     document.onkeydown = function(e) {
         switch (e.keyCode) {
+            case 38:
+                //for test code, press UP
+                window.speechSynthesis.getVoices().forEach(function (voice) {
+                    console.log("Name: ", voice.name, ", default: ", voice.default ? voice.default : '');
+                });
+            break;
             case 37:
                 Game.onPrevious();//left
                 break;
