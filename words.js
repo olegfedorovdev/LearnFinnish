@@ -50,7 +50,6 @@ var words = {
         ]
     },
 
-    
     // we can have as many other as we want, they will be combined into "all"
     "verbs" :   {
 
