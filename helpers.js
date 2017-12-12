@@ -75,24 +75,7 @@ var helpers = {
 
     // say english word and call onEnd when finished
     "sayEnglishWord": function(word, onEnd) {
-        if ('speechSynthesis' in window) {
-            var msg = new SpeechSynthesisUtterance();
-            msg.text = word;
-            msg.lang = 'en-EN';
-            msg.onerror = function (e) {
-                console.log("Error speaking: ", e);
-                onEnd();
-            };
-
-            msg.onend = function (e) {
-                onEnd();
-            };
-
-            window.speechSynthesis.speak(msg);
-        } else {
-            onEnd();
-        }
-            
+        this.sayWord(word, "en-GB", onEnd);
     },
 
     //language: en-EN, fi-FI, ru-RU
@@ -102,7 +85,7 @@ var helpers = {
             var voices = window.speechSynthesis.getVoices();
             var voice = null;
             voices.forEach(function (v) {
-                if (v.lang === language) {
+                if (v.lang === language && voice === null) {
                     voice = v;
                 }
             });
