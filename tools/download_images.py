@@ -20,10 +20,12 @@ class MyHTMLParser(HTMLParser):
 
     def handle_starttag(self, tag, attrs):
         a = {v[0]: v[1] for v in attrs}
+        if (len(self.images) > 0):
+            return
         if tag == 'div' and 'class' in a.keys() and a['class'] == 'search-results':
             self.has_results = True
-        if self.has_results and tag == "img" and 'class' in a.keys() and a['class'] == 'img-responsive':
-            self.images.append(a["src"])
+        if self.has_results and tag == "a" and 'class' not in a.keys():
+            self.images.append(a["href"]) #take first big image
 
     def handle_endtag(self, tag):
         pass
@@ -35,8 +37,8 @@ def get_images(word):
 
     feed = urllib2.urlopen(url)
     text = feed.read()
-    with open("{}.html".format(word), "wt") as f:
-        f.write(text)
+    #with open("{}.html".format(word), "wt") as f:
+    #    f.write(text)
     parser.feed(text)
 
     return parser.images[:5]
@@ -45,10 +47,7 @@ def get_unique_name(fname):
     name = fname+u".jpg"
     if os.path.isfile(name):
         return None
-    for i in range(1,5):
-        name = u"{}{}.jpg".format(fname, i)
-        if not os.path.isfile(name):
-            return name
+    return name
 
 def download(url, fname):
     name = get_unique_name(fname)
@@ -57,11 +56,14 @@ def download(url, fname):
 
     with open(name, "wb") as f:
         p = urllib2.urlopen(url)
-        f.write(p.read())
+        data = p.read()
+        if (len(data) < 100):
+            print "Failed to download image for {}".format(fname.encode('utf-8'))
+        f.write(data)
 
 if __name__ == "__main__":
-    with open('words.json', 'rU', encoding='utf-8') as words_file:
-        words = json.loads(words_file.read(), encoding='utf-8')
+    with open('words.json', 'rU') as words_file:
+        words = json.load(words_file, encoding='utf-8')
         processed = set()
 
         for word in words:
@@ -77,8 +79,12 @@ if __name__ == "__main__":
                 if w in processed:
                     continue
 
-                print "{}".format(w.encode('utf-8'))
-                for i in get_images(w.encode('utf-8')):
+                #print "{}".format(w.encode('utf-8'))
+                print w
+                images = get_images(w.encode('utf-8'))
+                if (len(images) == 0):
+                    print "Failed to find images for %s" % w
+                for i in images:
                     download(i, w)
                 processed.add(w)
             except Exception as e:
