@@ -68,8 +68,12 @@ Games["vocabulary"] = {
             console.log("English word said: ", played);
             helpers.sayWord(word.fi, "fi-FI", function(played_fi) {
                 if (!played_fi) {
-                    audio.src = helpers.getAudioSrc(word);
-                    audio.play();
+                    var iOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+                    //assume iOS has finnish voice
+                    if (!iOS) {
+                        audio.src = helpers.getAudioSrc(word);
+                        audio.play();
+                    }
                 }
             });
 
