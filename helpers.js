@@ -78,7 +78,8 @@ var helpers = {
         this.sayWord(word, "en-GB", onEnd);
     },
 
-    //language: en-EN, fi-FI, ru-RU
+    // says word in defined language. calls onEnd with status (true, false) in the end
+    //language: en-EN, fi-FI, ru-RU. if cannot find language - will call onEnd right away with false
     "sayWord": function(word, language, onEnd) {
         if ('speechSynthesis' in window) {
             var msg = new SpeechSynthesisUtterance();
@@ -89,20 +90,23 @@ var helpers = {
                     voice = v;
                 }
             });
+            if (voice === null) {
+                return onEnd(false)
+            }
             msg.voice = voice;
             msg.text = word;
             msg.lang = language;
             msg.onerror = function (e) {
                 console.log("Error speaking: ", e);
-                onEnd();
+                onEnd(false);
             };
             msg.onend = function (e) {
-                onEnd();
+                onEnd(true);
             };
 
             window.speechSynthesis.speak(msg);
         } else {
-            onEnd();
+            onEnd(false);
         }
             
     },

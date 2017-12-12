@@ -64,11 +64,13 @@ Games["vocabulary"] = {
         fiDiv.textContent = word.fi;
         img.src = helpers.getImgSrc(word);
 
-        helpers.sayEnglishWord(word.en, function() {
-            console.log("English word said");
-            helpers.sayWord(word.fi, "fi-FI", function() {
-                audio.src = helpers.getAudioSrc(word);
-                audio.play();
+        helpers.sayEnglishWord(word.en, function(played) {
+            console.log("English word said: ", played);
+            helpers.sayWord(word.fi, "fi-FI", function(played_fi) {
+                if (!played_fi) {
+                    audio.src = helpers.getAudioSrc(word);
+                    audio.play();
+                }
             });
 
             //audio.src = helpers.getAudioSrc(word);
