@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>Learn Finnish</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
     <meta http-equiv="content-type" content="text/html; charset=UTF8">
     <link href="css/game.css" rel="stylesheet" />
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
 </head>
 <body onload='startGame()'>
 <script src="words.js"></script>
@@ -132,8 +134,8 @@ function onScopeComboChanged() {
 </script>
 
 
-<select id="select_game_type" onchange="onGameTypeComboChanged()">
 <label>Game type:</label>
+<select id="select_game_type" onchange="onGameTypeComboChanged()">
     <option value="vocabulary" selected>Vocabulary</option>
     <option value="choose_word">Choose Word</option>
     <option value="find_image">Find Image</option>
@@ -145,8 +147,8 @@ function onScopeComboChanged() {
     -->
 </select>
 
-<select id="select_scope" onchange="onScopeComboChanged()">
 <label>Scope:</label>
+<select id="select_scope" onchange="onScopeComboChanged()">
     <option value="all">All Words</option>
     <option value="latest" selected>Latest Words</option>
     <option value="verbs">Verbs</option>
