@@ -44,9 +44,9 @@ var words = {
             {"fi":"nälkä", "en":"hunger", "ru": "голод"},
             {"fi":"jano", "en":"thirst", "ru": "жажда"},
             {"fi":"kiire", "en":"hurry", "ru": "спешка"},
-            {"fi":"Minulla on nälkä", "en":"I'm hungry", "ru": "Я голодный", "snd":"sounds/nälkä.mp3", "img":"img/nälkä.mp3"},
-            {"fi":"Minulla on jano", "en":"I'm thursty", "ru": "У меня жажда", "snd":"sounds/jano.mp3", "img":"img/jano.mp3"},
-            {"fi":"Minulla on kiire", "en":"I'm in a hurry", "ru": "Я спешу", "snd":"sounds/kiire.mp3", "img":"img/kiire.mp3"}
+            {"fi":"Minulla on nälkä", "en":"I'm hungry", "ru": "Я голодный", "snd":"sounds/nälkä.mp3", "img":"img/nälkä.jpg"},
+            {"fi":"Minulla on jano", "en":"I'm thursty", "ru": "У меня жажда", "snd":"sounds/jano.mp3", "img":"img/jano.jpg"},
+            {"fi":"Minulla on kiire", "en":"I'm in a hurry", "ru": "Я спешу", "snd":"sounds/kiire.mp3", "img":"img/kiire.jpg"}
         ]
     },
 
