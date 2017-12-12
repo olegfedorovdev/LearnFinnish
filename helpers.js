@@ -82,10 +82,12 @@ var helpers = {
     //language: en-EN, fi-FI, ru-RU. if cannot find language - will call onEnd right away with false
     "sayWord": function(word, language, onEnd) {
         if ('speechSynthesis' in window) {
-            var msg = new SpeechSynthesisUtterance();
-            var voices = window.speechSynthesis.getVoices();
             var voice = null;
-            voices.forEach(function (v) {
+            window.speechSynthesis.getVoices().forEach(function (v) {
+                if (v.lang === "en-GB" && v.name === "Google UK English Female") {
+                    //prefer this
+                    voice = v;
+                }
                 if (v.lang === language && voice === null) {
                     voice = v;
                 }
@@ -93,6 +95,8 @@ var helpers = {
             if (voice === null) {
                 return onEnd(false)
             }
+            window.speechSynthesis.cancel();
+            var msg = new SpeechSynthesisUtterance();
             msg.voice = voice;
             msg.text = word;
             msg.lang = language;
