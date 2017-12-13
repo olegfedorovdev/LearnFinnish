@@ -17,7 +17,7 @@ var words = {
             {"fi":"suloinen", "en":"sweet", "ru": "сладенький"},
             {"fi":"bussikuski", "en":"bus driver", "ru": "водитель автобуса"},
             {"fi":"tukka", "en":"hair", "ru": "волосы"},
-            {"fi":"suora", "en":"straight (hair)", "ru": "прямые (волосы)"},
+            {"fi":"suora", "en":"straight", "ru": "прямые"},
             {"fi":"kihara", "en":"curly", "ru": "кудрявый"},
             {"fi":"puhelias", "en":"talkative", "ru": "разговорчивый"},
             {"fi":"hiljainen", "en":"quiet", "ru": "тихий"},
