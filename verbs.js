@@ -41,6 +41,7 @@ words["verbs"] = {
         {"fi":"myydä", "en":"to sell", "ru":"продавать"},
         {"fi":"imuroida", "en":"to vacuum", "ru":"пылесосить"},
         {"fi":"asua", "en":"to live", "ru":"жить"},
-        {"fi":"pestä", "en":"to wash", "ru":"мыть, стирать"}
+        {"fi":"pestä", "en":"to wash", "ru":"мыть, стирать"},
+        {"fi":"seisoa", "en":"to stand", "ru":"стоять"}        
     ]
 };
