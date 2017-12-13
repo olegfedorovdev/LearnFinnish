@@ -12,9 +12,10 @@ words["questions"] = {
         {"fi":"Mihin", "en":"Where to", "ru": "Куда?"},
         {"fi":"Kuinka", "en":"How many", "ru": "Сколько?"},
         {"fi":"Mistä", "en":"From where?", "ru": "Откуда?"},
-        {"fi":"Millainen", "en":"How is...?", "ru": "Какой, какая?"},
+        {"fi":"Millainen", "en":"How is?", "ru": "Какой, какая?"},
         {"fi":"Minkä", "en":"Which", "ru": "Который, какие?"},
         {"fi":"Miten", "en":"How", "ru": "Как?"},
         {"fi":"Minne", "en":"Where to", "ru": "Куда?"},
+        {"fi":"Kun", "en":"When", "ru": "Когда?"},
     ]
 };

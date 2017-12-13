@@ -1,4 +1,9 @@
 var helpers = {
+    "language" : {
+        "en": "en-GB",
+        "fi": "fi-FI",
+        "ru": "ru-RU"
+    },
 
     // gives src for image for word (for instance, word={"fi":"kertoa", "en":"to tell"})
     "getImgSrc": function(word) {
@@ -73,9 +78,16 @@ var helpers = {
         }
     },
 
-    // say english word and call onEnd when finished
-    "sayEnglishWord": function(word, onEnd) {
-        this.sayWord(word, "en-GB", onEnd);
+    // say english word and call onEnd when finished. can define timeout in miliseconds
+    "sayEnglishWord": function(word, pause, onEnd) {
+        // only 1 word can be played
+        if (helpers.sayEnglishWordTimeout !== undefined) {
+            clearTimeout(helpers.sayEnglishWordTimeout);
+        }
+        helpers.sayEnglishWordTimeout = setTimeout(function(){
+            helpers.sayEnglishWordTimeout = undefined;
+            helpers.sayWord(word, helpers.language.en, onEnd);
+        }, pause);
     },
 
     // says word in defined language. calls onEnd with status (true, false) in the end
@@ -84,7 +96,7 @@ var helpers = {
         if ('speechSynthesis' in window) {
             let voice = null;
             window.speechSynthesis.getVoices().forEach(function (v) {
-                if (language === "en-GB" && v.name === "Google UK English Female") {
+                if (language === helpers.language.en && v.name === "Google UK English Female") {
                     //prefer this
                     voice = v;
                 }

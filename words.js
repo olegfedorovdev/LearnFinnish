@@ -46,7 +46,10 @@ var words = {
             {"fi":"kiire", "en":"hurry", "ru": "спешка"},
             {"fi":"Minulla on nälkä", "en":"I'm hungry", "ru": "Я голодный", "snd":"sounds/nälkä.mp3", "img":"img/nälkä.jpg"},
             {"fi":"Minulla on jano", "en":"I'm thursty", "ru": "У меня жажда", "snd":"sounds/jano.mp3", "img":"img/jano.jpg"},
-            {"fi":"Minulla on kiire", "en":"I'm in a hurry", "ru": "Я спешу", "snd":"sounds/kiire.mp3", "img":"img/kiire.jpg"}
+            {"fi":"Minulla on kiire", "en":"I'm in a hurry", "ru": "Я спешу", "snd":"sounds/kiire.mp3", "img":"img/kiire.jpg"},
+            {"fi":"tavallisesti", "en":"usually", "ru": "обычно"},
+            {"fi":"heti", "en":"right now", "ru": "немедленно"},
+            {"fi":"vielä", "en":"yet, still, more", "ru": "еще"}
         ]
     },
 

@@ -64,22 +64,28 @@ Games["vocabulary"] = {
         fiDiv.textContent = word.fi;
         img.src = helpers.getImgSrc(word);
 
-        helpers.sayEnglishWord(word.en, function(played) {
-            console.log("English word said: ", played);
-            helpers.sayWord(word.fi, "fi-FI", function(played_fi) {
-                if (!played_fi) {
-                    var iOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
-                    //assume iOS has finnish voice
-                    if (!iOS) {
-                        audio.src = helpers.getAudioSrc(word);
-                        audio.play();
+        helpers.sayWord(word.fi, helpers.language.fi, function(played_fi) {
+            let playEnNow = true;
+            if (!played_fi) {
+                var iOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+                //assume iOS has finnish voice
+                if (!iOS) {
+                    playEnNow = false;
+                    audio.src = helpers.getAudioSrc(word);
+                    audio.play();
+                    audio.onended = function() {
+                        helpers.sayEnglishWord(word.en, 1000, function(played) {});
                     }
                 }
-            });
+            }
+            if (playEnNow) {
+                helpers.sayEnglishWord(word.en, 1000, function(played) {});
+            }
+        });
 
             //audio.src = helpers.getAudioSrc(word);
             //audio.play();
-        });
-        
     }
-}
+        
+};
+
