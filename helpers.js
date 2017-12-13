@@ -97,9 +97,14 @@ var helpers = {
             let voice = null;
             window.speechSynthesis.getVoices().forEach(function (v) {
                 if (language === helpers.language.en && v.name === "Google UK English Female") {
-                    //prefer this
+                    //prefer this for en in browser
                     voice = v;
                 }
+                if (language === v.lang && v.name.indexOf("Siri") != -1) {
+                    //prefer Siri voice
+                    voice = v;
+                }
+                
                 if (v.lang === language && voice === null) {
                     voice = v;
                 }
