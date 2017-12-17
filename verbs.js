@@ -42,6 +42,15 @@ words["verbs"] = {
         {"fi":"imuroida", "en":"to vacuum", "ru":"пылесосить"},
         {"fi":"asua", "en":"to live", "ru":"жить"},
         {"fi":"pestä", "en":"to wash", "ru":"мыть, стирать"},
-        {"fi":"seisoa", "en":"to stand", "ru":"стоять"}        
+        {"fi":"seisoa", "en":"to stand", "ru":"стоять"},
+        {"fi":"sovittaa", "en":"to match, to fit", "ru":"мерять, подходить"},
+        {"fi":"nostaa", "en":"to lift", "ru": "поднимать"},
+        {"fi":"kantaa", "en":"to carry", "ru": "нести"},
+        {"fi":"tapahtua", "en":"to happen", "ru": "случаться"},
+        {"fi":"viedä", "en":"to carry out", "ru": "относить"},
+        {"fi":"tuoda", "en":"to carry in", "ru": "приносить"},
+        {"fi":"käydä", "en":"to visit", "ru": "посещать"},
+        {"fi":"vuotaa", "en":"to leak", "ru": "протекать"},
+        {"fi":"sopia", "en":"to fit", "ru": "подходить"}    
     ]
 };

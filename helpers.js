@@ -117,6 +117,7 @@ var helpers = {
             msg.voice = voice;
             msg.text = word;
             msg.lang = language;
+            msg.rate = 0.8;
             msg.onerror = function (e) {
                 console.log("Error speaking: ", e);
                 onEnd(false);
