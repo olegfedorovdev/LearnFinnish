@@ -12,7 +12,6 @@ words["kappale4"] = {
         {"fi":"puhelias", "en":"talkative", "ru": "разговорчивый"},
         {"fi":"hiljainen", "en":"quiet", "ru": "тихий"},
         {"fi":"vihainen", "en":"evil", "ru": "злой"},
-        {"fi":"ujo", "en":"shy", "ru": "застенчивый"},
         {"fi":"kohtelias", "en":"polite", "ru": "вежливый"},
         {"fi":"epäkohtelias", "en":"impolite", "ru": "невежливый"},
         {"fi":"parta", "en":"beard", "ru": "борода"},
