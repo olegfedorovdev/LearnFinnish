@@ -8,38 +8,6 @@
     <meta name="apple-mobile-web-app-capable" content="yes"/>
 </head>
 <body onload='onPageLoaded()'>
-<script>
-    // forward log to log  text area element
-    (function () {
-        var log = console.log;
-        console.log = function () {
-            log.apply(this, Array.prototype.slice.call(arguments));
-            let textArea = document.querySelector('#debug_log_output');
-            if (textArea) {
-                let text = textArea.value;
-                text += JSON.stringify(arguments);
-                text += "\n";
-                textArea.value = text;
-            }
-        };
-    }());
-
-    // ios does not support importing links so use 3rd party to emulate support
-    (function() {
-        if ('registerElement' in document &&
-            'import' in document.createElement('link') &&
-            'content' in document.createElement('template')) {
-                console.log("Platform supports imports");
-        } else {
-            console.log("Platform does not support imports - use webcomponents");
-            // polyfill the platform!
-            var e = document.createElement('script');
-            e.src = 'js/webcomponents/webcomponents-lite.js';
-            document.body.appendChild(e);
-        }
-    })();
-</script>
-
 <script src="js/words/words.js"></script>
 <script src="js/words/verbs.js"></script>
 <!-- <script src="verbs1.js"></script>-->
@@ -146,7 +114,37 @@
 <textarea id="debug_log_output" rows="14" cols="100"></textarea>
 
 <script>
-     function onGameTypeComboChanged() {
+    // forward log to log  text area element
+    (function () {
+        var log = console.log;
+        console.log = function () {
+            log.apply(this, Array.prototype.slice.call(arguments));
+            let textArea = document.querySelector('#debug_log_output');
+            if (textArea) {
+                let text = textArea.value;
+                text += JSON.stringify(arguments);
+                text += "\n";
+                textArea.value = text;
+            }
+        };
+    }());
+
+    // ios does not support importing links so use 3rd party to emulate support
+    (function() {
+        if ('registerElement' in document &&
+            'import' in document.createElement('link') &&
+            'content' in document.createElement('template')) {
+                console.log("Platform supports imports");
+        } else {
+            console.log("Platform does not support imports - use webcomponents");
+            // polyfill the platform!
+            var e = document.createElement('script');
+            e.src = 'js/webcomponents/webcomponents-lite.js';
+            document.body.appendChild(e);
+        }
+    })();
+    
+    function onGameTypeComboChanged() {
         console.log("onGameTypeComboChanged");
         changeGameType(document.getElementById("select_game_type").value);
     }
@@ -157,7 +155,10 @@
         
     function onPageLoaded() {
         console.log("onPageLoaded");
-        startGame()
+        window.pageLoaded = true;
+        if (document.querySelector('#select_game_type').length > 0) {
+            startGame();
+        }
     }
     function handleTemplateLoad(e) {
         console.log('Loaded import: ' + e.target.href);

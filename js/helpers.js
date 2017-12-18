@@ -231,11 +231,18 @@ var helpers = {
 
     "registerNewGame": function(gameField, gameID, gameName) {
         console.log("registerNewGame", gameID);
-        document.querySelector('#gameFields').appendChild(gameField.cloneNode(true));
+        let gameFieldDiv = gameField.cloneNode(true);
+        gameFieldDiv.hidden = true;
+        document.querySelector('#gameFields').appendChild(gameFieldDiv);
         let gamesList = document.querySelector('#select_game_type');
         let option = document.createElement("option");
         option.text = gameName;
         option.value = gameID;
         gamesList.add(option);
+
+        // in ios pageLoaded is fired before all games are loaded so start game when we are ready
+        if (window.pageLoaded && gameID === "vocabulary") {
+            startGame();
+        }
     }
 };
