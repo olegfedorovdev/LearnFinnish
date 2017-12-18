@@ -7,7 +7,7 @@
     <link href="css/game.css" rel="stylesheet" />
     <meta name="apple-mobile-web-app-capable" content="yes"/>
 </head>
-<body onload='startGame()'>
+<body onload='onPageLoaded()'>
 <script src="js/words/words.js"></script>
 <script src="js/words/verbs.js"></script>
 <!-- <script src="verbs1.js"></script>-->
@@ -22,7 +22,8 @@
 <script src="js/games/game_listen_choose.js"></script>
 <!-- Games -->
 
-<!-- Vocabulary field -->
+<div id="gameFields"></div>
+<!-- Vocabulary field 
 <div id="div_game_field_vocabulary" class="game_field">
     <div id="vocabulary_div_image" class="div_image_big" onclick="helpers.activateText2Speech();document.getElementById('vocabulary_audio').play()">
         <img id="vocabulary_img" src="img/ottaa.jpg" class="img_image_big"></img>
@@ -32,6 +33,7 @@
     <div id="vocabulary_fi" class="div_text_wide_big">ottaa</div>
     <audio id="vocabulary_audio"></audio>
 </div>
+-->
 
 <!-- Choose word field -->
 <div id="div_game_field_choose_word" class="game_field">
@@ -123,18 +125,6 @@
 </div>
 <div id="vocabulary_empty" class="div_small_empty_space"></div>
 
-<script>
-function onGameTypeComboChanged() {
-    console.log("onGameTypeComboChanged");
-    changeGameType(document.getElementById("select_game_type").value);
-}
-function onScopeComboChanged() {
-    console.log("onScopeComboChanged");
-    changeScope(document.getElementById("select_scope").value);
-}
-</script>
-
-
 <label>Game type:</label>
 <select id="select_game_type" onchange="onGameTypeComboChanged()">
     <option value="vocabulary" selected>Vocabulary</option>
@@ -158,6 +148,44 @@ function onScopeComboChanged() {
     <option value="kappale4">Kappale 4-5</option>
 </select>
 
+<script>
+    function onGameTypeComboChanged() {
+        console.log("onGameTypeComboChanged");
+        changeGameType(document.getElementById("select_game_type").value);
+    }
+    function onScopeComboChanged() {
+        console.log("onScopeComboChanged");
+        changeScope(document.getElementById("select_scope").value);
+    }
+        
+    function supportsImports() {
+        return 'import' in document.createElement('link');
+    }
+          
+    function onPageLoaded() {
+        console.log("onPageLoaded. Supports imports: ", supportsImports());
+        document.addEventListener('WebComponentsReady', function(e) {
+            console.log("WebComponentsReady");
+            startGame();
+          });
+    }
+    function handleTemplateLoad(e, div, gameType) {
+        /*
+        var link = document.querySelector('link[rel=import]');
+        console.log(JSON.stringify(link));
+        var clone = document.importNode(template.content, true);
+        document.querySelector('#div_game_field_vocabulary_1').appendChild(clone);
+        */
+        console.log('Loaded import: ' + e.target.href, div, gameType);
+        //document.body.appendChild(e.import.cloneNode(true));
+    }
+    function handleTemplateLoadError(e) {
+        console.log('Error loading import: ' + e.target.href, JSON.stringify(e));
+    }
+</script>
+
+    <!-- <div id="template_game_field_vocabulary"></div> -->
+    <link rel="import" href="game_field_vocabulary.html" onload='handleTemplateLoad(event, "template_game_field_vocabulary", "vocabulary")' onerror="handleTemplateLoadError(event)">
 
 </body>
 </html>

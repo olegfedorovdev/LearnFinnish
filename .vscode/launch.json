@@ -6,6 +6,10 @@
     "configurations": [
         {
             "type": "chrome",
+            "runtimeArgs": [
+                "--args",
+                "--allow-file-access-from-files"
+            ],
             "request": "launch",
             "name": "Launch Chrome against localhost",
             "url": "file:///D:/sources/games/LearnFinnish/index.html",
