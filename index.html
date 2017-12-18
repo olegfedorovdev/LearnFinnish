@@ -149,8 +149,21 @@
     <option value="questions">Questions</option>
     <option value="kappale4">Kappale 4-5</option>
 </select>
+<textarea id="debug_log_output" rows="14" cols="100"></textarea>
 
 <script>
+    // forward log to log element
+    (function () {
+        var log = console.log;
+        console.log = function () {
+            log.apply(this, Array.prototype.slice.call(arguments));
+            let text = document.querySelector('#debug_log_output').value;
+            text += JSON.stringify(arguments);
+            text += "\n";
+            document.querySelector('#debug_log_output').value = text;
+        };
+    }());
+
     function onGameTypeComboChanged() {
         console.log("onGameTypeComboChanged");
         changeGameType(document.getElementById("select_game_type").value);

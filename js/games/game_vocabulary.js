@@ -55,7 +55,7 @@ Games["vocabulary"] = {
 
     "showCurrentWord" : function() {
         let word = this.shuffled_words[this._currentWordIndex];
-        console.log("Show word " + this._currentWordIndex + ": " + JSON.stringify(word));
+        //console.log("Show word " + this._currentWordIndex + ": " + JSON.stringify(word));
 
         let enDiv = document.getElementById("vocabulary_en");
         let fiDiv = document.getElementById("vocabulary_fi");
