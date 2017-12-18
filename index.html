@@ -127,13 +127,15 @@
 
 <label>Game type:</label>
 <select id="select_game_type" onchange="onGameTypeComboChanged()">
+    <!--
     <option value="vocabulary" selected>Vocabulary</option>
     <option value="choose_word">Choose Word</option>
     <option value="find_image">Find Image</option>
     <option value="match_words">Match Words</option>
     <option value="listen_choose">Listen & Choose</option>
+    -->
     <!--
-        <option value="write_word">Write Word</option>
+    <option value="write_word">Write Word</option>
     <option value="listen_write">Listen & Write</option>
     -->
 </select>
@@ -164,20 +166,10 @@
           
     function onPageLoaded() {
         console.log("onPageLoaded. Supports imports: ", supportsImports());
-        document.addEventListener('WebComponentsReady', function(e) {
-            console.log("WebComponentsReady");
-            startGame();
-          });
+        startGame()
     }
     function handleTemplateLoad(e, div, gameType) {
-        /*
-        var link = document.querySelector('link[rel=import]');
-        console.log(JSON.stringify(link));
-        var clone = document.importNode(template.content, true);
-        document.querySelector('#div_game_field_vocabulary_1').appendChild(clone);
-        */
         console.log('Loaded import: ' + e.target.href, div, gameType);
-        //document.body.appendChild(e.import.cloneNode(true));
     }
     function handleTemplateLoadError(e) {
         console.log('Error loading import: ' + e.target.href, JSON.stringify(e));

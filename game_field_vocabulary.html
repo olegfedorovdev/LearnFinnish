@@ -10,7 +10,5 @@
 <script>
     //adding to games
     var gameField = document.currentScript.ownerDocument.querySelector('#div_game_field_vocabulary');
-    document.querySelector('#gameFields').appendChild(gameField.cloneNode(true));
-    startGame();
-
+    helpers.registerNewGame(gameField, "vocabulary", "Vocabulary");
 </script>

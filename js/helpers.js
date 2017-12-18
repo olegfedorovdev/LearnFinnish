@@ -19,7 +19,6 @@ var helpers = {
         return "sounds/" + word.fi + ".mp3";
     },
 
-    
     // shuffle array
     "shuffle" : function(array) {
         let counter = array.length;
@@ -228,6 +227,15 @@ var helpers = {
             animationNode.parentNode.removeChild(animationNode);
             clearInterval(animationInterval);
         }, duration);
-    }
+    },
 
+    "registerNewGame": function(gameField, gameID, gameName) {
+        console.log("registerNewGame", gameID);
+        document.querySelector('#gameFields').appendChild(gameField.cloneNode(true));
+        let gamesList = document.querySelector('#select_game_type');
+        let option = document.createElement("option");
+        option.text = gameName;
+        option.value = gameID;
+        gamesList.add(option);
+    }
 };
