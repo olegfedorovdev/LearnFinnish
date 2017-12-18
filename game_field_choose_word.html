@@ -1,0 +1,18 @@
+<!-- Choose word field -->
+<div id="div_game_field_choose_word" class="game_field">
+    <div id="choose_word_div_image" class="div_image_big"">
+        <img id="choose_word_img" src="img/ottaa.jpg" class="img_image_big"></img>
+    </div>
+    <div id="choose_word_en" class="div_text_wide_small">to take</div>
+    <div id="choose_word_empty" class="div_medium_empty_space"></div>
+    <div class = "div_choose_word_select_area">
+        <div id="choose_word_fi_1" class="div_choice_small" style="float: left" >ottaa1</div>
+        <div id="choose_word_fi_2" class="div_choice_small" style="float: right">ottaa2</div>
+    </div>
+    <audio id="choose_word_sound" src=""></audio>
+</div>
+<script>
+    //adding to games
+    var gameField = document.currentScript.ownerDocument.querySelector('#div_game_field_choose_word');
+    helpers.registerNewGame(gameField, "choose_word", "Choose Word");
+</script>

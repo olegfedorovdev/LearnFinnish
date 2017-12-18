@@ -1,0 +1,17 @@
+
+<!-- Find image field -->
+<div id="div_game_field_find_image" class="game_field">
+    <div id="find_image_div_field" class="div_find_image_field"">
+        <div class="div_find_image_choice" style="float: left"><p id="find_image_en_1">word1</p></div>
+        <div class="div_find_image_choice" style="float: right"><p id="find_image_en_2">word2</p></div>
+        <div class="div_find_image_choice" style="float: left"><p id="find_image_en_3">word3</p></div>
+        <div class="div_find_image_choice" style="float: right"><p id="find_image_en_4">word4</p></div>
+    </div>
+    <div id="find_image_fi_word" class="div_find_image_bottom_word">satula</div>
+    <audio id="find_image_sound" src=""></audio>
+</div>
+<script>
+    //adding to games
+    var gameField = document.currentScript.ownerDocument.querySelector('#div_game_field_find_image');
+    helpers.registerNewGame(gameField, "find_image", "Find Image");
+</script>
