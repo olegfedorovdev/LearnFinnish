@@ -164,6 +164,21 @@
         };
     }());
 
+    // ios does not support importing links so use 3rd party to emulate support
+    (function() {
+        if (false && 'registerElement' in document
+            && 'import' in document.createElement('link')
+            && 'content' in document.createElement('template')) {
+                console.log("Platform supports imports");
+        } else {
+            console.log("Platform does not support imports - use webcomponents");
+            // polyfill the platform!
+            var e = document.createElement('script');
+            e.src = 'js/webcomponents/webcomponents-lite.js';
+            document.body.appendChild(e);
+        }
+    })();
+
     function onGameTypeComboChanged() {
         console.log("onGameTypeComboChanged");
         changeGameType(document.getElementById("select_game_type").value);
@@ -178,7 +193,7 @@
     }
           
     function onPageLoaded() {
-        console.log("onPageLoaded. Supports imports: ", supportsImports());
+        console.log("onPageLoaded");
         startGame()
     }
     function handleTemplateLoad(e, div, gameType) {
