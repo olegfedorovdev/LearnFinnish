@@ -70,7 +70,6 @@ Games["match_words"] = {
     },
 
     "onWordSelectedEn": function(wordIndex) {
-        console.log("Selected en: " + wordIndex);
         if (this._selectedWordEn !== undefined) {
             this.unselect(this._elementEnWords[this._selectedWordEn])
         }
@@ -82,7 +81,6 @@ Games["match_words"] = {
     },
 
     "onWordSelectedFi": function(wordIndex) {
-        console.log("Selected fi: " + wordIndex);
         if (this._selectedWordFi !== undefined) {
             this.unselect(this._elementFiWords[this._selectedWordFi])
         }

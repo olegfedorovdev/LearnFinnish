@@ -50,7 +50,6 @@ Games["find_image"] = {
     },
 
     "onWordSelected": function(_wordIndex) {
-        console.log("Selected: " + _wordIndex);
         let wordIndex = this._enWords[_wordIndex];
         let currentWord = this.words[this._currentWordIndex];
         let chosenWord = this.words[wordIndex];

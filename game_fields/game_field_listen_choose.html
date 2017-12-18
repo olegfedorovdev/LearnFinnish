@@ -1,0 +1,37 @@
+<!-- Listen and Choose field -->
+<div id="div_game_field_listen_choose" class="game_field">
+    <div class="div_listen_choose_choice" style="float: left">
+        <div class="div_listen_choose_choice_table">
+            <img id="listen_choose_img_en_1" src="img/ottaa.jpg"></img>
+        </div>
+        <p id="listen_choose_en_1">word1</p>
+    </div>
+
+    <div class="div_listen_choose_choice" style="float: right">
+        <div class="div_listen_choose_choice_table">
+            <img id="listen_choose_img_en_2" src="img/ottaa.jpg"></img>
+        </div>
+        <p id="listen_choose_en_2">word2</p>
+    </div>
+
+    <div class="div_listen_choose_choice" style="float: left">
+        <div class="div_listen_choose_choice_table">
+            <img id="listen_choose_img_en_3" src="img/ottaa.jpg"></img>
+        </div>
+        <p id="listen_choose_en_3">word3</p>
+    </div>
+
+    <div class="div_listen_choose_choice" style="float: right">
+        <div class="div_listen_choose_choice_table">
+            <img id="listen_choose_img_en_4" src="img/ottaa.jpg"></img>
+        </div>
+        <p id="listen_choose_en_4">word4</p>
+    </div>
+
+    <audio id="listen_choose_sound" src=""></audio>
+</div>
+<script>
+    //adding to games
+    var gameField = document.currentScript.ownerDocument.querySelector('#div_game_field_listen_choose');
+    helpers.registerNewGame(gameField, "listen_choose", "Listen & Choose");
+</script>

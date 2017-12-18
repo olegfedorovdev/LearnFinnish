@@ -24,61 +24,6 @@
 
 <div id="gameFields"></div>
 
-<!-- Match words field -->
-<div id="div_game_field_match_words" class="game_field">
-    <div id="match_words_div_field" class="div_match_words_field"">
-        <div class="div_match_words_left"> <div class="div_match_words_choice"><p id="match_words_fi_1">Fin word</p></div></div>
-        <div class="div_match_words_right"><div class="div_match_words_choice"><p id="match_words_en_1">En  word</p></div></div>
-        <div class="div_match_words_left"> <div class="div_match_words_choice"><p id="match_words_fi_2">Fin word</p></div></div>
-        <div class="div_match_words_right"><div class="div_match_words_choice"><p id="match_words_en_2">En  word</p></div></div>
-        <div class="div_match_words_left"> <div class="div_match_words_choice"><p id="match_words_fi_3">Fin word</p></div></div>
-        <div class="div_match_words_right"><div class="div_match_words_choice"><p id="match_words_en_3">En  word</p></div></div>
-        <div class="div_match_words_left"> <div class="div_match_words_choice"><p id="match_words_fi_4">Fin word</p></div></div>
-        <div class="div_match_words_right"><div class="div_match_words_choice"><p id="match_words_en_4">En  word</p></div></div>
-        <div class="div_match_words_left"> <div class="div_match_words_choice"><p id="match_words_fi_5">Fin word</p></div></div>
-        <div class="div_match_words_right"><div class="div_match_words_choice"><p id="match_words_en_5">En  word</p></div></div>
-        <div class="div_match_words_left"> <div class="div_match_words_choice"><p id="match_words_fi_6">Fin word</p></div></div>
-        <div class="div_match_words_right"><div class="div_match_words_choice"><p id="match_words_en_6">En  word</p></div></div>
-        <div class="div_match_words_left"> <div class="div_match_words_choice"><p id="match_words_fi_7">Fin word</p></div></div>
-        <div class="div_match_words_right"><div class="div_match_words_choice"><p id="match_words_en_7">En  word</p></div></div>
-        <div class="div_match_words_left"> <div class="div_match_words_choice"><p id="match_words_fi_8">Fin word</p></div></div>
-        <div class="div_match_words_right"><div class="div_match_words_choice"><p id="match_words_en_8">En  word</p></div></div>
-    </div>
-</div>
-
-
-<!-- Listen and Choose field -->
-<div id="div_game_field_listen_choose" class="game_field">
-    <div class="div_listen_choose_choice" style="float: left">
-        <div class="div_listen_choose_choice_table">
-            <img id="listen_choose_img_en_1" src="img/ottaa.jpg"></img>
-        </div>
-        <p id="listen_choose_en_1">word1</p>
-    </div>
-
-    <div class="div_listen_choose_choice" style="float: right">
-        <div class="div_listen_choose_choice_table">
-            <img id="listen_choose_img_en_2" src="img/ottaa.jpg"></img>
-        </div>
-        <p id="listen_choose_en_2">word2</p>
-    </div>
-
-    <div class="div_listen_choose_choice" style="float: left">
-        <div class="div_listen_choose_choice_table">
-            <img id="listen_choose_img_en_3" src="img/ottaa.jpg"></img>
-        </div>
-        <p id="listen_choose_en_3">word3</p>
-    </div>
-
-    <div class="div_listen_choose_choice" style="float: right">
-        <div class="div_listen_choose_choice_table">
-            <img id="listen_choose_img_en_4" src="img/ottaa.jpg"></img>
-        </div>
-        <p id="listen_choose_en_4">word4</p>
-    </div>
-
-    <audio id="listen_choose_sound" src=""></audio>
-</div>
 
 
 <div class="div_arrows">
@@ -111,20 +56,28 @@
     <option value="questions">Questions</option>
     <option value="kappale4">Kappale 4-5</option>
 </select>
-<textarea id="debug_log_output" rows="14" cols="100"></textarea>
+
+<div id="vocabulary_empty" class="div_small_empty_space"></div>
+<div id="vocabulary_empty" class="div_small_empty_space"></div>
+<textarea id="debug_log_output" rows="54" cols="100"></textarea>
 
 <script>
     // forward log to log  text area element
     (function () {
         var log = console.log;
+        var logLine = 1;
         console.log = function () {
             log.apply(this, Array.prototype.slice.call(arguments));
             let textArea = document.querySelector('#debug_log_output');
             if (textArea) {
-                let text = textArea.value;
-                text += JSON.stringify(arguments);
+                let text = (logLine++) + ": ";
+                for(arg in arguments) {
+                    text += JSON.stringify(arguments[arg]) + " ";
+                }
                 text += "\n";
+                text += textArea.value;
                 textArea.value = text;
+                
             }
         };
     }());
@@ -168,9 +121,11 @@
     }
 </script>
 
-    <link rel="import" href="game_field_vocabulary.html" onload="handleTemplateLoad(event)" onerror="handleTemplateLoadError(event)">
-    <link rel="import" href="game_field_choose_word.html" onload="handleTemplateLoad(event)" onerror="handleTemplateLoadError(event)">
-    <link rel="import" href="game_field_find_image.html" onload="handleTemplateLoad(event)" onerror="handleTemplateLoadError(event)">
+    <link rel="import" href="game_fields/game_field_vocabulary.html" onload="handleTemplateLoad(event)" onerror="handleTemplateLoadError(event)">
+    <link rel="import" href="game_fields/game_field_choose_word.html" onload="handleTemplateLoad(event)" onerror="handleTemplateLoadError(event)">
+    <link rel="import" href="game_fields/game_field_find_image.html" onload="handleTemplateLoad(event)" onerror="handleTemplateLoadError(event)">
+    <link rel="import" href="game_fields/game_field_match_words.html" onload="handleTemplateLoad(event)" onerror="handleTemplateLoadError(event)">
+    <link rel="import" href="game_fields/game_field_listen_choose.html" onload="handleTemplateLoad(event)" onerror="handleTemplateLoadError(event)">
     
 </body>
 </html>
