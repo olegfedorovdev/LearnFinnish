@@ -7,7 +7,8 @@
     <link href="css/game.css" rel="stylesheet" />
     <meta name="apple-mobile-web-app-capable" content="yes"/>
 </head>
-<body onload='onPageLoaded()'>
+
+<body onload='helpers.onPageLoaded()'>
 <script src="js/words/words.js"></script>
 <script src="js/words/verbs.js"></script>
 <!-- <script src="verbs1.js"></script>-->
@@ -15,15 +16,9 @@
 <script src="js/words/kappale4.js"></script>
 <script src="js/game.js"></script>
 <script src="js/helpers.js"></script>
-<script src="js/games/game_vocabulary.js"></script>
-<script src="js/games/game_choose_word.js"></script>
-<script src="js/games/game_find_image.js"></script>
-<script src="js/games/game_match_words.js"></script>
-<script src="js/games/game_listen_choose.js"></script>
-<!-- Games -->
 
+<!-- Games will be loaded into gameFields -->
 <div id="gameFields"></div>
-
 
 
 <div class="div_arrows">
@@ -33,26 +28,15 @@
 <div id="vocabulary_empty" class="div_small_empty_space"></div>
 
 <label>Game type:</label>
-<select id="select_game_type" onchange="onGameTypeComboChanged()">
-    <!--
-    <option value="vocabulary" selected>Vocabulary</option>
-    <option value="choose_word">Choose Word</option>
-    <option value="find_image">Find Image</option>
-    <option value="match_words">Match Words</option>
-    <option value="listen_choose">Listen & Choose</option>
-    -->
-    <!--
-    <option value="write_word">Write Word</option>
-    <option value="listen_write">Listen & Write</option>
-    -->
+<select id="select_game_type" onchange='changeGameType(document.getElementById("select_game_type").value)'>
 </select>
 
 <label>Scope:</label>
-<select id="select_scope" onchange="onScopeComboChanged()">
+<select id="select_scope" onchange='changeScope(document.getElementById("select_scope").value)'>
     <option value="all">All Words</option>
     <option value="latest" selected>Latest Words</option>
     <option value="verbs">Verbs</option>
-    <option value="verbs1">Verbs 1</option>
+    <!-- <option value="verbs1">Verbs 1</option> -->
     <option value="questions">Questions</option>
     <option value="kappale4">Kappale 4-5</option>
 </select>
@@ -62,70 +46,24 @@
 <textarea id="debug_log_output" rows="54" cols="100"></textarea>
 
 <script>
-    // forward log to log  text area element
-    (function () {
-        var log = console.log;
-        var logLine = 1;
-        console.log = function () {
-            log.apply(this, Array.prototype.slice.call(arguments));
-            let textArea = document.querySelector('#debug_log_output');
-            if (textArea) {
-                let text = (logLine++) + ": ";
-                for(arg in arguments) {
-                    text += JSON.stringify(arguments[arg]) + " ";
-                }
-                text += "\n";
-                text += textArea.value;
-                textArea.value = text;
-                
-            }
-        };
-    }());
-
-    // ios does not support importing links so use 3rd party to emulate support
-    (function() {
-        if ('registerElement' in document &&
-            'import' in document.createElement('link') &&
-            'content' in document.createElement('template')) {
-                console.log("Platform supports imports");
-        } else {
-            console.log("Platform does not support imports - use webcomponents");
-            // polyfill the platform!
-            var e = document.createElement('script');
-            e.src = 'js/webcomponents/webcomponents-lite.js';
-            document.body.appendChild(e);
-        }
-    })();
-    
-    function onGameTypeComboChanged() {
-        console.log("onGameTypeComboChanged");
-        changeGameType(document.getElementById("select_game_type").value);
-    }
-    function onScopeComboChanged() {
-        console.log("onScopeComboChanged");
-        changeScope(document.getElementById("select_scope").value);
-    }
-        
-    function onPageLoaded() {
-        console.log("onPageLoaded");
-        window.pageLoaded = true;
-        if (document.querySelector('#select_game_type').length > 0) {
-            startGame();
-        }
-    }
-    function handleTemplateLoad(e) {
-        console.log('Loaded import: ' + e.target.href);
-    }
-    function handleTemplateLoadError(e) {
-        console.log('Error loading import: ' + e.target.href);
-    }
+    helpers.initOnPageLoad();
 </script>
 
-    <link rel="import" href="game_fields/game_field_vocabulary.html" onload="handleTemplateLoad(event)" onerror="handleTemplateLoadError(event)">
-    <link rel="import" href="game_fields/game_field_choose_word.html" onload="handleTemplateLoad(event)" onerror="handleTemplateLoadError(event)">
-    <link rel="import" href="game_fields/game_field_find_image.html" onload="handleTemplateLoad(event)" onerror="handleTemplateLoadError(event)">
-    <link rel="import" href="game_fields/game_field_match_words.html" onload="handleTemplateLoad(event)" onerror="handleTemplateLoadError(event)">
-    <link rel="import" href="game_fields/game_field_listen_choose.html" onload="handleTemplateLoad(event)" onerror="handleTemplateLoadError(event)">
-    
+<!-- Load all games here -->
+<script src="js/games/game_vocabulary.js"></script>
+<link rel="import" href="game_fields/game_field_vocabulary.html" onload="console.log('Loaded import:', event.target.href)" onerror="console.log('Failed to import:', event.target.href)">
+
+<script src="js/games/game_choose_word.js"></script>
+<link rel="import" href="game_fields/game_field_choose_word.html" onload="console.log('Loaded import: ', event.target.href)" onerror="console.log('Failed to import:', event.target.href)">
+
+<script src="js/games/game_find_image.js"></script>
+<link rel="import" href="game_fields/game_field_find_image.html" onload="console.log('Loaded import: ', event.target.href)" onerror="console.log('Failed to import:', event.target.href)">
+
+<script src="js/games/game_match_words.js"></script>
+<link rel="import" href="game_fields/game_field_match_words.html" onload="console.log('Loaded import: ', event.target.href)" onerror="console.log('Failed to import:', event.target.href)">
+
+<script src="js/games/game_listen_choose.js"></script>
+<link rel="import" href="game_fields/game_field_listen_choose.html" onload="console.log('Loaded import: ', event.target.href)" onerror="console.log('Failed to import:', event.target.href)">
+
 </body>
 </html>

@@ -51,7 +51,6 @@ Games["choose_word"] = {
     },
 
     "onWordSelected": function(_wordIndex) {
-        console.log("Selected: " + _wordIndex);
         let wordIndex = (_wordIndex == 1)?this._fiWord1:this._fiWord2;
 
         if (this.words[wordIndex].fi === this.words[this._currentWordIndex].fi) {

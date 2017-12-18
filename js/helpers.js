@@ -241,8 +241,50 @@ var helpers = {
         gamesList.add(option);
 
         // in ios pageLoaded is fired before all games are loaded so start game when we are ready
-        if (window.pageLoaded && gameID === "vocabulary") {
+        if (helpers.pageLoaded && gameID === "vocabulary") {
+            startGame();
+        }
+    },
+
+    "initOnPageLoad": function() {
+        // forward log to log  text area element
+        var log = console.log;
+        var logLine = 1;
+        console.log = function () {
+            log.apply(this, Array.prototype.slice.call(arguments));
+            let textArea = document.querySelector('#debug_log_output');
+            if (textArea) {
+                let text = (logLine++) + ": ";
+                for(arg in arguments) {
+                    text += JSON.stringify(arguments[arg]) + " ";
+                }
+                text += "\n";
+                text += textArea.value;
+                textArea.value = text;
+                
+            }
+        };
+
+        // ios does not support importing links so use 3rd party to emulate support
+        if ('registerElement' in document &&
+            'import' in document.createElement('link') &&
+            'content' in document.createElement('template')) {
+                console.log("Platform supports imports");
+        } else {
+            console.log("Platform does not support imports - use webcomponents");
+            // polyfill the platform!
+            var e = document.createElement('script');
+            e.src = 'js/webcomponents/webcomponents-lite.js';
+            document.body.appendChild(e);
+        }
+    },
+    
+    "onPageLoaded": function () {
+        console.log("onPageLoaded");
+        helpers.pageLoaded = true;
+        if (document.querySelector('#select_game_type').length > 0) {
             startGame();
         }
     }
+
 };
