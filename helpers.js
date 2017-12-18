@@ -78,14 +78,39 @@ var helpers = {
         }
     },
 
-    // say english word and call onEnd when finished. can define timeout in miliseconds
-    "sayEnglishWord": function(word, pause, onEnd) {
-        // only 1 word can be played
+    "sayFinnishWordWithFallback": function(audio, word, onPlayed) {
+        helpers.clearQueuedWordsToSay();
+        this.sayWord(word.fi, this.language.fi, function(played_fi) {
+            let playEnNow = true;
+            if (!played_fi) {
+                var iOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+                //assume iOS has finnish voice
+                if (!iOS) {
+                    playEnNow = false;
+                    audio.src = helpers.getAudioSrc(word);
+                    audio.play();
+                    audio.onended = function() {
+                        onPlayed(word);
+                    }
+                }
+            }
+            if (playEnNow) {
+                onPlayed(word);
+            }
+        });
+    },
+
+    "clearQueuedWordsToSay" : function() {
         if (helpers.sayEnglishWordTimeout !== undefined) {
             clearTimeout(helpers.sayEnglishWordTimeout);
-        }
-        helpers.sayEnglishWordTimeout = setTimeout(function(){
             helpers.sayEnglishWordTimeout = undefined;
+        }
+    },
+
+    // say english word and call onEnd when finished. can define timeout in miliseconds
+    "sayEnglishWord": function(word, pause, onEnd) {
+        helpers.clearQueuedWordsToSay();
+        helpers.sayEnglishWordTimeout = setTimeout(function(){
             helpers.sayWord(word, helpers.language.en, onEnd);
         }, pause);
     },
@@ -96,6 +121,7 @@ var helpers = {
         if ('speechSynthesis' in window) {
             let voice = null;
             window.speechSynthesis.getVoices().forEach(function (v) {
+                //console.log(v.lang, ":", v.name);
                 if (language === helpers.language.en && v.name === "Google UK English Female") {
                     //prefer this for en in browser
                     voice = v;
@@ -154,7 +180,33 @@ var helpers = {
     
     },
 
-    "playAnimationOnElement": function(element, duration, baseSrc, imagesCount) {
+    "playAnimationOnElement": function(element, duration, baseSrc, imageIndex) {
+        let animationNode = document.createElement("div");
+        animationNode.setAttribute("class", "game_animation");
+
+        animationNode.style.opacity = 0;
+        animationNode.style.width = element.offsetWidth + "px";
+        animationNode.style.height = element.offsetHeight + "px";
+        animationNode.style.backgroundImage = "url('" + baseSrc + imageIndex + ".png')";
+
+        element.parentNode.insertBefore(animationNode, element);
+        var cycle = 0.0, maxCycle = 20.0;
+
+        let animationInterval = setInterval(function() {
+            if (++cycle > maxCycle) {
+                cycle = maxCycle;
+            }
+            animationNode.style.opacity = cycle/maxCycle;
+        }, 50);
+
+
+        setTimeout(function() {
+            animationNode.parentNode.removeChild(animationNode);
+            clearInterval(animationInterval);
+        }, duration);
+    },
+
+    "playAnimationOnElement__": function(element, duration, baseSrc, imagesCount) {
         let animationNode = document.createElement("div");
         animationNode.setAttribute("class", "game_animation");
 

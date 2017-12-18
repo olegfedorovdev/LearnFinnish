@@ -31,6 +31,7 @@ Games["choose_word"] = {
     "stop" : function() {
         console.log("Stop game choose_word");
         this._elementSound.src = "";
+        helpers.clearQueuedWordsToSay();
     },
     
     "onPrevious": function() {
@@ -54,8 +55,7 @@ Games["choose_word"] = {
         let wordIndex = (_wordIndex == 1)?this._fiWord1:this._fiWord2;
 
         if (this.words[wordIndex].fi === this.words[this._currentWordIndex].fi) {
-            this._elementSound.src = helpers.getAudioSrc(this.words[wordIndex]);
-            this._elementSound.play();
+            helpers.sayFinnishWordWithFallback(this._elementSound, this.words[wordIndex], function() {});
             this.win(_wordIndex == 1?this._elementFiWord1:this._elementFiWord2);
         } else {
             this.lose(_wordIndex == 1?this._elementFiWord1:this._elementFiWord2)

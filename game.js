@@ -31,7 +31,8 @@ var Game = {
     "start": function() {},
     "stop": function() {},
     "onPrevious": function() {},
-    "onNext": function() {}    
+    "onNext": function() {},
+    "_active" : false
 };
 
 // all games will be held here. 
@@ -58,7 +59,9 @@ function changeGameType(gameType) {
     let w = JSON.parse(JSON.stringify(words));
     w = helpers.shuffle(w);
     Game.stop();
+    Game._active = false;
     Game = Games[gameType];
     Game.words = w;
     Game.start();
+    Game._active = true;
 }

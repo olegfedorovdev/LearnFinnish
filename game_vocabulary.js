@@ -4,6 +4,7 @@ Games["vocabulary"] = {
     _currentWordIndex: 0,
     _updateInterval: undefined,
     // "words" : [] - here will be words
+    // "_active": true, - will be true if game is active
     "shuffled_words" : [],
 
     "start" : function() {
@@ -19,6 +20,7 @@ Games["vocabulary"] = {
         console.log("Stop game vocabulary");
         clearInterval(this._updateInterval);
         this._updateInterval = undefined;
+        helpers.clearQueuedWordsToSay();
     },
 
     "onPrevious": function() {
@@ -63,22 +65,9 @@ Games["vocabulary"] = {
         enDiv.textContent = word.en;
         fiDiv.textContent = word.fi;
         img.src = helpers.getImgSrc(word);
-
-        helpers.sayWord(word.fi, helpers.language.fi, function(played_fi) {
-            let playEnNow = true;
-            if (!played_fi) {
-                var iOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
-                //assume iOS has finnish voice
-                if (!iOS) {
-                    playEnNow = false;
-                    audio.src = helpers.getAudioSrc(word);
-                    audio.play();
-                    audio.onended = function() {
-                        helpers.sayEnglishWord(word.en, 1000, function(played) {});
-                    }
-                }
-            }
-            if (playEnNow) {
+        let that = this;
+        helpers.sayFinnishWordWithFallback(audio, word, function(word) {
+            if (that._active) {
                 helpers.sayEnglishWord(word.en, 1000, function(played) {});
             }
         });

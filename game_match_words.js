@@ -36,6 +36,7 @@ Games["match_words"] = {
     },
     "stop" : function() {
         console.log("Stop game match words");
+        helpers.clearQueuedWordsToSay();
     },
     
     "onPrevious": function() {

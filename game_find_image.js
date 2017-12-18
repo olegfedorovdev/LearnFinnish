@@ -30,6 +30,7 @@ Games["find_image"] = {
     "stop" : function() {
         console.log("Stop game choose_word");
         this._elementSound.src = "";
+        helpers.clearQueuedWordsToSay();
     },
     
     "onPrevious": function() {
@@ -62,11 +63,11 @@ Games["find_image"] = {
 
     "win" : function(element) {
         //element.style["background-color"] = "green";
-        element.style.backgroundImage = "url('" + helpers.getImgSrc(this.words[this._currentWordIndex]) + "')";
+        let word = this.words[this._currentWordIndex];
+        element.style.backgroundImage = "url('" + helpers.getImgSrc(word) + "')";
         element.textContent = "";
 
-        this._elementSound.src = helpers.getAudioSrc(this.words[this._currentWordIndex]);
-        this._elementSound.play();
+        helpers.sayFinnishWordWithFallback(this._elementSound, word, function() {});
         
         var that = this;
         setTimeout(function() {that.onNext()}, 2000);
