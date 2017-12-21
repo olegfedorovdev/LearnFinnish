@@ -56,6 +56,8 @@ words["verbs"] = {
         {"fi":"palata", "en":"to return", "ru": "вернуться"},
         {"fi":"viipyä", "en":"to linger", "ru": "задерживаться"},
         {"fi":"tarkistaa", "en":"to check", "ru": "проверять"},
-        {"fi":"luovuttaa", "en":"to hand over", "ru": "отдавать"}
+        {"fi":"luovuttaa", "en":"to hand over", "ru": "отдавать"},
+        {"fi":"yhdistää", "en":"to connect", "ru": "соединять"},
+        {"fi":"panna", "en":"to put", "ru": "ставить"}
     ]
 };

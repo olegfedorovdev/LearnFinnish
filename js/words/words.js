@@ -27,7 +27,14 @@ var words = {
             {"fi":"täytyä", "en":"have to", "ru": "должен"},
             {"fi":"lause", "en":"sentence", "ru": "предложение (текст)"},
             {"fi":"tuore", "en":"fresh", "ru": "свежий"},
-            {"fi":"ihminen", "en":"human", "ru": "человек"}
+            {"fi":"ihminen", "en":"human", "ru": "человек"},
+            {"fi":"yhdistää", "en":"to connect", "ru": "соединять"},
+            {"fi":"panna", "en":"to put", "ru": "ставить"},
+            {"fi":"toimisto", "en":"office", "ru": "офис"},
+            {"fi":"sairaala", "en":"hospital", "ru": "больница"},
+            {"fi":"ainakin", "en":"at least", "ru": "как минимум"},
+            {"fi":"aina", "en":"always", "ru": "всегда"},
+            {"fi":"taas", "en":"again", "ru": "опять"}
         ]
     },
 
