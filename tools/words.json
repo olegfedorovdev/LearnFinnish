@@ -1,5 +1,4 @@
 [
-    {"fi":"lattia", "en":"floor", "ru": "пол (в комнате)"},
-    {"fi":"pehmeä", "en":"soft", "ru": "мягкий"},
-    {"fi":"kova", "en":"hard", "ru": "жесткий"}    
+    {"fi":"katsella", "en":"to view", "ru": "смотреть"},
+    {"fi":"palata", "en":"to return", "ru": "вернуться"}
 ]

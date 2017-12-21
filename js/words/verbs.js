@@ -51,6 +51,11 @@ words["verbs"] = {
         {"fi":"tuoda", "en":"to carry in", "ru": "приносить"},
         {"fi":"käydä", "en":"to visit", "ru": "посещать"},
         {"fi":"vuotaa", "en":"to leak", "ru": "протекать"},
-        {"fi":"sopia", "en":"to fit", "ru": "подходить"}    
+        {"fi":"sopia", "en":"to fit", "ru": "подходить"},
+        {"fi":"katsella", "en":"to view", "ru": "смотреть"},
+        {"fi":"palata", "en":"to return", "ru": "вернуться"},
+        {"fi":"viipyä", "en":"to linger", "ru": "задерживаться"},
+        {"fi":"tarkistaa", "en":"to check", "ru": "проверять"},
+        {"fi":"luovuttaa", "en":"to hand over", "ru": "отдавать"}
     ]
 };
