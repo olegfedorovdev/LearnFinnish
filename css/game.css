@@ -125,9 +125,9 @@ select {
     margin-top: 16px;
 }
 
-.div_find_image_choice p {
+.div_find_image_choice_cell {
     display: table-cell; 
-    background-size: cover;
+    background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
     vertical-align: middle; 
