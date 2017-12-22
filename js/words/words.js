@@ -11,7 +11,7 @@ var words = {
     "latest" : {
         "type": "Kappale 7",
         "words" : [
-            {"fi":"katsella", "en":"to view", "ru": "смотреть"},
+            {"fi":"katsella", "en":"to watch", "ru": "смотреть"},
             {"fi":"palata", "en":"to return", "ru": "вернуться"},
             {"fi":"viipyä", "en":"to be late", "ru": "задерживаться"},
             {"fi":"tarkistaa", "en":"to check", "ru": "проверять"},
