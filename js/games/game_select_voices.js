@@ -5,7 +5,6 @@ Games["select_voices"] = {
     
     "start" : function() {
         console.log("select_voices opened");
-        Settings.remove(Settings.SELECTED_VOICE_FI);
 
         //remember out which game was selected last
         this._voiceFI = Settings.get(Settings.SELECTED_VOICE_FI, "");
@@ -28,6 +27,7 @@ Games["select_voices"] = {
         let dropdownEN = document.querySelector("#select_voice_en");
         dropdownFI.options.length = 0;
         dropdownEN.options.length = 0;
+
         window.speechSynthesis.getVoices().forEach(function (voice) {
             let name = voice.name;
             if (voice.lang === helpers.language.fi) {
