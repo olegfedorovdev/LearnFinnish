@@ -308,10 +308,12 @@ var helpers = {
     "touchPointDownY": null,
 
     "handleTouchStart": function(e) {
+        console.log("handleTouchStart")
         this.touchPointDownX = e.touches[0].clientX;
         this.touchPointDownY = e.touches[0].clientY;
     },
     "handleTouchMove": function(e) {
+        console.log("handleTouchMove")
         if (!this.touchPointDownX || !this.touchPointDownY) {
             return;
         }
