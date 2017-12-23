@@ -7,24 +7,11 @@ function startGame() {
     console.log("Games played: ", gamesPlayed);
 
     changeScope("latest");
-    changeGameType("vocabulary");
+    changeGameType("main_menu");
 
-    document.onkeydown = function(e) {
-        switch (e.keyCode) {
-            case 38:
-                //for test code, press UP
-                window.speechSynthesis.getVoices().forEach(function (voice) {
-                    console.log("Name: ", voice.name, ", default: ", voice.default ? voice.default : '');
-                });
-            break;
-            case 37:
-                Game.onPrevious();//left
-                break;
-            case 39:
-                Game.onNext();//right
-                break;
-        }
-    };
+    document.onkeydown = function(e) {helpers.handleKeyDown(e)};
+    document.ontouchstart = function(e) {helpers.handleTouchStart(e)};
+    document.ontouchmove = function(e) {helpers.handleTouchMove(e)};
 };
 
 

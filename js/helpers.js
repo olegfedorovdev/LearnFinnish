@@ -241,7 +241,7 @@ var helpers = {
         gamesList.add(option);
 
         // in ios pageLoaded is fired before all games are loaded so start game when we are ready
-        if (helpers.pageLoaded && gameID === "vocabulary") {
+        if (helpers.pageLoaded && gameID === "main_menu") {
             startGame();
         }
     },
@@ -285,6 +285,61 @@ var helpers = {
         if (document.querySelector('#select_game_type').length > 0) {
             startGame();
         }
-    }
+    },
 
+    "handleKeyDown": function(e) {
+        switch (e.keyCode) {
+            case 38:
+                //for test code, press UP
+                window.speechSynthesis.getVoices().forEach(function (voice) {
+                    console.log("Name: ", voice.name, ", default: ", voice.default ? voice.default : '');
+                });
+            break;
+            case 37:
+                Game.onPrevious();//left
+                break;
+            case 39:
+                Game.onNext();//right
+                break;
+        }
+    },
+
+    "touchPointDownX": null,
+    "touchPointDownY": null,
+
+    "handleTouchStart": function(e) {
+        this.touchPointDownX = e.touches[0].clientX;
+        this.touchPointDownY = e.touches[0].clientY;
+    },
+    "handleTouchMove": function(e) {
+        if (!this.touchPointDownX || !this.touchPointDownY) {
+            return;
+        }
+
+        const xUp = evt.touches[0].clientX;
+        const yUp = evt.touches[0].clientY;
+
+        const xDiff = this.touchPointDownX - xUp;
+        const yDiff = this.touchPointDownY - yUp;
+
+        if (Math.abs(xDiff) > Math.abs(yDiff)) {
+            console.log("Swipe with diff: ", Math.abs(xDiff));
+            if (xDiff > 0) {
+                /* left swipe */
+                Game.onPrevious();
+            } else {
+                /* right swipe */
+                Game.onNext();
+            }
+        } else {
+            if (yDiff > 0) {
+                /* up swipe */
+            } else {
+                /* down swipe */
+            }
+        }
+        /* reset values */
+        this.touchPointDownX = null;
+        this.touchPointDownY = null;    
+    }
 };
