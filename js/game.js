@@ -2,6 +2,9 @@
 
 
 function startGame() {
+    let gamesPlayed = Settings.getNumer(Settings.GAMES_PLAYED, 0) + 1;
+    Settings.setNumber(Settings.GAMES_PLAYED, gamesPlayed);
+    console.log("Games played: ", gamesPlayed);
 
     changeScope("latest");
     changeGameType("vocabulary");
