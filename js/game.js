@@ -9,9 +9,10 @@ function startGame() {
     changeScope("latest");
     changeGameType("main_menu");
 
+    let gameField = document.querySelector('#gameFields');
     document.onkeydown = function(e) {helpers.handleKeyDown(e)};
-    document.ontouchstart = function(e) {helpers.handleTouchStart(e)};
-    document.ontouchmove = function(e) {helpers.handleTouchMove(e)};
+    gameField.ontouchstart = function(e) {console.log("1");helpers.handleTouchStart(e)};
+    gameField.ontouchmove = function(e) {console.log("2");helpers.handleTouchMove(e)};
 };
 
 
