@@ -135,7 +135,7 @@ var helpers = {
             console.log("requiredVoice:", requiredVoice);
             
             window.speechSynthesis.getVoices().forEach(function (v) {
-                if (requiredVoice && requiredVoice != "") {
+                if (requiredVoice !== undefined && requiredVoice !== "") {
                     if (v.name === requiredVoice) {
                         voice = v;
                     }
@@ -153,6 +153,8 @@ var helpers = {
             if (voice === null) {
                 return onEnd(false)
             }
+            console.log("selected voice:", voice.name);
+            
             window.speechSynthesis.cancel();
             let msg = new SpeechSynthesisUtterance();
             msg.voice = voice;

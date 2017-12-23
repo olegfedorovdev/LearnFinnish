@@ -33,12 +33,14 @@ Games["select_voices"] = {
             if (voice.lang === helpers.language.fi) {
                 let optionFI = document.createElement('option');
                 optionFI.text = name;
+                optionFI.value = name;
                 dropdownFI.add(optionFI);
             }
 
             if (voice.lang === helpers.language.en) {
                 let optionEN = document.createElement('option');
                 optionEN.text = name;
+                optionEN.value = name;
                 dropdownEN.add(optionEN);
             }
         });
