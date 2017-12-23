@@ -22,25 +22,11 @@ select {
     background-color: rgb(236, 131, 33)
 }
 
-.div_arrows {
-    padding-left: 5%;
-    padding-right: 5%;
-    width: 90%;
-    height: 64px;
- }
 
-.img_left_arrow {
-    width: 40%;
-    height: 64px;
-    float: left;
-    padding-left: 10%;    
-}
-
-.img_right_arrow {
-    width: 40%;
-    height: 64px;
-    float: right;
-    padding-right: 10%;
+/*  main menu */
+.main_menu_back {
+    background-color:white;
+   
 }
 
 .div_image_big {

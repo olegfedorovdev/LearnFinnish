@@ -308,7 +308,7 @@ var helpers = {
     "touchPointDownY": null,
 
     "handleTouchStart": function(e) {
-        console.log("handleTouchStart")
+        console.log("handleTouchStart: ", JSON.stringify(e))
         this.touchPointDownX = e.touches[0].clientX;
         this.touchPointDownY = e.touches[0].clientY;
     },
@@ -320,13 +320,13 @@ var helpers = {
     },
         
     "handleTouchEnd": function(e) {
-        console.log("handleTouchEnd")
+        console.log("handleTouchEnd: ", JSON.stringify(e))
         if (!this.touchPointDownX || !this.touchPointDownY) {
             return;
         }
 
-        const xUp = e.touches[0].clientX;
-        const yUp = e.touches[0].clientY;
+        const xUp = e.changedTouches[event.changedTouches.length-1].clientX;
+        const yUp = e.changedTouches[event.changedTouches.length-1].clientY;
 
         const xDiff = this.touchPointDownX - xUp;
         const yDiff = this.touchPointDownY - yUp;
