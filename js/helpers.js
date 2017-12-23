@@ -313,7 +313,14 @@ var helpers = {
         this.touchPointDownY = e.touches[0].clientY;
     },
     "handleTouchMove": function(e) {
-        console.log("handleTouchMove")
+    },
+    "handleTouchCancel": function(e) {
+        this.touchPointDownX = null;
+        this.touchPointDownY = null;
+    },
+        
+    "handleTouchEnd": function(e) {
+        console.log("handleTouchEnd")
         if (!this.touchPointDownX || !this.touchPointDownY) {
             return;
         }
