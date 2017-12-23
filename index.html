@@ -27,13 +27,29 @@
 <button class="button_help" onclick="Game.onHelp()"></button>
 </div>
 
-<div id="vocabulary_empty" class="div_small_empty_space"></div>
-<div id="vocabulary_empty" class="div_small_empty_space"></div>
-<label>Debug log:</label>
-<div id="vocabulary_empty" class="div_small_empty_space"></div>
+<div class="div_small_empty_space"></div>
+<div class="div_small_empty_space"></div>
+<label onclick="onDebugLogClick()">Debug log:</label>
+<div class="div_small_empty_space"></div>
 <textarea id="debug_log_output" rows="54" cols="55"></textarea>
 
 <script>
+    document.querySelector('#debug_log_output').hidden = true;
+    // show log only on 5 clicks. and hide too
+    function onDebugLogClick() {
+        if (document.querySelector('#debug_log_output').hidden) {
+            window.onDebugLogClickCounter = (window.onDebugLogClickCounter === undefined) ? 1: window.onDebugLogClickCounter + 1;
+            if (window.onDebugLogClickCounter === 5) {
+                document.querySelector('#debug_log_output').hidden = false;
+            }
+        } else {
+            window.onDebugLogClickCounter = window.onDebugLogClickCounter - 1;
+            if (window.onDebugLogClickCounter === 0) {
+                document.querySelector('#debug_log_output').hidden = true;
+            }
+        }
+    }
+
     helpers.initOnPageLoad();
 </script>
 
