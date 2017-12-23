@@ -205,43 +205,23 @@ var helpers = {
         }, duration);
     },
 
-    "playAnimationOnElement__": function(element, duration, baseSrc, imagesCount) {
-        let animationNode = document.createElement("div");
-        animationNode.setAttribute("class", "game_animation");
-
-        animationNode.style.width = element.offsetWidth + "px";
-        animationNode.style.height = element.offsetHeight + "px";
-
-        element.parentNode.insertBefore(animationNode, element);
-        var idx = 1;
-
-        let animationInterval = setInterval(function() {
-            animationNode.style.backgroundImage = "url('" + baseSrc + idx + ".png')";
-            ++idx;
-            if (idx > imagesCount)
-                idx = imagesCount;
-        }, 50);
-
-
-        setTimeout(function() {
-            animationNode.parentNode.removeChild(animationNode);
-            clearInterval(animationInterval);
-        }, duration);
-    },
-
     "registerNewGame": function(gameField, gameID, gameName) {
-        console.log("registerNewGame", gameID);
+        //console.log("registerNewGame", gameID);
         let gameFieldDiv = gameField.cloneNode(true);
         gameFieldDiv.hidden = true;
         document.querySelector('#gameFields').appendChild(gameFieldDiv);
-        let gamesList = document.querySelector('#select_game_type');
-        let option = document.createElement("option");
-        option.text = gameName;
-        option.value = gameID;
-        gamesList.add(option);
+        const isGameMenu = (gameID === "main_menu");
+
+        if (!isGameMenu) {
+            let gamesList = document.querySelector('#select_game_type');
+            let option = document.createElement("option");
+            option.text = gameName;
+            option.value = gameID;
+            gamesList.add(option);
+        }
 
         // in ios pageLoaded is fired before all games are loaded so start game when we are ready
-        if (helpers.pageLoaded && gameID === "main_menu") {
+        if (helpers.pageLoaded && isGameMenu) {
             startGame();
         }
     },
@@ -308,7 +288,6 @@ var helpers = {
     "touchPointDownY": null,
 
     "handleTouchStart": function(e) {
-        console.log("handleTouchStart: ", JSON.stringify(e))
         this.touchPointDownX = e.touches[0].clientX;
         this.touchPointDownY = e.touches[0].clientY;
     },
@@ -320,7 +299,6 @@ var helpers = {
     },
         
     "handleTouchEnd": function(e) {
-        console.log("handleTouchEnd: ", JSON.stringify(e))
         if (!this.touchPointDownX || !this.touchPointDownY) {
             return;
         }
@@ -331,7 +309,7 @@ var helpers = {
         const xDiff = this.touchPointDownX - xUp;
         const yDiff = this.touchPointDownY - yUp;
 
-        if (Math.abs(xDiff) > Math.abs(yDiff)) {
+        if (Math.abs(xDiff) > Math.abs(yDiff) && Math.abs(xDiff) > 150) {
             console.log("Swipe with diff: ", Math.abs(xDiff));
             if (xDiff > 0) {
                 /* left swipe */

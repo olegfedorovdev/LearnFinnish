@@ -2,19 +2,22 @@
 <div id="div_game_field_main_menu" class="main_menu_back">
 
 <label>Select game type:</label>
-<select id="select_game_type" onchange='changeGameType(document.getElementById("select_game_type").value)'>
+<select id="select_game_type" onchange='Game.changeGameType(document.getElementById("select_game_type").value)'>
 </select>
 
 <div id="vocabulary_empty" class="div_small_empty_space"></div>
 
 <label>Select words:</label>
-<select id="select_scope" onchange='changeScope(document.getElementById("select_scope").value)'>
+<select id="select_scope" onchange='Game.changeScope(document.getElementById("select_scope").value)'>
     <option value="all">All Words</option>
     <option value="latest" selected>Latest Words</option>
     <option value="verbs">Verbs</option>
     <option value="questions">Questions</option>
     <option value="kappale4">Kappale 4-6</option>
 </select>
+
+<div id="vocabulary_empty" class="div_small_empty_space"></div>
+<button onclick="Game.startGame()">Start Game</button>
 
 <!-- <option value="verbs1">Verbs 1</option> -->
 

@@ -3,6 +3,11 @@ button {
     height: 32px;
 }
 
+.start_game_button {
+    width: 128px;
+    height: 32px;
+}
+
 select {
     width: 160px;
     height: 40px;
