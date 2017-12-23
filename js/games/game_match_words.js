@@ -44,6 +44,8 @@ Games["match_words"] = {
 
     "onNext": function() {
     },
+    "onPlayAgain": function() {},//when button "play again" pressed
+    "onHelp": function() {},//when button "help" pressed
 
     "win" : function() {
         var that = this;

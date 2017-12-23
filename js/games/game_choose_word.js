@@ -49,6 +49,8 @@ Games["choose_word"] = {
         }
         this.showCurrentWord();
     },
+    "onPlayAgain": function() {},//when button "play again" pressed
+    "onHelp": function() {},//when button "help" pressed
 
     "onWordSelected": function(_wordIndex) {
         let wordIndex = (_wordIndex == 1)?this._fiWord1:this._fiWord2;

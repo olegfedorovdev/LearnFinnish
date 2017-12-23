@@ -36,6 +36,11 @@ Games["vocabulary"] = {
         this.update();
         this.resetUpdateInterval();
     },
+    "onPlayAgain": function() {
+        this.resetUpdateInterval();
+        this.showCurrentWord();
+    },
+    "onHelp": function() {},//when button "help" pressed
 
     "resetUpdateInterval" : function() {
         var that = this;

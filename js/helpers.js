@@ -77,6 +77,15 @@ var helpers = {
         }
     },
 
+    "selectDropdownValue" : function(elementID, value) {
+        let dropdown = document.querySelector(elementID);
+        for (var i = 0; i < dropdown.length; i++) {
+            if (dropdown[i].value == value) {
+                dropdown[i].selected = true;
+            }
+        }
+    },
+
     "sayFinnishWordWithFallback": function(audio, word, onPlayed) {
         helpers.clearQueuedWordsToSay();
         this.sayWord(word.fi, this.language.fi, function(played_fi) {

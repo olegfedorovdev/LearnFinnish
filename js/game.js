@@ -13,9 +13,13 @@ function startGame() {
     gameField.addEventListener("touchend", function(e) {helpers.handleTouchEnd(e)}, true);
     gameField.addEventListener("touchcancel", function(e) {helpers.handleTouchCancel(e)}, true);
 
-    Games["main_menu"].startGame();
+    showMainMenu();
 };
 
+function showMainMenu() {
+    Games["main_menu"].changeGameType("main_menu");
+    Games["main_menu"].startGame();
+}
 
 // game interface
 var Game = {
@@ -24,6 +28,8 @@ var Game = {
     "stop": function() {},
     "onPrevious": function() {},
     "onNext": function() {},
+    "onPlayAgain": function() {},//when button "play again" pressed
+    "onHelp": function() {},//when button "help" pressed
     "_active" : false
 };
 

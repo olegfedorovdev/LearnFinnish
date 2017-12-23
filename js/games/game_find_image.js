@@ -48,6 +48,8 @@ Games["find_image"] = {
         }
         this.showCurrentWordAndGuesses();
     },
+    "onPlayAgain": function() {},//when button "play again" pressed
+    "onHelp": function() {},//when button "help" pressed
 
     "onWordSelected": function(_wordIndex) {
         let wordIndex = this._enWords[_wordIndex];
