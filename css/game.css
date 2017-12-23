@@ -6,15 +6,17 @@ button {
 
 .button_main_menu {
     background-image: url( '../img/icons/main_menu.png' );
-    background-size: 64px 64px;
+    background-repeat: no-repeat;
     height: 64px;
     width: 64px;
+    border: none;
 }
 
 
 .button_help {
     background-image: url( '../img/icons/help.png' );
-    background-size: 64px 64px;
+    border: none;
+    background-repeat: no-repeat;
     height: 64px;
     width: 64px;
 }
@@ -22,7 +24,8 @@ button {
 
 .button_play_again {
     background-image: url( '../img/icons/play_again.png' );
-    background-size: 64px 64px;
+    border: none;
+    background-repeat: no-repeat;
     height: 64px;
     width: 64px;
 }

@@ -21,6 +21,7 @@
 <!-- Games will be loaded into gameFields -->
 <div id="gameFields"></div>
 
+<div class="div_small_empty_space"></div>
 <div id="gameButtons">
 <button class="button_main_menu" onclick="showMainMenu()"></button>
 <button class="button_play_again" onclick="Game.onPlayAgain()"></button>
@@ -56,6 +57,9 @@
 <!-- Load all games here -->
 <script src="js/games/game_main_menu.js"></script>
 <link rel="import" href="game_fields/game_field_main_menu.html" onerror="console.log('Failed to import:', event.target.href)">
+
+<script src="js/games/game_select_voices.js"></script>
+<link rel="import" href="game_fields/game_field_select_voices.html" onerror="console.log('Failed to import:', event.target.href)">
 
 <script src="js/games/game_vocabulary.js"></script>
 <!-- onload="console.log('Loaded import:', event.target.href)" -->

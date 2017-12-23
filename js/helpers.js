@@ -128,19 +128,23 @@ var helpers = {
     "sayWord": function(word, language, onEnd) {
         if ('speechSynthesis' in window) {
             let voice = null;
+            let requiredVoice = (language === helpers.language.en) ? Settings.get(Settings.SELECTED_VOICE_EN):Settings.get(Settings.SELECTED_VOICE_FI);
+            let voiceRate = Settings.getNumer(Settings.SELECTED_VOICE_SPEED, "0.7");
+            
             window.speechSynthesis.getVoices().forEach(function (v) {
-                //console.log(v.lang, ":", v.name);
-                if (language === helpers.language.en && v.name === "Google UK English Female") {
-                    //prefer this for en in browser
-                    voice = v;
-                }
-                if (language === v.lang && v.name.indexOf("Siri") != -1) {
-                    //prefer Siri voice
-                    voice = v;
-                }
-                
-                if (v.lang === language && voice === null) {
-                    voice = v;
+                if (requiredVoice && requiredVoice != "") {
+                    if (v.name === requiredVoice) {
+                        voice = v;
+                    }
+                } else {
+                    if (language === helpers.language.en && v.name === "Google UK English Female") {
+                        //prefer this for en in browser
+                        voice = v;
+                    }
+                    
+                    if (v.lang === language && voice === null) {
+                        voice = v;
+                    }
                 }
             });
             if (voice === null) {
@@ -151,7 +155,7 @@ var helpers = {
             msg.voice = voice;
             msg.text = word;
             msg.lang = language;
-            msg.rate = 0.8;
+            msg.rate = ((language === helpers.language.fi)?voiceRate:0.8);
             msg.onerror = function (e) {
                 console.log("Error speaking: ", e);
                 onEnd(false);
@@ -219,9 +223,8 @@ var helpers = {
         let gameFieldDiv = gameField.cloneNode(true);
         gameFieldDiv.hidden = true;
         document.querySelector('#gameFields').appendChild(gameFieldDiv);
-        const isGameMenu = (gameID === "main_menu");
 
-        if (!isGameMenu) {
+        if (gameName) {
             let gamesList = document.querySelector('#select_game_type');
             let option = document.createElement("option");
             option.text = gameName;
@@ -229,6 +232,7 @@ var helpers = {
             gamesList.add(option);
         }
 
+        const isGameMenu = (gameID === "main_menu");
         // in ios pageLoaded is fired before all games are loaded so start game when we are ready
         if (helpers.pageLoaded && isGameMenu) {
             startGame();

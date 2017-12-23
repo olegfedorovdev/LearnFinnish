@@ -25,14 +25,14 @@ Games["main_menu"] = {
 
     "changeGameType": function(gameType) {
         this._gameType = gameType;
-        if (this._gameType !== "main_menu") {
+        if (gameType !== "main_menu" && gameType !== "select_voices") {
             Settings.set(Settings.SELECTED_GAME, this._gameType);
         }
     },
 
     "changeScope": function(scope) {
         this._gameScope = scope;
-        Settings.set(Settings.SELECTED_SCOPE, this._gameScope);
+        Settings.set(Settings.SELECTED_SCOPE, scope);
     },
 
     "startGame": function() {
