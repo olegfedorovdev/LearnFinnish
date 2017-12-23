@@ -318,8 +318,8 @@ var helpers = {
             return;
         }
 
-        const xUp = evt.touches[0].clientX;
-        const yUp = evt.touches[0].clientY;
+        const xUp = e.touches[0].clientX;
+        const yUp = e.touches[0].clientY;
 
         const xDiff = this.touchPointDownX - xUp;
         const yDiff = this.touchPointDownY - yUp;
