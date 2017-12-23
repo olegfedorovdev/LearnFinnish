@@ -82,8 +82,10 @@ var helpers = {
         for (var i = 0; i < dropdown.length; i++) {
             if (dropdown[i].value == value) {
                 dropdown[i].selected = true;
+                return;
             }
         }
+        console.log("Cannot select '", value, "' in", elementID);
     },
 
     "sayFinnishWordWithFallback": function(audio, word, onPlayed) {
@@ -129,7 +131,8 @@ var helpers = {
         if ('speechSynthesis' in window) {
             let voice = null;
             let requiredVoice = (language === helpers.language.en) ? Settings.get(Settings.SELECTED_VOICE_EN):Settings.get(Settings.SELECTED_VOICE_FI);
-            let voiceRate = Settings.getNumer(Settings.SELECTED_VOICE_SPEED, "0.7");
+            let voiceRate = Settings.getNumer(Settings.SELECTED_VOICE_SPEED, 0.7);
+            console.log("requiredVoice:", requiredVoice);
             
             window.speechSynthesis.getVoices().forEach(function (v) {
                 if (requiredVoice && requiredVoice != "") {
@@ -155,7 +158,7 @@ var helpers = {
             msg.voice = voice;
             msg.text = word;
             msg.lang = language;
-            msg.rate = ((language === helpers.language.fi)?voiceRate:0.8);
+            msg.rate = ((language === helpers.language.fi)?voiceRate:1);
             msg.onerror = function (e) {
                 console.log("Error speaking: ", e);
                 onEnd(false);

@@ -6,7 +6,7 @@ Games["select_voices"] = {
     "start" : function() {
         console.log("select_voices opened");
         Settings.remove(Settings.SELECTED_VOICE_FI);
-        
+
         //remember out which game was selected last
         this._voiceFI = Settings.get(Settings.SELECTED_VOICE_FI, "");
         this._voiceEN = Settings.get(Settings.SELECTED_VOICE_EN, "");
@@ -55,13 +55,20 @@ Games["select_voices"] = {
 
     "changeVoiceFI": function(voice) {
         Settings.set(Settings.SELECTED_VOICE_FI, voice);
+        this._voiceFI = voice;
+        console.log("changeVoiceFI:", voice);
+        
     },
     "changeVoiceEN": function(voice) {
         Settings.set(Settings.SELECTED_VOICE_EN, voice);
+        this._voiceEN = voice;
+        console.log("changeVoiceEN:", voice);
     },
 
     "changeVoiceSpeed": function(speed) {
+        console.log("changeVoiceSpeed:", speed);
         Settings.set(Settings.SELECTED_VOICE_SPEED, speed);
+        this._voiceSpeed = speed;
     }
 };
 
