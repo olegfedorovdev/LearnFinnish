@@ -11,8 +11,8 @@ function startGame() {
 
     let gameField = document.querySelector('#gameFields');
     document.onkeydown = function(e) {helpers.handleKeyDown(e)};
-    gameField.ontouchstart = function(e) {console.log("1");helpers.handleTouchStart(e)};
-    gameField.ontouchmove = function(e) {console.log("2");helpers.handleTouchMove(e)};
+    gameField.addEventListener("touchstart", function(e) {helpers.handleTouchStart(e)}, true);
+    gameField.addEventListener("touchmove", function(e) {helpers.handleTouchMove(e)}, true);
 };
 
 
