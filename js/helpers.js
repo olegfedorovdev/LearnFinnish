@@ -159,7 +159,7 @@ var helpers = {
             let msg = new SpeechSynthesisUtterance();
             msg.voice = voice;
             msg.text = word;
-            msg.lang = language;
+            //msg.lang = language;
             msg.rate = ((language === helpers.language.fi)?voiceRate:1);
             msg.onerror = function (e) {
                 console.log("Error speaking: ", e);
