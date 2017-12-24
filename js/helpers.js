@@ -129,6 +129,7 @@ var helpers = {
     //language: en-EN, fi-FI, ru-RU. if cannot find language - will call onEnd right away with false
     "sayWord": function(word, language, onEnd) {
         if ('speechSynthesis' in window) {
+            window.speechSynthesis.cancel();
             let voice = null;
             let requiredVoice = (language === helpers.language.en) ? Settings.get(Settings.SELECTED_VOICE_EN):Settings.get(Settings.SELECTED_VOICE_FI);
             let voiceRate = Settings.getNumer(Settings.SELECTED_VOICE_SPEED, 0.7);
@@ -155,11 +156,10 @@ var helpers = {
             }
             console.log("selected voice:", voice.name);
             
-            window.speechSynthesis.cancel();
             let msg = new SpeechSynthesisUtterance();
             msg.voice = voice;
             msg.text = word;
-            //msg.lang = language;
+            msg.lang = language;
             msg.rate = ((language === helpers.language.fi)?voiceRate:1);
             msg.onerror = function (e) {
                 console.log("Error speaking: ", e);
