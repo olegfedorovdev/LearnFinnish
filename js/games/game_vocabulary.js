@@ -2,6 +2,7 @@
 
 Games["vocabulary"] = {
     _currentWordIndex: 0,
+    _seenWordsAmount: 0,
     _updateInterval: undefined,
     // "words" : [] - here will be words
     // "_active": true, - will be true if game is active
@@ -24,6 +25,7 @@ Games["vocabulary"] = {
     },
 
     "onPrevious": function() {
+        --this._seenWordsAmount;
         this._currentWordIndex--;
         if (this._currentWordIndex < 0) {
             this._currentWordIndex = this.shuffled_words.length - 1;
@@ -51,7 +53,8 @@ Games["vocabulary"] = {
     },    
 
     "update" : function() {
-        this._currentWordIndex++;
+        ++this._seenWordsAmount;
+        ++this._currentWordIndex;
         if (this._currentWordIndex >= this.shuffled_words.length) {
             this._currentWordIndex = 0;
         }
@@ -59,6 +62,12 @@ Games["vocabulary"] = {
     },
 
     "showCurrentWord" : function() {
+        // update progress and finish game
+        if (helpers.updateProgress(this._seenWordsAmount, this.words.length)) {
+            this.resetUpdateInterval();
+            return;
+        }
+        
         let word = this.shuffled_words[this._currentWordIndex];
         //console.log("Show word " + this._currentWordIndex + ": " + JSON.stringify(word));
 

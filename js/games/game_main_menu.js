@@ -12,6 +12,7 @@ Games["main_menu"] = {
         helpers.selectDropdownValue("#select_scope", this._gameScope);
         
         document.querySelector('#gameButtons').hidden = true;
+        helpers.updateProgress(0, 100);
     },
 
     "stop" : function() {

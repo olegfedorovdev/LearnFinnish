@@ -19,6 +19,24 @@ var helpers = {
         return "sounds/" + word.fi + ".mp3";
     },
 
+    "updateProgress" : function(currentWord, wordsAmount) {
+        let greenLen = currentWord*100/wordsAmount;
+        let green = document.querySelector('#progress_line');
+        if (greenLen < 1) {
+            greenLen = 1;//1 min
+        }
+        if (greenLen > 100) {
+            greenLen = 100;
+        }
+        green.style.width = greenLen + "%";
+        // time to return to main menu when all words were seen
+        if (currentWord >= wordsAmount) {
+            setTimeout(function() {showMainMenu()}, 1000);
+            return true;
+        }
+        return false;
+    },
+
     // shuffle array
     "shuffle" : function(array) {
         let counter = array.length;

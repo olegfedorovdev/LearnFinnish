@@ -3,6 +3,29 @@ button {
     height: 32px;
 }
 
+body {
+    margin: 4px;
+}
+
+.div_game_area {
+    width: 100%;
+    height: 600px;
+}
+
+.div_progress_red_line {
+    width: 100%;
+    height: 4px;
+    background-color: red;
+    position: absolute;
+    top: 0px;
+}
+.div_progress_green_line {
+    width: 75%;
+    height: 4px;
+    background-color: green;
+    position: absolute;
+    top: 0px;
+}
 
 .button_main_menu {
     background-image: url( '../img/icons/main_menu.png' );

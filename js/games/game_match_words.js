@@ -1,7 +1,7 @@
 
 Games["match_words"] = {
     // "words" : [] - here will be words
-
+    _guessedWordsAmount: 0,
     // elements for words 1..8
     _elementEnWords : [],
     _elementFiWords : [],
@@ -48,8 +48,9 @@ Games["match_words"] = {
     "onHelp": function() {},//when button "help" pressed
 
     "win" : function() {
-        var that = this;
-        setTimeout(function() {that.start()}, 1000);
+        if (helpers.updateProgress(100, 100)) {
+            return;
+        }
     },
 
     "showWords" : function() {
@@ -109,7 +110,8 @@ Games["match_words"] = {
     },
 
     "removeSelectedWords" : function() {
-        console.log("Guessed right");
+        helpers.updateProgress(++this._guessedWordsAmount, this.words.length);
+
         this.unselect(this._elementFiWords[this._selectedWordFi]);
         this.unselect(this._elementEnWords[this._selectedWordEn]);
         this._currentWordsEn.splice(this._selectedWordEn, 1);

@@ -2,6 +2,7 @@
 Games["listen_choose"] = {
     // "words" : [] - here will be words
     _currentWordIndex: 0,
+    _seenWordsAmount: 0,
     _enWords: [],//4 english variants to choose (indexes)
     _elementEnWords : [],
     _elementEnImages : [],
@@ -30,6 +31,7 @@ Games["listen_choose"] = {
     },
     
     "onPrevious": function() {
+        --this._seenWordsAmount;
         this._currentWordIndex--;
         if (this._currentWordIndex < 0) {
             this._currentWordIndex = this.words.length - 1;
@@ -38,6 +40,7 @@ Games["listen_choose"] = {
     },
 
     "onNext": function() {
+        ++this._seenWordsAmount;
         this._currentWordIndex++;
         if (this._currentWordIndex >= this.words.length) {
             this._currentWordIndex = 0;
@@ -71,6 +74,9 @@ Games["listen_choose"] = {
     },
 
     "playCurrentWordAndShowGuesses" : function() {
+        if (helpers.updateProgress(this._seenWordsAmount, this.words.length)) {
+            return;
+        }        
         let word = this.words[this._currentWordIndex];
         helpers.sayFinnishWordWithFallback(this._elementSound, word, function() {});
         

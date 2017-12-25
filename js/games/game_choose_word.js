@@ -1,6 +1,7 @@
 
 Games["choose_word"] = {
     _currentWordIndex: 0,
+    _seenWordsAmount: 0,
 
     _fiWord1: 0,//variant to choose 1 (index)
     _fiWord2: 0,//variant to choose 2
@@ -35,6 +36,7 @@ Games["choose_word"] = {
     },
     
     "onPrevious": function() {
+        --this._seenWordsAmount;
         this._currentWordIndex--;
         if (this._currentWordIndex < 0) {
             this._currentWordIndex = this.words.length - 1;
@@ -43,6 +45,7 @@ Games["choose_word"] = {
     },
 
     "onNext": function() {
+        ++this._seenWordsAmount;
         this._currentWordIndex++;
         if (this._currentWordIndex >= this.words.length) {
             this._currentWordIndex = 0;
@@ -76,6 +79,10 @@ Games["choose_word"] = {
 
     // shows current word and 2 choices
     "showCurrentWord" : function() {
+        if (helpers.updateProgress(this._seenWordsAmount, this.words.length)) {
+            return;
+        }
+       
         if (Math.random() < 0.5) {
             this._fiWord1 = this._currentWordIndex;
             this._fiWord2 = this.getRandomWord(this._fiWord1);

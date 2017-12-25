@@ -2,6 +2,7 @@
 Games["find_image"] = {
     // "words" : [] - here will be words 1..4
     _currentWordIndex: 0,
+    _seenWordsAmount: 0,
     _enWords: [],//4 english variants to choose (indexes)
     _elementEnWords : [],
     _elementFiWord : 0,
@@ -34,6 +35,7 @@ Games["find_image"] = {
     },
     
     "onPrevious": function() {
+        --this._seenWordsAmount;
         this._currentWordIndex--;
         if (this._currentWordIndex < 0) {
             this._currentWordIndex = this.words.length - 1;
@@ -42,6 +44,7 @@ Games["find_image"] = {
     },
 
     "onNext": function() {
+        ++this._seenWordsAmount;
         this._currentWordIndex++;
         if (this._currentWordIndex >= this.words.length) {
             this._currentWordIndex = 0;
@@ -81,6 +84,10 @@ Games["find_image"] = {
 
     // shows current word and 2 choices
     "showCurrentWordAndGuesses" : function() {
+        if (helpers.updateProgress(this._seenWordsAmount, this.words.length)) {
+            return;
+        }
+                
         for(let i = 1; i <= 4; ++i) {
             this._enWords[i] = this.getRandomWord(this._currentWordIndex);
         }
