@@ -54,6 +54,9 @@ Games["listen_choose"] = {
         let wordIndex = this._enWords[_wordIndex];
         let currentWord = this.words[this._currentWordIndex];
         let chosenWord = this.words[wordIndex];
+
+        this._elementEnWords[_wordIndex].textContent = chosenWord.fi;//show finnish translation, no matter if it's correct or wrong
+
         if (currentWord.fi === chosenWord.fi) {
             this.win(_wordIndex);
         } else {
@@ -65,7 +68,7 @@ Games["listen_choose"] = {
         helpers.playSuccessAnimationOnElement(this._elementEnImages[index], 2000);
 
         var that = this;
-        setTimeout(function() {that.onNext()}, 2000);
+        setTimeout(function() {that.onNext()}, 2500);
     },
 
     "lose": function(index) {

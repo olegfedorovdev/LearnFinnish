@@ -17,9 +17,9 @@ https://olegfedorovdev.github.io/LearnFinnish/
 
 todo:
 
-1. add progress indicator to see how much in set left
-2. when game ends - open main menu
-3. make game field with less height
-4. add all new words from kappale 8+9
-5. add new game: enter text. show english word, ask to enter Finnish one
+DONE 1. add progress indicator to see how much in set left
+DONE 2. when game ends - open main menu
+DONE 3. make game field with less height
+4. add new game: enter text. show english word, ask to enter Finnish one
+5. add all new words from kappale 8+9
 6. For verbs: enter verb in one of forms: minä... sinä... etc

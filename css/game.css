@@ -9,7 +9,7 @@ body {
 
 .div_game_area {
     width: 100%;
-    height: 600px;
+    height: 580px;
 }
 
 .div_progress_red_line {
@@ -69,7 +69,7 @@ select {
 
 .game_field {
     width: 100%;
-    height: 600px;
+    height: 580px;
     background-color: rgb(236, 131, 33)
 }
 
@@ -82,7 +82,7 @@ select {
 
 .div_image_big {
     width: 98%;
-    height: 432px;
+    height: 412px;
     margin: 0 auto;
 }
 
@@ -148,7 +148,7 @@ select {
 /*Find image game*/
 .div_find_image_field {
     width: 98%;
-    height: 500px;
+    height: 480px;
     margin: 0 auto;
 }
 
