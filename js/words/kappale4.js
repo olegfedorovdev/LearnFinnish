@@ -26,7 +26,7 @@ words["kappale4"] = {
         {"fi":"lomake", "en":"form (to fill)", "ru": "форма (для заполнения)"},
         {"fi":"haluta", "en":"to want", "ru": "хотеть"},
         {"fi":"ilmoittautua", "en":"to register", "ru": "зарегистрироваться"},
-        {"fi":"tarkista", "en":"to check", "ru": "проверить"},
+        {"fi":"tarkistaa", "en":"to check", "ru": "проверить"},
         {"fi":"tarvita", "en":"need", "ru": "нуждаться"},
         {"fi":"siviilisääty", "en":"martial status", "ru": "семейное положение"},
         {"fi":"henkilötiedot", "en":"personal details", "ru": "персональные данные"},

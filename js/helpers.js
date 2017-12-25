@@ -155,7 +155,7 @@ var helpers = {
             let voice = null;
             let requiredVoice = (language === helpers.language.en) ? Settings.get(Settings.SELECTED_VOICE_EN):Settings.get(Settings.SELECTED_VOICE_FI);
             let voiceRate = Settings.getNumer(Settings.SELECTED_VOICE_SPEED, 0.7);
-            console.log("requiredVoice:", requiredVoice);
+            //console.log("requiredVoice:", requiredVoice);
             
             window.speechSynthesis.getVoices().forEach(function (v) {
                 if (requiredVoice !== undefined && requiredVoice !== "") {
@@ -176,7 +176,7 @@ var helpers = {
             if (voice === null) {
                 return onEnd(false)
             }
-            console.log("selected voice:", voice.name);
+            //console.log("selected voice:", voice.name);
             
             let msg = new SpeechSynthesisUtterance();
             msg.voice = voice;

@@ -7,7 +7,8 @@ Games["type_word"] = {
     _elementImg: undefined,
     _elementWordEn: undefined,
     _elementWordFi: undefined,
-    _elementLetters: [],//10 letters (div elements)
+    _elementLetters: [],//12 letters (div elements)
+    _elementLettersCount: 12,
     _elementAudio: undefined,
     
     "start" : function() {
@@ -18,7 +19,7 @@ Games["type_word"] = {
         this._elementAudio = document.getElementById("type_word_audio");
         var that = this;
 
-        for(let i = 0; i < 10; ++i) {
+        for(let i = 0; i < this._elementLettersCount; ++i) {
             this._elementLetters[i] = document.getElementById("type_word_buttons_" + (i + 1));
             this._elementLetters[i].onclick = function() {that.onLetterSelected(i);}
         }
@@ -46,7 +47,10 @@ Games["type_word"] = {
     "onPlayAgain": function() {
         this.showCurrentWord();
     },
-    "onHelp": function() {},//when button "help" pressed
+    "onHelp": function() {
+        this.repeatCurrentWordInTheEnd();
+        this.showNextGuessedLetter();
+    },
 
     "win" : function() {
         let word = this.words[this._currentWordIndex];
@@ -104,7 +108,7 @@ Games["type_word"] = {
         //add random other
         // note: array have multiple often used letters  to increase probability of selecting them
         let possible = "aaaaabcccdeeeefghhhhiiiijkkkklllmmmnnnoooooppppqrsssttttuvwxyzöäöäöä";//å
-        while(uniqueLetters.length < 10) {
+        while(uniqueLetters.length < this._elementLettersCount) {
             let l = possible.charAt(Math.floor(Math.random() * possible.length));
             if (uniqueLetters.indexOf(l) === -1) {
                 uniqueLetters.push(l);
@@ -113,40 +117,59 @@ Games["type_word"] = {
 
         uniqueLetters = helpers.shuffle(uniqueLetters);
 
-        for(let i = 0; i < 10; ++i) {
+        for(let i = 0; i < this._elementLettersCount; ++i) {
             this._elementLetters[i].textContent = uniqueLetters[i];
+            this._elementLetters[i].style.backgroundColor = "white";
+        }
+    },
+
+    "showNextGuessedLetter": function() {
+        if (this._currentGuessingLetterIndex >= this.words[this._currentWordIndex].fi.length) {
+            return;
+        }
+            
+        // we add spaces and _ in guessing word so we need to replace _ with letter and keep space
+        let guessingWord = this._elementWordFi.textContent;
+        let word = this.words[this._currentWordIndex].fi;
+        let guessingLetter = word[this._currentGuessingLetterIndex];
+        
+        let index = this._currentGuessingLetterIndex*2;
+        guessingWord = guessingWord.substr(0, index) + guessingLetter + guessingWord.substr(index + 1);
+        this._elementWordFi.textContent = guessingWord;
+        ++this._currentGuessingLetterIndex;
+        if (this._currentGuessingLetterIndex >= word.length) {
+            this.win();
+        }
+    },
+
+    "repeatCurrentWordInTheEnd": function() {
+        let word = this.words[this._currentWordIndex].fi;
+        // add word to the end of the list to ask it again if guessed wrong
+        if (this.words[this.words.length - 1].fi !== word) {
+            this.words.push(this.words[this._currentWordIndex]);
         }
     },
 
     "onLetterSelected": function(idx) {
+        if (this._currentGuessingLetterIndex >= this.words[this._currentWordIndex].fi.length) {
+            return;
+        }
+        
         let element = this._elementLetters[idx];
         let letter = element.textContent;
-        console.log(letter);
+        //console.log(letter);
         
         let word = this.words[this._currentWordIndex].fi;
-        let guessingWord = this._elementWordFi.textContent;
-
         let guessingLetter = word[this._currentGuessingLetterIndex];
 
         if (letter === guessingLetter) {
-            // we add spaces and _ in guessing word so we need to replace _ with letter and keep space
-            let index = this._currentGuessingLetterIndex*2;
-            guessingWord = guessingWord.substr(0, index) + guessingLetter + guessingWord.substr(index + 1);
-            this._elementWordFi.textContent = guessingWord;
-            ++this._currentGuessingLetterIndex;
-            if (this._currentGuessingLetterIndex >= word.length) {
-                this.win();
-            }
+            this.showNextGuessedLetter();
         } else {
-            // add word to the end of the list to ask it again if guessed wrong
-            if (this.words[this.words.length - 1].fi !== word) {
-                this.words.push(this.words[this._currentWordIndex]);
-            }
+            this.repeatCurrentWordInTheEnd();
 
-            let background = element.style.backgroundColor;
             element.style.backgroundColor = "red";
             setTimeout(function() {
-                    element.style.backgroundColor = background;
+                    element.style.backgroundColor = "white";
                 },
                 1000
             );

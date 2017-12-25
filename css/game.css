@@ -279,16 +279,16 @@ select {
 
 .div_type_word_button {
     float: left;
-    width: 52px;
-    height: 52px;
+    width: 50px;
+    height: 50px;
     background-color: white;
     text-align: center;
     font-size: 32px;
-    line-height: 52px;/*align text vertically*/
+    line-height: 50px;/*align text vertically*/
 }
 
 .div_type_word_button_divider {
     float: left;
-    width: 16px;
-    height: 16px;
+    width: 10px;
+    height: 10px;
 }
