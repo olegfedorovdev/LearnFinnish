@@ -1,5 +1,5 @@
 words["kappale4"] = {
-    "type": "Kappale 4-6",
+    "type": "Kappale 4-7",
     "words" : [
         {"fi":"hoikka", "en":"slim", "ru": "стройный"},
         {"fi":"söpö", "en":"cute", "ru": "милый"},
@@ -70,6 +70,30 @@ words["kappale4"] = {
         {"fi":"tuoda", "en":"to carry in", "ru": "приносить"},
         {"fi":"käydä", "en":"to visit", "ru": "посещать"},
         {"fi":"vuotaa", "en":"to leak", "ru": "протекать"},
-        {"fi":"sopia", "en":"to fit", "ru": "подходить"}
+        {"fi":"sopia", "en":"to fit", "ru": "подходить"},
+        {"fi":"katsella", "en":"to watch", "ru": "смотреть"},
+        {"fi":"palata", "en":"to return", "ru": "вернуться"},
+        {"fi":"viipyä", "en":"to be late", "ru": "задерживаться"},
+        {"fi":"tarkistaa", "en":"to check", "ru": "проверять"},
+        {"fi":"luovuttaa", "en":"to hand over", "ru": "отдавать"},
+        {"fi":"lossi", "en":"ferry", "ru": "паром"},
+        {"fi":"teltta", "en":"tent", "ru": "палатка"},
+        {"fi":"mennään", "en":"lets go", "ru": "пойдем"},
+        {"fi":"varmasti", "en":"certainly", "ru": "конечно"},
+        {"fi":"mukava", "en":"comfortable", "ru": "удобный"},
+        {"fi":"noin", "en":"about, around", "ru": "примерно"},
+        {"fi":"...-kin", "en":"...-also", "ru": "...-тоже, также", "img":"img/kin.jpg"},
+        {"fi":"henki", "en":"spirit", "ru": "дух"},
+        {"fi":"täytyä", "en":"have to", "ru": "должен"},
+        {"fi":"lause", "en":"sentence", "ru": "предложение (текст)"},
+        {"fi":"tuore", "en":"fresh", "ru": "свежий"},
+        {"fi":"ihminen", "en":"human", "ru": "человек"},
+        {"fi":"yhdistää", "en":"to connect", "ru": "соединять"},
+        {"fi":"panna", "en":"to put", "ru": "ставить"},
+        {"fi":"toimisto", "en":"office", "ru": "офис"},
+        {"fi":"sairaala", "en":"hospital", "ru": "больница"},
+        {"fi":"ainakin", "en":"at least", "ru": "как минимум"},
+        {"fi":"aina", "en":"always", "ru": "всегда"},
+        {"fi":"taas", "en":"again", "ru": "опять"}        
     ]
 };

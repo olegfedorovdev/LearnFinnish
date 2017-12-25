@@ -43,14 +43,14 @@ def download_word(word):
     print ("%s" % funcArgs)
 
     vars = funcArgs.split(",")
-    print("%s" % str(vars))
+    #print("%s" % str(vars))
     if (len(vars) < 5):
         print("Wrong vars!")
         return 1
 
     e = vars[4]
     url = "https://forvo.com/player-mp3-highHandler.php?path=%s" % e
-    print("Downloading mp3: %s" % url)
+    #print("Downloading mp3: %s" % url)
     try:
         response = urllib.request.urlopen(url)
     except urllib.error.HTTPError:
