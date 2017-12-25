@@ -336,6 +336,7 @@ var helpers = {
         this.touchPointDownY = e.touches[0].clientY;
     },
     "handleTouchMove": function(e) {
+        //e.preventDefault();
     },
     "handleTouchCancel": function(e) {
         this.touchPointDownX = null;
