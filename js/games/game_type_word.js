@@ -111,6 +111,8 @@ Games["type_word"] = {
             }
         }
 
+        uniqueLetters = helpers.shuffle(uniqueLetters);
+
         for(let i = 0; i < 10; ++i) {
             this._elementLetters[i].textContent = uniqueLetters[i];
         }
@@ -136,6 +138,11 @@ Games["type_word"] = {
                 this.win();
             }
         } else {
+            // add word to the end of the list to ask it again if guessed wrong
+            if (this.words[this.words.length - 1].fi !== word) {
+                this.words.push(this.words[this._currentWordIndex]);
+            }
+
             let background = element.style.backgroundColor;
             element.style.backgroundColor = "red";
             setTimeout(function() {
