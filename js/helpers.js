@@ -357,10 +357,10 @@ var helpers = {
             console.log("Swipe with diff: ", Math.abs(xDiff));
             if (xDiff > 0) {
                 /* left swipe */
-                Game.onPrevious();
+                Game.onNext();
             } else {
                 /* right swipe */
-                Game.onNext();
+                Game.onPrevious();
             }
         } else {
             if (yDiff > 0) {
