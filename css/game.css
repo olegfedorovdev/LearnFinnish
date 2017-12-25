@@ -86,6 +86,12 @@ select {
     margin: 0 auto;
 }
 
+.div_image_medium {
+    width: 300px;
+    height: 300px;
+    margin: auto;
+    margin-bottom: 8px;
+}
 
 .img_image_big {
     width: 100%;
@@ -260,4 +266,29 @@ select {
     vertical-align: bottom; 
     text-align: center;
     font-size: 24px;
+}
+
+/* Type a word*/
+.div_type_word_buttons {
+    width: 98%;
+    height: 128px;
+    /*background-color: white;*/
+    margin: 0 auto;
+    margin-top: 8px;
+}
+
+.div_type_word_button {
+    float: left;
+    width: 52px;
+    height: 52px;
+    background-color: white;
+    text-align: center;
+    font-size: 32px;
+    line-height: 52px;/*align text vertically*/
+}
+
+.div_type_word_button_divider {
+    float: left;
+    width: 16px;
+    height: 16px;
 }

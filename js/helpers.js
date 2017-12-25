@@ -115,9 +115,13 @@ var helpers = {
                 //assume iOS has finnish voice
                 if (!iOS) {
                     playEnNow = false;
+                    audio.onended = audio.onerror = audio.onabort = null;
                     audio.src = helpers.getAudioSrc(word);
                     audio.play();
                     audio.onended = function() {
+                        onPlayed(word);
+                    }
+                    audio.onerror = function() {
                         onPlayed(word);
                     }
                 }

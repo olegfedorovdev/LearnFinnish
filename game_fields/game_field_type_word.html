@@ -1,0 +1,38 @@
+<div id="div_game_field_type_word" class="game_field">
+    <div id="type_word_div_image" class="div_image_medium" onclick="helpers.activateText2Speech();document.getElementById('vocabulary_audio').play()">
+        <img id="type_word_img" src="img/ottaa.jpg" class="img_image_big"></img>
+    </div>
+    <div id="type_word_en" class="div_text_wide_small">to take</div>
+    <div class="div_small_empty_space"></div>
+    <div id="type_word_fi" class="div_text_wide_small">_ _ _ _ _</div>
+
+    <div id="type_word_buttons" class="div_type_word_buttons">
+        <div id="type_word_buttons_1" class="div_type_word_button">1</div>
+        <div class="div_type_word_button_divider"></div>
+        <div id="type_word_buttons_2" class="div_type_word_button">2</div>
+        <div class="div_type_word_button_divider"></div>
+        <div id="type_word_buttons_3" class="div_type_word_button">3</div>
+        <div class="div_type_word_button_divider"></div>
+        <div id="type_word_buttons_4" class="div_type_word_button">4</div>
+        <div class="div_type_word_button_divider"></div>
+        <div id="type_word_buttons_5" class="div_type_word_button">5</div>
+
+        <div class="div_medium_empty_space"></div>        
+
+        <div id="type_word_buttons_6" class="div_type_word_button">6</div>
+        <div class="div_type_word_button_divider"></div>
+        <div id="type_word_buttons_7" class="div_type_word_button">7</div>
+        <div class="div_type_word_button_divider"></div>
+        <div id="type_word_buttons_8" class="div_type_word_button">_</div>
+        <div class="div_type_word_button_divider"></div>
+        <div id="type_word_buttons_9" class="div_type_word_button">9</div>
+        <div class="div_type_word_button_divider"></div>
+        <div id="type_word_buttons_10" class="div_type_word_button">_</div>
+    </div>
+    <audio id="type_word_audio"></audio>
+</div>
+<script>
+    //adding to games
+    var gameField = document.currentScript.ownerDocument.querySelector('#div_game_field_type_word');
+    helpers.registerNewGame(gameField, "type_word", "Type a word");
+</script>
