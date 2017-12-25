@@ -21,7 +21,7 @@ var helpers = {
 
     "updateProgress" : function(currentWord, wordsAmount) {
         let greenLen = currentWord*100/wordsAmount;
-        let green = document.querySelector('#progress_line');
+        let green = document.getElementById('progress_line');
         if (greenLen < 1) {
             greenLen = 1;//1 min
         }
@@ -96,7 +96,7 @@ var helpers = {
     },
 
     "selectDropdownValue" : function(elementID, value) {
-        let dropdown = document.querySelector(elementID);
+        let dropdown = document.getElementById(elementID);
         for (var i = 0; i < dropdown.length; i++) {
             if (dropdown[i].value == value) {
                 dropdown[i].selected = true;
@@ -250,10 +250,10 @@ var helpers = {
         //console.log("registerNewGame", gameID);
         let gameFieldDiv = gameField.cloneNode(true);
         gameFieldDiv.hidden = true;
-        document.querySelector('#gameFields').appendChild(gameFieldDiv);
+        document.getElementById('gameFields').appendChild(gameFieldDiv);
 
         if (gameName) {
-            let gamesList = document.querySelector('#select_game_type');
+            let gamesList = document.getElementById('select_game_type');
             let option = document.createElement("option");
             option.text = gameName;
             option.value = gameID;
@@ -273,7 +273,7 @@ var helpers = {
         var logLine = 1;
         console.log = function () {
             log.apply(this, Array.prototype.slice.call(arguments));
-            let textArea = document.querySelector('#debug_log_output');
+            let textArea = document.getElementById('debug_log_output');
             if (textArea) {
                 let text = (logLine++) + ": ";
                 for(arg in arguments) {
@@ -303,7 +303,7 @@ var helpers = {
     "onPageLoaded": function () {
         console.log("onPageLoaded");
         helpers.pageLoaded = true;
-        if (document.querySelector('#select_game_type').length > 0) {
+        if (document.getElementById('select_game_type') && document.getElementById('select_game_type').length > 0) {
             startGame();
         }
     },

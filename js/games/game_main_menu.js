@@ -7,12 +7,12 @@ Games["main_menu"] = {
 
         this.fillSelectorsWhenAvailable();
         
-        document.querySelector('#gameButtons').hidden = true;
+        document.getElementById('gameButtons').hidden = true;
         helpers.updateProgress(0, 100);
     },
 
     "stop" : function() {
-        document.querySelector('#gameButtons').hidden = false;
+        document.getElementById('gameButtons').hidden = false;
     },
 
     "wordsAutoGenerateAll": function() {
@@ -41,7 +41,7 @@ Games["main_menu"] = {
     "fillSelectorsWhenAvailable": function() {
         let names = this.wordsAutoGenerateAll();
         console.log(JSON.stringify(names));
-        let scopeList = document.querySelector('#select_scope');
+        let scopeList = document.getElementById('select_scope');
         scopeList.options.length = 0;
         for(n in names) {
             let option = document.createElement("option");
@@ -53,8 +53,8 @@ Games["main_menu"] = {
         //remember which game was selected last
         this._gameType = Settings.get(Settings.SELECTED_GAME, "vocabulary");
         this._gameScope = Settings.get(Settings.SELECTED_SCOPE, "latest");
-        const gameTypeSelected = helpers.selectDropdownValue("#select_game_type", this._gameType);
-        helpers.selectDropdownValue("#select_scope", this._gameScope);
+        const gameTypeSelected = helpers.selectDropdownValue("select_game_type", this._gameType);
+        helpers.selectDropdownValue("select_scope", this._gameScope);
 
         //game types load async so they may be loaded later - wait for it
         var that = this;

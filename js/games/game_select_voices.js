@@ -23,8 +23,8 @@ Games["select_voices"] = {
     },
 
     "reloadVoices": function() {
-        let dropdownFI = document.querySelector("#select_voice_fi");
-        let dropdownEN = document.querySelector("#select_voice_en");
+        let dropdownFI = document.getElementById("select_voice_fi");
+        let dropdownEN = document.getElementById("select_voice_en");
         dropdownFI.options.length = 0;
         dropdownEN.options.length = 0;
 
@@ -44,9 +44,9 @@ Games["select_voices"] = {
                 dropdownEN.add(optionEN);
             }
         });
-        helpers.selectDropdownValue("#select_voice_fi", this._voiceFI);
-        helpers.selectDropdownValue("#select_voice_en", this._voiceEN);
-        helpers.selectDropdownValue("#select_voice_speed", this._voiceSpeed);
+        helpers.selectDropdownValue("select_voice_fi", this._voiceFI);
+        helpers.selectDropdownValue("select_voice_en", this._voiceEN);
+        helpers.selectDropdownValue("select_voice_speed", this._voiceSpeed);
     },
 
 

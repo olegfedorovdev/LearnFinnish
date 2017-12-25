@@ -38,18 +38,18 @@
 <textarea id="debug_log_output" rows="54" cols="55"></textarea>
 
 <script>
-    document.querySelector('#debug_log_output').hidden = true;
+    document.getElementById('debug_log_output').hidden = true;
     // show log only on 5 clicks. and hide too
     function onDebugLogClick() {
-        if (document.querySelector('#debug_log_output').hidden) {
+        if (document.getElementById('debug_log_output').hidden) {
             window.onDebugLogClickCounter = (window.onDebugLogClickCounter === undefined) ? 1: window.onDebugLogClickCounter + 1;
             if (window.onDebugLogClickCounter === 5) {
-                document.querySelector('#debug_log_output').hidden = false;
+                document.getElementById('debug_log_output').hidden = false;
             }
         } else {
             window.onDebugLogClickCounter = window.onDebugLogClickCounter - 1;
             if (window.onDebugLogClickCounter === 0) {
-                document.querySelector('#debug_log_output').hidden = true;
+                document.getElementById('debug_log_output').hidden = true;
             }
         }
     }

@@ -1,8 +1,11 @@
 var Settings = {
-    "get" : function(name, def) {
-        let v = localStorage.getItem(name);
+    "get" : function(_name, _def) {
+        if (typeof localStorage === 'undefined') {
+            return _def;
+        }
+        let v = localStorage.getItem(_name);
         if (v === null) {
-            return def;
+            return _def;
         }
         return v;
     },
@@ -16,18 +19,25 @@ var Settings = {
     },
 
     "set" : function(name, value) {
+        if (typeof localStorage === 'undefined') {
+            return;
+        }
         localStorage.setItem(name, value);
     },
 
     "setNumber" : function(name, value) {
+        if (typeof localStorage === 'undefined') {
+            return;
+        }
         localStorage.setItem(name, value);
     },
 
     "remove": function(name) {
+        if (typeof localStorage === 'undefined') {
+            return;
+        }
         localStorage.removeItem(name);
     },
-
-
 
     // constants
     "GAMES_PLAYED": "games_played",

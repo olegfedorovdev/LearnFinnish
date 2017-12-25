@@ -6,7 +6,7 @@ function startGame() {
     Settings.setNumber(Settings.GAMES_PLAYED, gamesPlayed);
     console.log("Games played: ", gamesPlayed);
 
-    let gameField = document.querySelector('#gameFields');
+    let gameField = document.getElementById('gameFields');
     document.onkeydown = function(e) {helpers.handleKeyDown(e)};
     gameField.addEventListener("touchstart", function(e) {helpers.handleTouchStart(e)}, true);
     gameField.addEventListener("touchmove", function(e) {helpers.handleTouchMove(e)}, true);
