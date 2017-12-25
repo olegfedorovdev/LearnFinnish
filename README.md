@@ -2,6 +2,10 @@
 Game to help learning Finnish words.
 
 You can clone it, edit or add new words you want to learn to a file in folder "js/words", add it to index.html and you can select and start learning these words.
+Note: when adding new words, add also image for this word into img/ folder. Image should be .jpg and have name equal to Finnish word.
+Image can be also with different name or somewhere else in the internet - you need to define "img" value in your word object then pointing to it.
+You can also download .mp3 file for your word - it's used if Finnish voice is not installed on a system (for instance, in chrome browser).
+
 Then simply run index.html (or open it from the internet, for instance, using github.io pages).
 Best way to use this app is to open it in iOS Safari, export it to main screen and open it from there - it will work as a normal ios app then.
 
@@ -17,9 +21,5 @@ https://olegfedorovdev.github.io/LearnFinnish/
 
 todo:
 
-DONE 1. add progress indicator to see how much in set left
-DONE 2. when game ends - open main menu
-DONE 3. make game field with less height
-4. add new game: enter text. show english word, ask to enter Finnish one
 5. add all new words from kappale 8+9
 6. For verbs: enter verb in one of forms: minä... sinä... etc
