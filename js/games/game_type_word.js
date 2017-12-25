@@ -10,6 +10,10 @@ Games["type_word"] = {
     _elementLetters: [],//12 letters (div elements)
     _elementLettersCount: 12,
     _elementAudio: undefined,
+
+    // note: array have multiple often used letters  to increase probability of selecting them
+    //å is missing
+    _possibleCharacters: "aaaaabcccdeeeefghhhhiiiijkkkklllmmmnnnoooooppppqrsssttttuvwxyzöäöäöä", 
     
     "start" : function() {
         console.log("Start game type_word");
@@ -44,12 +48,24 @@ Games["type_word"] = {
     "onNext": function() {
         this.update();
     },
-    "onPlayAgain": function() {
-        this.showCurrentWord();
-    },
+    
     "onHelp": function() {
         this.repeatCurrentWordInTheEnd();
         this.showNextGuessedLetter();
+    },
+
+    "onKeyPressed": function(keyCode) {
+        let letter = String.fromCharCode(keyCode).toLowerCase();
+        if (keyCode === 192) letter = "ö";
+        if (keyCode === 222) letter = "ä";
+
+        //simulate press on one of buttons
+        for(let i = 0; i < this._elementLettersCount; ++i) {
+            if (this._elementLetters[i].textContent === letter) {
+                return this.onLetterSelected(i);
+            }
+        }
+
     },
 
     "win" : function() {
@@ -106,10 +122,8 @@ Games["type_word"] = {
         }
 
         //add random other
-        // note: array have multiple often used letters  to increase probability of selecting them
-        let possible = "aaaaabcccdeeeefghhhhiiiijkkkklllmmmnnnoooooppppqrsssttttuvwxyzöäöäöä";//å
         while(uniqueLetters.length < this._elementLettersCount) {
-            let l = possible.charAt(Math.floor(Math.random() * possible.length));
+            let l = this._possibleCharacters.charAt(Math.floor(Math.random() * this._possibleCharacters.length));
             if (uniqueLetters.indexOf(l) === -1) {
                 uniqueLetters.push(l);
             }

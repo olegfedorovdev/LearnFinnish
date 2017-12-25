@@ -100,10 +100,11 @@ var helpers = {
         for (var i = 0; i < dropdown.length; i++) {
             if (dropdown[i].value == value) {
                 dropdown[i].selected = true;
-                return;
+                return true;
             }
         }
         console.log("Cannot select '", value, "' in", elementID);
+        return false;
     },
 
     "sayFinnishWordWithFallback": function(audio, word, onPlayed) {
@@ -316,11 +317,14 @@ var helpers = {
                 });
             break;
             case 37:
-                Game.onPrevious();//left
+                if (Game.onPrevious) Game.onPrevious();//left
                 break;
             case 39:
-                Game.onNext();//right
+                if (Game.onNext) Game.onNext();//right
                 break;
+            default:
+                if (Game.onKeyPressed) Game.onKeyPressed(e.keyCode);//any key
+                
         }
     },
 

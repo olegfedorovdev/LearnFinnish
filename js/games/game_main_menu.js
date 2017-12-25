@@ -5,11 +5,7 @@ Games["main_menu"] = {
     "start" : function() {
         console.log("Main menu opened");
 
-        //remember out which game was selected last
-        this._gameType = Settings.get(Settings.SELECTED_GAME, "vocabulary");
-        this._gameScope = Settings.get(Settings.SELECTED_SCOPE, "latest");
-        helpers.selectDropdownValue("#select_game_type", this._gameType);
-        helpers.selectDropdownValue("#select_scope", this._gameScope);
+        this.fillSelectorsWhenAvailable();
         
         document.querySelector('#gameButtons').hidden = true;
         helpers.updateProgress(0, 100);
@@ -17,6 +13,56 @@ Games["main_menu"] = {
 
     "stop" : function() {
         document.querySelector('#gameButtons').hidden = false;
+    },
+
+    "wordsAutoGenerateAll": function() {
+        let all = [];
+        let names = [];
+        for(t in words) {
+            if (t !== "all" && words[t] instanceof Object && words[t].words instanceof Array) {
+                all = all.concat(words[t].words);
+                names.push({
+                    "type": t, 
+                    "visible_name": words[t].type
+                });
+            }
+        };
+        words.all = {
+            "type" : "All words", 
+            "words" : all
+        };
+        names.push({
+            "type": "all", 
+            "visible_name": words.all.type
+        });
+        return names;
+    },
+
+    "fillSelectorsWhenAvailable": function() {
+        let names = this.wordsAutoGenerateAll();
+        console.log(JSON.stringify(names));
+        let scopeList = document.querySelector('#select_scope');
+        scopeList.options.length = 0;
+        for(n in names) {
+            let option = document.createElement("option");
+            option.text = names[n].visible_name;
+            option.value = names[n].type;
+            scopeList.add(option);
+        }    
+
+        //remember which game was selected last
+        this._gameType = Settings.get(Settings.SELECTED_GAME, "vocabulary");
+        this._gameScope = Settings.get(Settings.SELECTED_SCOPE, "latest");
+        const gameTypeSelected = helpers.selectDropdownValue("#select_game_type", this._gameType);
+        helpers.selectDropdownValue("#select_scope", this._gameScope);
+
+        //game types load async so they may be loaded later - wait for it
+        var that = this;
+        if (!gameTypeSelected) {
+            setTimeout(function() {
+                that.fillSelectorsWhenAvailable()
+            }, 100);
+        }
     },
 
     "onPrevious": function() {},

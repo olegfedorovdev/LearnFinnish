@@ -1,5 +1,5 @@
 words["verbs"] = {
-    "type": "verbit",
+    "type": "Verbs",
     "words" : [
         {"fi":"heittää", "en":"to throw", "ru":"бросать", "img": "img/heittää.png"},
         {"fi":"pelata", "en":"to play", "ru":"играть", "img": "img/pelata.png"},

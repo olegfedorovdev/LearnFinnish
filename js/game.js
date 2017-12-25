@@ -30,6 +30,7 @@ var Game = {
     "onNext": function() {},
     "onPlayAgain": function() {},//when button "play again" pressed
     "onHelp": function() {},//when button "help" pressed
+    "onKeyPressed": function(keyCode) {},//when button pressed
     "_active" : false
 };
 

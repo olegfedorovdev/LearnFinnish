@@ -27,8 +27,8 @@
 <div class="div_small_empty_space"></div>
 <div id="gameButtons">
 <button class="button_main_menu" onclick="showMainMenu()"></button>
-<button class="button_play_again" onclick="Game.onPlayAgain()"></button>
-<button class="button_help" onclick="Game.onHelp()"></button>
+<button class="button_play_again" onclick="if (Game.onPlayAgain) Game.onPlayAgain()"></button>
+<button class="button_help" onclick="if (Game.onHelp) Game.onHelp()"></button>
 </div>
 
 <div class="div_small_empty_space"></div>

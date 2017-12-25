@@ -36,14 +36,10 @@ var words = {
             {"fi":"aina", "en":"always", "ru": "всегда"},
             {"fi":"taas", "en":"again", "ru": "опять"}
         ]
-    },
-
-    // we can have as many other as we want, they will be combined into "all"
-    "verbs" :   {
     }
 };
 
-
+/*
 // will create object words.all
 function wordsAutoGenerateAll() {
     let all = [];
@@ -60,7 +56,7 @@ function wordsAutoGenerateAll() {
 };
     
 wordsAutoGenerateAll();
-
+*/
 
 
 
