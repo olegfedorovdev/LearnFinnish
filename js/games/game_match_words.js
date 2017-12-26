@@ -14,6 +14,8 @@ Games["match_words"] = {
     
     "start" : function() {
         console.log("Start game choose_word");
+        this._guessedWordsAmount = 0;
+        
         var that = this;
         for(let i = 1; i <= 8; ++i) {
             this._elementEnWords[i] = document.getElementById("match_words_en_" + i);

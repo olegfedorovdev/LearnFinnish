@@ -9,7 +9,7 @@ function startGame() {
     let gameField = document.getElementById('gameFields');
     document.onkeydown = function(e) {helpers.handleKeyDown(e)};
     gameField.addEventListener("touchstart", function(e) {helpers.handleTouchStart(e)}, true);
-    gameField.addEventListener("touchmove", function(e) {e.preventDefault();helpers.handleTouchMove(e)}, true);
+    gameField.addEventListener("touchmove", function(e) {helpers.handleTouchMove(e)}, true);
     gameField.addEventListener("touchend", function(e) {helpers.handleTouchEnd(e)}, true);
     gameField.addEventListener("touchcancel", function(e) {helpers.handleTouchCancel(e)}, true);
 

@@ -15,6 +15,7 @@ Games["choose_word"] = {
 
     "start" : function() {
         console.log("Start game choose_word");
+        this._seenWordsAmount = 0;
         this._currentWordIndex = Math.floor(Math.random() * this.words.length);
 
         this._elementEnWord = document.getElementById("choose_word_en");

@@ -11,7 +11,8 @@ Games["find_image"] = {
     "start" : function() {
         console.log("Start game find_image");
         this._currentWordIndex = Math.floor(Math.random() * this.words.length);
-
+        this._seenWordsAmount = 0;
+        
         this._elementEnWords[1] = document.getElementById("find_image_en_1");
         this._elementEnWords[2] = document.getElementById("find_image_en_2");
         this._elementEnWords[3] = document.getElementById("find_image_en_3");

@@ -58,10 +58,10 @@ var helpers = {
         let counter = array.length;
 
         while (counter > 0) {
-            let rnd = Math.floor(Math.random() * 8);
+            let rnd = Math.floor(Math.random() * 10);
             counter--;
 
-            let idx = counter + 4 - rnd;
+            let idx = counter + 5 - rnd;
             if (idx < 0) {
                 idx = 0;
             }
@@ -336,7 +336,9 @@ var helpers = {
         this.touchPointDownY = e.touches[0].clientY;
     },
     "handleTouchMove": function(e) {
-        //e.preventDefault();
+        if (this.touchPointDownX && this.touchPointDownY) {
+            e.preventDefault();//do not allow to scroll
+        }
     },
     "handleTouchCancel": function(e) {
         this.touchPointDownX = null;

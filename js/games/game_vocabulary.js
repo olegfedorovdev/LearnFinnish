@@ -9,6 +9,7 @@ Games["vocabulary"] = {
     "shuffled_words" : [],
 
     "start" : function() {
+        this._seenWordsAmount = 0;
         console.log("Start game vocabulary");
         this._currentWordIndex = Math.floor(Math.random() * this.words.length);
         this.shuffled_words = JSON.parse(JSON.stringify(this.words));

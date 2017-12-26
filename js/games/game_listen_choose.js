@@ -11,7 +11,7 @@ Games["listen_choose"] = {
     "start" : function() {
         console.log("Start game find_image");
         this._currentWordIndex = Math.floor(Math.random() * this.words.length);
-
+        this._seenWordsAmount = 0;
         var that = this;
         for(let i = 1; i <= 4; ++i) {
             this._elementEnWords[i] = document.getElementById("listen_choose_en_" + i);
