@@ -14,7 +14,7 @@ words["kappale9"] = {
         {"fi":"tilata", "en":"to order", "ru": "заказывать"},
         
         {"fi":"juttu", "en":"a thing, story", "ru": "история, дело"},
-        {"fi":"erikseen", "en":"separatelly", "ru": "отдельно"},
+        {"fi":"erikseen", "en":"separately", "ru": "отдельно"},
         {"fi":"kuluttua", "en":"after", "ru": "спустя, через"},
         {"fi":"kylään", "en":"visit", "ru": "в гости"},
         {"fi":"liian", "en":"too...", "ru": "слишком"},
@@ -25,7 +25,7 @@ words["kappale9"] = {
         {"fi":"ruuhka", "en":"congestion (jam)", "ru": "пробка, затор"},
         {"fi":"selvä", "en":"clear, obvious", "ru": "ясный, трезвый"},
         {"fi":"taso", "en":"level", "ru": "уровень"},
-        {"fi":"totta kai", "en":"of course", "ru": "конечно!"},
+        {"fi":"totta kai", "en":"of course", "ru": "конечно!", "img":"img/totta_kai.png"},
         {"fi":"tupaantuliaiset", "en":"housewarming party", "ru": "новоселье"},
         {"fi":"tyhmä", "en":"stupid", "ru": "глупый"},
         {"fi":"tyytyväinen", "en":"pleased", "ru": "довольный"},
