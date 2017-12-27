@@ -1,0 +1,36 @@
+words["kappale9"] = {
+    "type": "Kappale 9",
+    "words" : [
+        {"fi":"mainita", "en":"to mention", "ru": "упомянуть"},
+        {"fi":"surra", "en":"to mourn", "ru": "оплакивать"},
+        {"fi":"harkita", "en":"to consider", "ru": "рассматривать (решать)"},
+        {"fi":"pyyhkiä", "en":"to wipe", "ru": "протирать"},
+        {"fi":"tiskata", "en":"to wash dishes", "ru": "мыть посуду (решать)"},
+        {"fi":"vastata", "en":"to answer", "ru": "отвечать"},
+        {"fi":"hakea", "en":"to retrieve, to seek", "ru": "сходить, искать"},
+        {"fi":"luvata", "en":"to promise", "ru": "обещать"},
+        {"fi":"muuttaa", "en":"to change, to relocate", "ru": "менять, переезжать"},
+        {"fi":"tavata", "en":"to meet", "ru": "встречать"},
+        {"fi":"tilata", "en":"to order", "ru": "заказывать"},
+        
+        {"fi":"juttu", "en":"a thing, story", "ru": "история, дело"},
+        {"fi":"erikseen", "en":"separatelly", "ru": "отдельно"},
+        {"fi":"kuluttua", "en":"after", "ru": "спустя, через"},
+        {"fi":"kylään", "en":"visit", "ru": "в гости"},
+        {"fi":"liian", "en":"too...", "ru": "слишком"},
+        {"fi":"melkein", "en":"almost", "ru": "почти"},
+        {"fi":"palaveri", "en":"meeting", "ru": "совещание"},
+        {"fi":"pomo", "en":"boss", "ru": "начальник"},
+        {"fi":"rakennus", "en":"building", "ru": "здание"},
+        {"fi":"ruuhka", "en":"congestion (jam)", "ru": "пробка, затор"},
+        {"fi":"selvä", "en":"clear, obvious", "ru": "ясный, трезвый"},
+        {"fi":"taso", "en":"level", "ru": "уровень"},
+        {"fi":"totta kai", "en":"of course", "ru": "конечно!"},
+        {"fi":"tupaantuliaiset", "en":"housewarming party", "ru": "новоселье"},
+        {"fi":"tyhmä", "en":"stupid", "ru": "глупый"},
+        {"fi":"tyytyväinen", "en":"pleased", "ru": "довольный"},
+        {"fi":"vastaanottaja", "en":"recipient", "ru": "получатель"},
+        {"fi":"yhdessä", "en":"together", "ru": "вместе"},
+        {"fi":"ylityö", "en":"overtime", "ru": "овертайм"}
+    ]
+};
