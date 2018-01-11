@@ -58,6 +58,25 @@ words["verbs"] = {
         {"fi":"tarkistaa", "en":"to check", "ru": "проверять"},
         {"fi":"luovuttaa", "en":"to hand over", "ru": "отдавать"},
         {"fi":"yhdistää", "en":"to connect", "ru": "соединять"},
-        {"fi":"panna", "en":"to put", "ru": "ставить"}
+        {"fi":"panna", "en":"to put", "ru": "ставить"},
+
+        {"fi":"jaksaa", "en":"to keep doing", "ru": "продолжать делать"},
+        {"fi":"luulla", "en":"to guess, to suppose", "ru": "предполагать"},
+        {"fi":"tutkia", "en":"to examine, to explore", "ru": "изучать, исследовать"},
+        {"fi":"esitellä", "en":"to demonstrate", "ru": "демонстрировать"},
+        {"fi":"neuvotella", "en":"to negotiate", "ru": "договариваться"},
+        {"fi":"tuntea", "en":"to know someone, to feel", "ru": "знать кого-то"},
+        {"fi":"pyytää", "en":"to request, to ask", "ru": "спрашивать"},
+        {"fi":"petata", "en":"to make a bed", "ru": "заправлять кровать"},
+        
+        {"fi":"jäädä", "en":"to stay", "ru": "оставаться"},
+        {"fi":"myöhästyä", "en":"to be late" },
+        {"fi":"ehtiä", "en":"to reach" },
+        {"fi":"hajota", "en":"to break down" },
+        {"fi":"yrittää", "en":"to try" },
+        {"fi":"järjestää", "en":"to arrange, to organize" },
+        {"fi":"pelätä", "en":"to be afraid" },
+        {"fi":"päästä", "en":"to arrive at"},
+        {"fi":"aloittaa", "en":"to begin, to start"}
     ]
 };
