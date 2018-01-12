@@ -14,7 +14,7 @@ words["kappale2_1"] = {
         {"fi":"kuuluisa", "en":"famous", "ru": "стройный"},
         {"fi":"vesiputous", "en":"waterfall", "ru": "водопад"},
         {"fi":"retki", "en":"trip", "ru": "путешествие"},
-        {"fi":"jäljellä ", "en":"left (adj)", "ru": "осталось"},
+        {"fi":"jäljellä", "en":"left (adj)", "ru": "осталось"},
         {"fi":"vasta", "en":"only", "ru": "только"},
         {"fi":"kuljetus", "en":"transport" },
         {"fi":"varmaan", "en":"surely, undoubtedly" },

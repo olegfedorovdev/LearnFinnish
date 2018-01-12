@@ -68,7 +68,7 @@ words["verbs"] = {
         {"fi":"tuntea", "en":"to know someone, to feel", "ru": "знать кого-то"},
         {"fi":"pyytää", "en":"to request, to ask", "ru": "спрашивать"},
         {"fi":"petata", "en":"to make a bed", "ru": "заправлять кровать"},
-        
+
         {"fi":"jäädä", "en":"to stay", "ru": "оставаться"},
         {"fi":"myöhästyä", "en":"to be late" },
         {"fi":"ehtiä", "en":"to reach" },
@@ -78,5 +78,13 @@ words["verbs"] = {
         {"fi":"pelätä", "en":"to be afraid" },
         {"fi":"päästä", "en":"to arrive at"},
         {"fi":"aloittaa", "en":"to begin, to start"}
+        {"fi":"rakentaa", "en":"to build", "ru": "строить"},
+        {"fi":"harjoitella", "en":"to practice", "ru": "практиковаться"},
+        {"fi":"suunnitella", "en":"to design, to plan", "ru": "планировать"},
+        {"fi":"kadota", "en":"to disappear", "ru": "исчезать"},
+        {"fi":"maata", "en":"to lie down", "ru": "лежать"},
+        {"fi":"levätä", "en":"to rest", "ru": "отдыхать"},
+        {"fi":"suudella", "en":"to kiss", "ru": "целовать"},
+        {"fi":"kammata", "en":"to comb", "ru": "расчёсываться"},
     ]
 };
