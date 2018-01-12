@@ -70,14 +70,14 @@ words["verbs"] = {
         {"fi":"petata", "en":"to make a bed", "ru": "заправлять кровать"},
 
         {"fi":"jäädä", "en":"to stay", "ru": "оставаться"},
-        {"fi":"myöhästyä", "en":"to be late" },
-        {"fi":"ehtiä", "en":"to reach" },
-        {"fi":"hajota", "en":"to break down" },
-        {"fi":"yrittää", "en":"to try" },
-        {"fi":"järjestää", "en":"to arrange, to organize" },
-        {"fi":"pelätä", "en":"to be afraid" },
-        {"fi":"päästä", "en":"to arrive at"},
-        {"fi":"aloittaa", "en":"to begin, to start"}
+        {"fi":"myöhästyä", "en":"to be late", "ru": "опаздывать" },
+        {"fi":"ehtiä", "en":"to reach", "ru": "достигать" },
+        {"fi":"hajota", "en":"to break down", "ru": "ломаться" },
+        {"fi":"yrittää", "en":"to try", "ru": "пробовать" },
+        {"fi":"järjestää", "en":"to arrange, to organize", "ru": "организовывать" },
+        {"fi":"pelätä", "en":"to be afraid", "ru": "бояться" },
+        {"fi":"päästä", "en":"to arrive at", "ru": "прибывать"},
+        {"fi":"aloittaa", "en":"to begin, to start", "ru": "начитать"}
         {"fi":"rakentaa", "en":"to build", "ru": "строить"},
         {"fi":"harjoitella", "en":"to practice", "ru": "практиковаться"},
         {"fi":"suunnitella", "en":"to design, to plan", "ru": "планировать"},
@@ -86,5 +86,10 @@ words["verbs"] = {
         {"fi":"levätä", "en":"to rest", "ru": "отдыхать"},
         {"fi":"suudella", "en":"to kiss", "ru": "целовать"},
         {"fi":"kammata", "en":"to comb", "ru": "расчёсываться"},
+
+        {"fi":"laahustaa", "en":"to slouch, walk sickly", "ru": "сутулиться"},
+        {"fi":"kokeilla", "en":"to sample, to try out", "ru": "пробовать"},
+        {"fi":"keittää", "en":"to boil", "ru": "кипятить"},
+        {"fi":"kurkistaa", "en":"to peek", "ru": "выглядывать"}
     ]
 };
