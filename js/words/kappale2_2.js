@@ -30,5 +30,6 @@ words["kappale2_2"] = {
         {"fi":"huuli", "en":"lip", "ru": "губа"},
         {"fi":"vatsa", "en":"belly", "ru": "живот"},
         {"fi":"maha", "en":"stomach", "ru": "желудок"}
+
     ]
 };
