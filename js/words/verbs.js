@@ -90,6 +90,10 @@ words["verbs"] = {
         {"fi":"laahustaa", "en":"to slouch, walk sickly", "ru": "сутулиться"},
         {"fi":"kokeilla", "en":"to sample, to try out", "ru": "пробовать"},
         {"fi":"keittää", "en":"to boil", "ru": "кипятить"},
-        {"fi":"kurkistaa", "en":"to peek", "ru": "выглядывать"}
+        {"fi":"kurkistaa", "en":"to peek", "ru": "выглядывать"},
+        {"fi":"jakaa", "en":"to distribute", "ru": "раздавать"},
+        {"fi":"laskea", "en":"to decrease", "ru": "уменьшаться"},
+        {"fi":"johtaa", "en":"to lead", "ru": "возглавлять"},
+        {"fi":"suojata", "en":"to protect", "ru": "защищать"}
     ]
 };
