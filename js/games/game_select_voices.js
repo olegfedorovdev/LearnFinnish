@@ -37,7 +37,7 @@ Games["select_voices"] = {
                 dropdownFI.add(optionFI);
             }
 
-            if (voice.lang === helpers.language.en) {
+            if (voice.lang === helpers.language.en || voice.lang === helpers.language.ru) {
                 let optionEN = document.createElement('option');
                 optionEN.text = name;
                 optionEN.value = name;
