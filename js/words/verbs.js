@@ -95,7 +95,9 @@ words["verbs"] = {
         {"fi":"laskea", "en":"to decrease", "ru": "уменьшаться"},
         {"fi":"johtaa", "en":"to lead", "ru": "возглавлять"},
         {"fi":"suojata", "en":"to protect", "ru": "защищать"},
-        {"fi":"näkyä", "en":"to be visible", "ru": "быть видимым"}
-        
+        {"fi":"näkyä", "en":"to be visible", "ru": "быть видимым"},
+        {"fi":"kutsua", "en":"to call", "ru": "вызывать"},
+        {"fi":"vaikuttaa", "en":"to influence", "ru": "влиять"},
+        {"fi":"sattua", "en":"to occur, to happen", "ru": "случаться"}
     ]
 };

@@ -11,7 +11,12 @@ words["kappale10"] = {
         {"fi":"petata", "en":"to make a bed", "ru": "заправлять кровать"},
         {"fi":"jakaa", "en":"to distribute", "ru": "раздавать"},
         {"fi":"näkyä", "en":"to be visible", "ru": "быть видимым"},
-
+        {"fi":"pukeutua", "en":"to dress", "ru": "одеваться"},
+        {"fi":"kutsua", "en":"to call", "ru": "вызывать"},
+        {"fi":"vaikuttaa", "en":"to influence", "ru": "влиять"},
+        {"fi":"sattua", "en":"to occur, to happen", "ru": "случаться"},
+        
+        
         {"fi":"rakentaa", "en":"to build", "ru": "строить"},
         {"fi":"harjoitella", "en":"to practice", "ru": "практиковаться"},
         {"fi":"suunnitella", "en":"to design, to plan", "ru": "планировать"},
@@ -37,6 +42,10 @@ words["kappale10"] = {
         {"fi":"haku", "en":"search", "ru": "поиск"},
         {"fi":"käynnissä", "en":"in progress", "ru": "в прогрессе"},
         {"fi":"käynti", "en":"a visit", "ru": "посещение"},
-        {"fi":"lempi", "en":"favorite", "ru": "любимая..."}
+        {"fi":"lempi", "en":"favorite", "ru": "любимая..."},
+        {"fi":"äärimmäinen", "en":"extremelly", "ru": "очень, экстремально"},
+        {"fi":"yhteinen", "en":"common", "ru": "общий"},
+        {"fi":"vahinko", "en":"damage, injury", "ru": "вред, травма"}
+        
     ]
 };
