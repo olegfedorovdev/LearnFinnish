@@ -10,7 +10,7 @@ words["kappale10"] = {
         {"fi":"pyytää", "en":"to request, to ask", "ru": "спрашивать"},
         {"fi":"petata", "en":"to make a bed", "ru": "заправлять кровать"},
         {"fi":"jakaa", "en":"to distribute", "ru": "раздавать"},
-        
+
         {"fi":"rakentaa", "en":"to build", "ru": "строить"},
         {"fi":"harjoitella", "en":"to practice", "ru": "практиковаться"},
         {"fi":"suunnitella", "en":"to design, to plan", "ru": "планировать"},
@@ -31,6 +31,11 @@ words["kappale10"] = {
         {"fi":"kiva", "en":"nice", "ru": "хороший"},
         {"fi":"mieli", "en":"mind", "ru": "разум"},
         {"fi":"mielipide", "en":"opinion", "ru": "мнение"},
-        {"fi":"raskas", "en":"heavy", "ru": "трудный"}
+        {"fi":"raskas", "en":"heavy", "ru": "трудный"},
+
+        {"fi":"haku", "en":"search", "ru": "поиск"},
+        {"fi":"käynnissä", "en":"in progress", "ru": "в прогрессе"},
+        {"fi":"käynti", "en":"a visit", "ru": "посещение"},
+        {"fi":"lempi", "en":"favorite", "ru": "любимая..."},
     ]
 };
