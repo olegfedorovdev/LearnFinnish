@@ -1,5 +1,5 @@
 words["kappale10"] = {
-    "type": "Kappale 10",
+    "type": "Kappale 10+",
     "words" : [
         {"fi":"jaksaa", "en":"to keep doing", "ru": "продолжать делать"},
         {"fi":"luulla", "en":"to guess, to suppose", "ru": "предполагать"},
@@ -15,7 +15,6 @@ words["kappale10"] = {
         {"fi":"kutsua", "en":"to call", "ru": "вызывать"},
         {"fi":"vaikuttaa", "en":"to influence", "ru": "влиять"},
         {"fi":"sattua", "en":"to occur, to happen", "ru": "случаться"},
-        
         
         {"fi":"rakentaa", "en":"to build", "ru": "строить"},
         {"fi":"harjoitella", "en":"to practice", "ru": "практиковаться"},
@@ -46,6 +45,5 @@ words["kappale10"] = {
         {"fi":"äärimmäinen", "en":"extremelly", "ru": "очень, экстремально"},
         {"fi":"yhteinen", "en":"common", "ru": "общий"},
         {"fi":"vahinko", "en":"damage, injury", "ru": "вред, травма"}
-        
     ]
 };
