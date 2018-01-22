@@ -94,6 +94,8 @@ words["verbs"] = {
         {"fi":"jakaa", "en":"to distribute", "ru": "раздавать"},
         {"fi":"laskea", "en":"to decrease", "ru": "уменьшаться"},
         {"fi":"johtaa", "en":"to lead", "ru": "возглавлять"},
-        {"fi":"suojata", "en":"to protect", "ru": "защищать"}
+        {"fi":"suojata", "en":"to protect", "ru": "защищать"},
+        {"fi":"näkyä", "en":"to be visible", "ru": "быть видимым"}
+        
     ]
 };
