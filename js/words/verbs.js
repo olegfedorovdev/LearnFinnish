@@ -98,6 +98,9 @@ words["verbs"] = {
         {"fi":"näkyä", "en":"to be visible", "ru": "быть видимым"},
         {"fi":"kutsua", "en":"to call", "ru": "вызывать"},
         {"fi":"vaikuttaa", "en":"to influence", "ru": "влиять"},
-        {"fi":"sattua", "en":"to occur, to happen", "ru": "случаться"}
+        {"fi":"sattua", "en":"to occur, to happen", "ru": "случаться"},
+        {"fi":"kestää", "en":"to last, to endure", "ru": "выдерживать"},
+        {"fi":"sai", "en":"received", "ru": "получил"},
+        {"fi":"toi", "en":"brought", "ru": "принёс"}
     ]
 };

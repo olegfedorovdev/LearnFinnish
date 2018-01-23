@@ -15,7 +15,10 @@ words["kappale10"] = {
         {"fi":"kutsua", "en":"to call", "ru": "вызывать"},
         {"fi":"vaikuttaa", "en":"to influence", "ru": "влиять"},
         {"fi":"sattua", "en":"to occur, to happen", "ru": "случаться"},
-        
+        {"fi":"kestää", "en":"to last, to endure", "ru": "выдерживать"},
+        {"fi":"sai", "en":"received", "ru": "получил"},
+        {"fi":"toi", "en":"brought", "ru": "принёс"},
+
         {"fi":"rakentaa", "en":"to build", "ru": "строить"},
         {"fi":"harjoitella", "en":"to practice", "ru": "практиковаться"},
         {"fi":"suunnitella", "en":"to design, to plan", "ru": "планировать"},
@@ -44,6 +47,13 @@ words["kappale10"] = {
         {"fi":"lempi", "en":"favorite", "ru": "любимая..."},
         {"fi":"äärimmäinen", "en":"extremelly", "ru": "очень, экстремально"},
         {"fi":"yhteinen", "en":"common", "ru": "общий"},
-        {"fi":"vahinko", "en":"damage, injury", "ru": "вред, травма"}
+        {"fi":"vahinko", "en":"damage, injury", "ru": "вред, травма"},
+
+        {"fi":"vakava", "en":"serious", "ru": "серьёзный"},
+        {"fi":"ihan totta", "en":"Really!", "ru": "Точно!"},
+        {"fi":"isku", "en":"impact, blow", "ru": "столкновение, удар"},
+        {"fi":"hyökkäys", "en":"attack, assault", "ru": "атака, нападение"},
+        {"fi":"pako", "en":"getaway, escape", "ru": "бегство"},
+        {"fi":"pakolainen", "en":"refugee", "ru": "беженец"}
     ]
 };
