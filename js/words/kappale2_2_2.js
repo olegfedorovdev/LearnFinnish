@@ -10,7 +10,7 @@ words["Tiedote_1"] = {
         {"fi":"havaita", "en":"to detect", "ru": "обнаруживать"},
         {"fi":"vaatia", "en":"to demand", "ru": "требовать"},
         {"fi":"lastata", "en":"to load", "ru": "загружать"},
-        {"fi":"hyödyllistä", "en":"to unload, to diffuse", "ru": "выгружать"},
+        {"fi":"purkaa", "en":"to unload, to diffuse", "ru": "выгружать"},
         {"fi":"liittää", "en":"to attach", "ru": "присоединять"},
 
         {"fi":"selkeä", "en":"clear, self-explanatory", "ru": "понятный"},
@@ -33,7 +33,6 @@ words["Tiedote_1"] = {
         {"fi":"selvitys", "en":"statement", "ru": "объяснение"},
         {"fi":"hyödyllistä", "en":"useful", "ru": "полезный"},
         {"fi":"säännöllinen", "en":"regular", "ru": "регулярный"},
-        {"fi":"este", "en":"obstacle, barrier", "ru": "барьер, преграда"},
-        {"fi":"raitis", "en":"fresh", "ru": "свежий"}        
+        {"fi":"este", "en":"obstacle, barrier", "ru": "барьер, преграда"}
     ]
 };
