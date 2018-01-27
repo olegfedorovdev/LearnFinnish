@@ -1,5 +1,5 @@
-words["kappale2_2_2"] = {
-    "type": "Kappale 2-2-2",
+words["Tiedote_1"] = {
+    "type": "Tiedote_1",
     "words" : [
         {"fi":"huomata", "en":"to notice, to note", "ru": "замечать"},
         {"fi":"toimittaa", "en":"to deliver", "ru": "доставлять"},
@@ -7,6 +7,12 @@ words["kappale2_2_2"] = {
         {"fi":"möllöttää", "en":"to gape", "ru": "зевать"},
         {"fi":"taipua", "en":"to bend, to yield", "ru": "гнуть, сдаваться"},
         {"fi":"huoli", "en":"to worry, to fear", "ru": "волноваться"},
+        {"fi":"havaita", "en":"to detect", "ru": "обнаруживать"},
+        {"fi":"vaatia", "en":"to demand", "ru": "требовать"},
+        {"fi":"lastata", "en":"to load", "ru": "загружать"},
+        {"fi":"hyödyllistä", "en":"to unload, to diffuse", "ru": "выгружать"},
+        {"fi":"liittää", "en":"to attach", "ru": "присоединять"},
+
         {"fi":"selkeä", "en":"clear, self-explanatory", "ru": "понятный"},
         {"fi":"telkkaria", "en":"TV", "ru": "телевизор"},
         {"fi":"hemmetti", "en":"hell", "ru": "ад"},
@@ -18,6 +24,16 @@ words["kappale2_2_2"] = {
         {"fi":"kauhea", "en":"terible", "ru": "ужасная"},
         {"fi":"tilanne", "en":"situation", "ru": "ситуация"},
         {"fi":"kiltti", "en":"kind", "ru": "хороший, добрый"},
-        {"fi":"kustannus", "en":"cost", "ru": "цена, стоимость"}
+        {"fi":"kustannus", "en":"cost", "ru": "цена, стоимость"},
+        {"fi":"valittaa", "en":"appeal", "ru": "апелировать"},
+        {"fi":"valitus", "en":"appeal", "ru": "апеляция"},
+        {"fi":"ajoissa", "en":"in time", "ru": "вовремя"},
+        {"fi":"vastuulla", "en":"responsibility", "ru": "ответственность"},
+        {"fi":"vaatimus", "en":"requirement", "ru": "требование"},
+        {"fi":"selvitys", "en":"statement", "ru": "объяснение"},
+        {"fi":"hyödyllistä", "en":"useful", "ru": "полезный"},
+        {"fi":"säännöllinen", "en":"regular", "ru": "регулярный"},
+        {"fi":"este", "en":"obstacle, barrier", "ru": "барьер, преграда"},
+        {"fi":"raitis", "en":"fresh", "ru": "свежий"}        
     ]
 };
