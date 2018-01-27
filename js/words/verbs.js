@@ -101,6 +101,19 @@ words["verbs"] = {
         {"fi":"sattua", "en":"to occur, to happen", "ru": "случаться"},
         {"fi":"kestää", "en":"to last, to endure", "ru": "выдерживать"},
         {"fi":"sai", "en":"received", "ru": "получил"},
-        {"fi":"toi", "en":"brought", "ru": "принёс"}
+        {"fi":"toi", "en":"brought", "ru": "принёс"},
+
+        {"fi":"huomata", "en":"to notice, to note", "ru": "замечать"},
+        {"fi":"toimittaa", "en":"to deliver", "ru": "доставлять"},
+        {"fi":"suositella", "en":"to recommend", "ru": "рекоммендовать"},
+        {"fi":"möllöttää", "en":"to gape", "ru": "прозебать"},
+        {"fi":"taipua", "en":"to bend, to yield", "ru": "гнуть, сдаваться"},
+        {"fi":"huolehtia", "en":"to worry", "ru": "волноваться"},
+        {"fi":"havaita", "en":"to detect", "ru": "обнаруживать"},
+        {"fi":"vaatia", "en":"to demand", "ru": "требовать"},
+        {"fi":"lastata", "en":"to load", "ru": "загружать"},
+        {"fi":"purkaa", "en":"to unload, to diffuse", "ru": "выгружать"},
+        {"fi":"liittää", "en":"to attach", "ru": "присоединять"},
+        {"fi":"paljastaa", "en":"to reveal, to disclose", "ru": "выявлять, раскрывать"}
     ]
 };
