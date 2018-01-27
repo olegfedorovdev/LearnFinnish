@@ -12,6 +12,7 @@ words["Tiedote_1"] = {
         {"fi":"lastata", "en":"to load", "ru": "загружать"},
         {"fi":"purkaa", "en":"to unload, to diffuse", "ru": "выгружать"},
         {"fi":"liittää", "en":"to attach", "ru": "присоединять"},
+        {"fi":"paljastaa", "en":"to reveal, to disclose", "ru": "выявлять, раскрывать"},
 
         {"fi":"huoli", "en":"worry, fear", "ru": "волнение, страх"},
         {"fi":"selkeä", "en":"clear, self-explanatory", "ru": "понятный"},
