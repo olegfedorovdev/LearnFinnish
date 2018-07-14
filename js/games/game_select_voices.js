@@ -47,6 +47,7 @@ Games["select_voices"] = {
         helpers.selectDropdownValue("select_voice_fi", this._voiceFI);
         helpers.selectDropdownValue("select_voice_en", this._voiceEN);
         helpers.selectDropdownValue("select_voice_speed", this._voiceSpeed);
+        helpers.selectDropdownValue("select_words_num", Settings.get(Settings.WORDS_PER_SESSION, 10));        
     },
 
 
@@ -71,6 +72,11 @@ Games["select_voices"] = {
         console.log("changeVoiceSpeed:", speed);
         Settings.set(Settings.SELECTED_VOICE_SPEED, speed);
         this._voiceSpeed = speed;
+    },
+
+    "changeNumOfWordsPerReview": function(num) {
+        console.log("changeNumOfWordsPerReview:", num);
+        Settings.set(Settings.WORDS_PER_SESSION, num);
     }
 };
 

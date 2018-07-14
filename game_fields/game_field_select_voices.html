@@ -23,6 +23,17 @@
         <option value="1.5">150%</option>
     </select>
     <div class="div_small_empty_space"></div>
+    <label>Number of words per session:</label>
+    <select id="select_words_num" onchange='Game.changeNumOfWordsPerReview(document.getElementById("select_words_num").value)'>
+        <option value="5">5</option>
+        <option value="10">10</option>
+        <option value="15">15</option>
+        <option value="20">20</option>
+        <option value="25">25</option>
+        <option value="30">30</option>
+        <option value="50">50</option>
+    </select>
+    <div class="div_small_empty_space"></div>
 </div>
 
 <script>
