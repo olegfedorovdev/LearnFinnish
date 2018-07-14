@@ -38,6 +38,8 @@ Games["type_word"] = {
     },
 
     "onPrevious": function() {
+        if (!this._active)
+            return;
         this._currentWordIndex--;
         if (this._currentWordIndex < 0) {
             this._currentWordIndex = 0;
@@ -46,6 +48,8 @@ Games["type_word"] = {
     },
 
     "onNext": function() {
+        if (!this._active)
+            return;
         this.update();
     },
     
@@ -72,6 +76,9 @@ Games["type_word"] = {
         let word = this.words[this._currentWordIndex];
         let that = this;
         helpers.sayFinnishWordWithFallback(this._elementAudio, word, function(word) {
+            if (that.onWordGuessed) {
+                that.onWordGuessed();
+            }
             if (that._active) {
                 that.update();
             }
@@ -86,7 +93,7 @@ Games["type_word"] = {
 
     "showCurrentWord" : function() {
         // update progress and finish game
-        if (helpers.updateProgress(this._currentWordIndex, this.words.length)) {
+        if (this._active && helpers.updateProgress(this._currentWordIndex, this.words.length)) {
             return;
         }
         

@@ -23,15 +23,17 @@ function showMainMenu() {
 
 // game interface
 var Game = {
-    "words": [],
-    "start": function() {},
-    "stop": function() {},
-    "onPrevious": function() {},
-    "onNext": function() {},
-    "onPlayAgain": function() {},//when button "play again" pressed
-    "onHelp": function() {},//when button "help" pressed
-    "onKeyPressed": function(keyCode) {},//when button pressed
-    "_active" : false
+    words: [],
+    start: function() {},
+    stop: function() {},
+    onPrevious: function() {},
+    onNext: function() {},
+    onPlayAgain: function() {},//when button "play again" pressed
+    onHelp: function() {},//when button "help" pressed
+    onKeyPressed: function(keyCode) {},//when button pressed
+    _active : false,
+
+    onWordGuessed : function() {} //callback to be called when word was guessed. Can be used by controlling entity to monitor progress of the game
 };
 
 // all games will be held here. 

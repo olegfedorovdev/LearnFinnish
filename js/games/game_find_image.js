@@ -10,7 +10,7 @@ Games["find_image"] = {
 
     "start" : function() {
         console.log("Start game find_image");
-        this._currentWordIndex = Math.floor(Math.random() * this.words.length);
+        this._currentWordIndex = 0;//Math.floor(Math.random() * this.words.length);
         this._seenWordsAmount = 0;
         
         this._elementEnWords[1] = document.getElementById("find_image_en_1");
@@ -36,6 +36,8 @@ Games["find_image"] = {
     },
     
     "onPrevious": function() {
+        if (!this._active)
+            return;
         --this._seenWordsAmount;
         this._currentWordIndex--;
         if (this._currentWordIndex < 0) {
@@ -50,7 +52,12 @@ Games["find_image"] = {
         if (this._currentWordIndex >= this.words.length) {
             this._currentWordIndex = 0;
         }
-        this.showCurrentWordAndGuesses();
+        if (this._active)
+            this.showCurrentWordAndGuesses();
+
+        if (this.onWordGuessed) {
+            this.onWordGuessed();
+        }
     },
     "onPlayAgain": function() {},//when button "play again" pressed
     "onHelp": function() {},//when button "help" pressed
@@ -85,7 +92,7 @@ Games["find_image"] = {
 
     // shows current word and 2 choices
     "showCurrentWordAndGuesses" : function() {
-        if (helpers.updateProgress(this._seenWordsAmount, this.words.length)) {
+        if (this._active && helpers.updateProgress(this._seenWordsAmount, this.words.length)) {
             return;
         }
                 

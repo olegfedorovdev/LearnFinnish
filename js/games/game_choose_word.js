@@ -16,7 +16,7 @@ Games["choose_word"] = {
     "start" : function() {
         console.log("Start game choose_word");
         this._seenWordsAmount = 0;
-        this._currentWordIndex = Math.floor(Math.random() * this.words.length);
+        this._currentWordIndex = 0;//Math.floor(Math.random() * this.words.length);
 
         this._elementEnWord = document.getElementById("choose_word_en");
         this._elementFiWord1 = document.getElementById("choose_word_fi_1");
@@ -37,6 +37,8 @@ Games["choose_word"] = {
     },
     
     "onPrevious": function() {
+        if (!this._active)
+            return;
         --this._seenWordsAmount;
         this._currentWordIndex--;
         if (this._currentWordIndex < 0) {
@@ -51,7 +53,13 @@ Games["choose_word"] = {
         if (this._currentWordIndex >= this.words.length) {
             this._currentWordIndex = 0;
         }
-        this.showCurrentWord();
+        if (this._active)
+            this.showCurrentWord();
+
+        if (this.onWordGuessed) {
+            this.onWordGuessed();
+        }
+        
     },
     "onPlayAgain": function() {},//when button "play again" pressed
     "onHelp": function() {},//when button "help" pressed
@@ -80,7 +88,7 @@ Games["choose_word"] = {
 
     // shows current word and 2 choices
     "showCurrentWord" : function() {
-        if (helpers.updateProgress(this._seenWordsAmount, this.words.length)) {
+        if (this._active && helpers.updateProgress(this._seenWordsAmount, this.words.length)) {
             return;
         }
        

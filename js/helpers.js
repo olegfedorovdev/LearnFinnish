@@ -5,6 +5,65 @@ var helpers = {
         "ru": "ru-RU"
     },
 
+    "numOfGuessesToLearnTheWord" : 5,//lets assume 5 times is enough to learn the word
+
+    "setWordAnsweredCorrectly" : function(word) {
+        const defaultEmptyWordRecord = {
+            "guessed": 0,
+            "seenLastTime": 0
+        };
+        let wordRecords = JSON.parse(Settings.get(Settings.LEARNED_WORDS, "{}"));
+        if (!(word in wordRecords)) {
+            wordRecords[word] = defaultEmptyWordRecord;
+        }
+        wordRecords[word].guessed++;
+        wordRecords[word].seenLastTime = Date.now();
+        Settings.set(Settings.LEARNED_WORDS, JSON.stringify(wordRecords));
+
+        const learned = (wordRecords[word].guessed === helpers.numOfGuessesToLearnTheWord);
+        if (learned) {
+            //play the sound
+            var audio = new Audio('sounds/system/complete.mp3');
+            audio.play();
+        }
+    },
+
+    // true if word already learned
+    "isWordLearned" : function(word) {
+        let wordRecords = JSON.parse(Settings.get(Settings.LEARNED_WORDS, "{}"));
+        if (!(word in wordRecords)) {
+            return false;
+        }
+        return wordRecords[word].guessed > helpers.numOfGuessesToLearnTheWord;
+    },
+
+    // true if word is learned long time ago and it's time to repeat it
+    "needToRepeatLeanedWord" : function(word) {
+        let wordRecords = JSON.parse(Settings.get(Settings.LEARNED_WORDS, "{}"));
+        if (!(word in wordRecords)) {
+            return false;
+        }
+        const guesses = wordRecords[word].guessed;
+        const hoursToRepeat = 1;
+        if (guesses === 3) {
+            hoursToRepeat = 6;
+        }
+        if (guesses === 4) {
+            hoursToRepeat = 12;
+        }
+        if (guesses === 5) {
+            hoursToRepeat = 24;
+        }
+        if (guesses === 6) {
+            hoursToRepeat = 48;
+        }
+        if (guesses === 7) {
+            hoursToRepeat = 48;
+        }
+
+        return (wordRecords[word].seenLastTime + hoursToRepeat*60*60*1000) > Date.now();
+    },
+
     // gives src for image for word (for instance, word={"fi":"kertoa", "en":"to tell"})
     "getImgSrc": function(word) {
         if (word.img !== undefined)

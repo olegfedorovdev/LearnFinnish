@@ -10,7 +10,7 @@ Games["listen_choose"] = {
 
     "start" : function() {
         console.log("Start game find_image");
-        this._currentWordIndex = Math.floor(Math.random() * this.words.length);
+        this._currentWordIndex = 0;//Math.floor(Math.random() * this.words.length);
         this._seenWordsAmount = 0;
         var that = this;
         for(let i = 1; i <= 4; ++i) {
@@ -31,6 +31,8 @@ Games["listen_choose"] = {
     },
     
     "onPrevious": function() {
+        if (!this._active)
+            return;
         --this._seenWordsAmount;
         this._currentWordIndex--;
         if (this._currentWordIndex < 0) {
@@ -45,7 +47,11 @@ Games["listen_choose"] = {
         if (this._currentWordIndex >= this.words.length) {
             this._currentWordIndex = 0;
         }
-        this.playCurrentWordAndShowGuesses();
+        if (this._active)
+            this.playCurrentWordAndShowGuesses();
+        if (this.onWordGuessed) {
+            this.onWordGuessed();
+        }
     },
     "onPlayAgain": function() {},//when button "play again" pressed
     "onHelp": function() {},//when button "help" pressed
@@ -77,7 +83,7 @@ Games["listen_choose"] = {
     },
 
     "playCurrentWordAndShowGuesses" : function() {
-        if (helpers.updateProgress(this._seenWordsAmount, this.words.length)) {
+        if (this._active && helpers.updateProgress(this._seenWordsAmount, this.words.length)) {
             return;
         }        
         let word = this.words[this._currentWordIndex];
