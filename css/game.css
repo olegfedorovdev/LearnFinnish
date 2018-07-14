@@ -176,6 +176,7 @@ select {
     vertical-align: middle; 
     text-align: center; 
     font-size: 32px;
+    word-break: break-all;
 }
 
 

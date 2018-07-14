@@ -35,7 +35,7 @@ var words = {
             {"fi":"hapan", "en":"sour, acid", "ru": "кислый"},
             {"fi":"kasvis", "en":"vegetable", "ru": "овощ"},
             {"fi":"vihannes", "en":"vegetable", "ru": "овощ"},
-            {"fi":"hedelmä", "en":"fuit", "ru": "фрукт"},
+            {"fi":"hedelmä", "en":"fruit", "ru": "фрукт"},
             {"fi":"kynttilä", "en":"candle", "ru": "свеча"},
             {"fi":"pian", "en":"soon", "ru": "скоро"},
 
