@@ -76,13 +76,14 @@ Games["choose_word"] = {
     },
 
     "win" : function(element) {
+        helpers.setWordAnsweredCorrectly(this.words[this._currentWordIndex].fi);
         element.style.color = "green";
         var that = this;
-
         setTimeout(function() {that.onNext()}, 2000);
     },
 
     "lose": function(element) {
+        helpers.setWordAnsweredIncorrectly(this.words[this._currentWordIndex].fi);
         element.style.color = "red";
     },
 

@@ -7,6 +7,19 @@ var helpers = {
 
     "numOfGuessesToLearnTheWord" : 5,//lets assume 5 times is enough to learn the word
 
+    "setWordAnsweredIncorrectly" : function(word) {
+        let wordRecords = JSON.parse(Settings.get(Settings.WRONG_WORDS, "[]"));
+        if (word in wordRecords) {
+            return;
+        }
+        wordRecords.push(word);
+        Settings.set(Settings.WRONG_WORDS, JSON.stringify(wordRecords));
+
+        //play the sound
+        var audio = new Audio('sounds/system/incorrect.mp3');
+        audio.play();
+    },
+
     "setWordAnsweredCorrectly" : function(word) {
         const defaultEmptyWordRecord = {
             "guessed": 0,
@@ -45,20 +58,20 @@ var helpers = {
         }
         const guesses = wordRecords[word].guessed;
         const hoursToRepeat = 1;
-        if (guesses === 3) {
+        if (guesses > 2 && guesses <= 5) {
             hoursToRepeat = 6;
         }
-        if (guesses === 4) {
+        if (guesses > 5 && guesses <= 7) {
             hoursToRepeat = 12;
         }
-        if (guesses === 5) {
+        if (guesses > 7 && guesses <= 9) {
             hoursToRepeat = 24;
         }
-        if (guesses === 6) {
+        if (guesses > 9 && guesses <= 12) {
             hoursToRepeat = 48;
         }
-        if (guesses === 7) {
-            hoursToRepeat = 48;
+        if (guesses > 12) {
+            hoursToRepeat = 24*30;//once a month
         }
 
         return (wordRecords[word].seenLastTime + hoursToRepeat*60*60*1000) > Date.now();

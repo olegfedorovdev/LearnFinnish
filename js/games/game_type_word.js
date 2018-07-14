@@ -160,6 +160,7 @@ Games["type_word"] = {
         ++this._currentGuessingLetterIndex;
         if (this._currentGuessingLetterIndex >= word.length) {
             this.win();
+            helpers.setWordAnsweredCorrectly(word);
         }
     },
 
@@ -187,6 +188,7 @@ Games["type_word"] = {
             this.showNextGuessedLetter();
         } else {
             this.repeatCurrentWordInTheEnd();
+            helpers.setWordAnsweredIncorrectly(word);
 
             element.style.backgroundColor = "red";
             setTimeout(function() {

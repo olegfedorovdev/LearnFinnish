@@ -72,6 +72,7 @@ Games["listen_choose"] = {
 
     "win" : function(index) {
         helpers.playSuccessAnimationOnElement(this._elementEnImages[index], 2000);
+        helpers.setWordAnsweredCorrectly(this.words[this._currentWordIndex].fi);
 
         var that = this;
         setTimeout(function() {that.onNext()}, 2500);
@@ -79,6 +80,7 @@ Games["listen_choose"] = {
 
     "lose": function(index) {
         helpers.playFailureAnimationOnElement(this._elementEnImages[index], 2000);
+        helpers.setWordAnsweredIncorrectly(this.words[this._currentWordIndex].fi);
         //this._elementEnImages[index].src = "img/red.jpg";
     },
 

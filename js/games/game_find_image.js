@@ -76,6 +76,7 @@ Games["find_image"] = {
     "win" : function(element) {
         //element.style["background-color"] = "green";
         let word = this.words[this._currentWordIndex];
+        helpers.setWordAnsweredCorrectly(word.fi);
         element.style.backgroundImage = "url('" + helpers.getImgSrc(word) + "')";
         element.textContent = "";
 
@@ -87,7 +88,7 @@ Games["find_image"] = {
 
     "lose": function(element) {
         element.style["background-color"] = "red";
-
+        helpers.setWordAnsweredIncorrectly(this.words[this._currentWordIndex].fi);
     },
 
     // shows current word and 2 choices

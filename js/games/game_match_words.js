@@ -104,8 +104,11 @@ Games["match_words"] = {
         let fi = this._currentWordsFi[this._selectedWordFi];
 
         if (en.fi === fi.fi) {
+            helpers.setWordAnsweredCorrectly(fi.fi);
             this.removeSelectedWords();
         } else {
+            helpers.setWordAnsweredIncorrectly(fi.fi);
+            helpers.setWordAnsweredIncorrectly(en.fi);
             this.markSelectedWordsWrong();
         }
         this.showWords();
