@@ -14,7 +14,7 @@ Games["learn_the_words"] = {
         this._currentWordIndex = 0;
         this.words_per_session = Settings.getNumer(Settings.WORDS_PER_SESSION, 10);
 
-        const unlearnedWords = this.selectUnlearnedWords(this.words);
+        let unlearnedWords = this.selectUnlearnedWords(this.words);
         if (unlearnedWords.length === 0) {
             // just repeat if everything is learned already
             unlearnedWords = JSON.parse(JSON.stringify(this.words));
@@ -22,8 +22,7 @@ Games["learn_the_words"] = {
 
         this.prepared_words = this.words.slice(0, this.words_per_session);
         // mix every word 3 times
-        this.prepared_words = this.prepared_words.concat(this.prepared_words);
-        this.prepared_words = this.prepared_words.concat(this.prepared_words);
+        this.prepared_words = this.prepared_words.concat(this.prepared_words).concat(this.prepared_words);
         this.prepared_words = helpers.shuffle(this.prepared_words);
         
         this.showNextWord();
@@ -61,8 +60,13 @@ Games["learn_the_words"] = {
         let that = this;
         this.current_game.onWordGuessed = function() {that.onWordGuessedInGame();}
 
-        //first if the quessed word. rest are filled with other words
-        this.current_game.words = [learnedWord].concat(this.words);
+        //first word is the quessed word. rest are filled with other words
+        this.current_game.words = [learnedWord];
+        for(w in this.words) {
+            if (this.words[w].fi != learnedWord.fi) {
+                this.current_game.words.push(this.words[w]);
+            }
+        }
 
         // show game
         helpers.showOnlyOneOfDivs("div_game_field_", gameType);

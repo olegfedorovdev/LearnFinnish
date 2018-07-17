@@ -18,6 +18,9 @@ Games["main_menu"] = {
     "wordsAutoGenerateAll": function() {
         let all = [];
         let names = [];
+        let wrongWords = JSON.parse(Settings.get(Settings.WRONG_WORDS, "[]"));
+        let wrongWordsRecords = [];
+
         for(t in words) {
             if (t !== "all" && words[t] instanceof Object && words[t].words instanceof Array) {
                 all = all.concat(words[t].words);
@@ -34,6 +37,21 @@ Games["main_menu"] = {
         names.push({
             "type": "all", 
             "visible_name": words.all.type
+        });
+
+        //fill wrong words
+        for(w in all) {
+            if (wrongWords.includes(all[w].fi)) {
+                wrongWordsRecords.push(all[w]);
+            }
+        }
+        words.wrong = {
+            "type" : "Review mistakes: " + wrongWordsRecords.length, 
+            "words" : wrongWordsRecords
+        };
+        names.push({
+            "type": "wrong",
+            "visible_name": words.wrong.type
         });
         return names;
     },
@@ -90,6 +108,11 @@ Games["main_menu"] = {
 
         // always take shuffled copy of words
         let w = JSON.parse(JSON.stringify(words[this._gameScope].words));
+
+        if (this._gameScope === "wrong" && this._gameType !== "main_menu") {
+            Settings.set(Settings.WRONG_WORDS, "[]");
+        }
+
         w = helpers.shuffle(w);
 
         Game.stop();

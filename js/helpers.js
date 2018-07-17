@@ -9,7 +9,7 @@ var helpers = {
 
     "setWordAnsweredIncorrectly" : function(word) {
         let wordRecords = JSON.parse(Settings.get(Settings.WRONG_WORDS, "[]"));
-        if (word in wordRecords) {
+        if (wordRecords.includes(word)) {
             return;
         }
         wordRecords.push(word);
